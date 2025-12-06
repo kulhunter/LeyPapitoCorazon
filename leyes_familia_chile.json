@@ -64,3 +64,1095 @@
     ]
   }
 ]
+[
+  {
+    "id": "LEY-20680",
+    "nombre": "Ley que Introduce Modificaciones al Código Civil para Proteger la Integridad del Menor cuando sus Padres Viven Separados",
+    "palabras_clave": ["cuidado compartido", "corresponsabilidad", "interés superior", "relación directa", "patria potestad", "tuición"],
+    "resumen": "Modifica el Código Civil para promover el cuidado personal compartido de los hijos entre padres separados, priorizando el interés superior del menor y la corresponsabilidad parental.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 225 (modificado)",
+        "texto": "Si los padres viven separados, podrán acordar que el cuidado personal corresponda a uno de ellos, a ambos de forma compartida o continuar con quien convivan los hijos, siempre considerando el interés superior del menor."
+      },
+      {
+        "articulo": "Artículo 229",
+        "texto": "El juez debe establecer la frecuencia y libertad de la relación directa y regular del padre o madre sin cuidado personal, evaluando factores como edad del hijo, vínculo afectivo y estabilidad."
+      }
+    ]
+  },
+  {
+    "id": "LEY-21389",
+    "nombre": "Ley que Crea el Registro Nacional de Deudores de Pensiones de Alimentos",
+    "palabras_clave": ["registro deudores", "pensiones alimentos", "inscripción", "cancelación", "certificación", "tribunal"],
+    "resumen": "Establece un registro público de deudores morosos de pensiones alimenticias para facilitar su cobro y aplicar sanciones administrativas.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo principal",
+        "texto": "El Registro incluirá nombre, RUT del deudor, número de hijos afectados, monto de deuda y cuotas adeudadas, gestionado por el Registro Civil."
+      },
+      {
+        "articulo": "Funciones",
+        "texto": "Permite inscripciones, actualizaciones y certificaciones en línea por tribunales, con efectos en licencias, beneficios estatales y trámites."
+      }
+    ]
+  },
+  {
+    "id": "LEY-20812",
+    "nombre": "Ley que Tipifica el Delito de Maltrato a Niños, Niñas y Adolescentes y a Otras Personas en Condición de Vulnerabilidad",
+    "palabras_clave": ["maltrato infantil", "trato degradante", "deber cuidado", "presidio", "multa", "penas accesorias"],
+    "resumen": "Sanciona penalmente el maltrato corporal relevante y el trato degradante hacia menores y personas vulnerables, con penas agravadas para quienes tienen deber de cuidado.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 403 Bis Código Penal",
+        "texto": "Maltrato corporal relevante a niño, adolescente o vulnerable se castiga con presidio o multa; agravado si hay deber especial de protección."
+      },
+      {
+        "articulo": "Penas accesorias",
+        "texto": "Incluye prohibición de acercamiento a la víctima, programas de rehabilitación y servicio comunitario para protectores del menor."
+      }
+    ]
+  },
+  {
+    "id": "LEY-21645",
+    "nombre": "Ley por una Vida Libre de Violencias",
+    "palabras_clave": ["violencia género", "mujeres", "prevención", "erradicación", "deber diligencia", "perspectiva género"],
+    "resumen": "Establece medidas para prevenir, sancionar y erradicar la violencia contra las mujeres por razón de género en todas sus formas, aplicable a familias y parejas.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 1",
+        "texto": "Objeto: prevenir, sancionar y erradicar violencia contra toda mujer por su género, con estándares de debida diligencia estatal."
+      },
+      {
+        "articulo": "Artículo 2",
+        "texto": "Define violencia contra mujeres como fenómeno estructural, incorporando perspectiva de género en interpretaciones judiciales."
+      }
+    ]
+  },
+  {
+    "id": "LEY-20820",
+    "nombre": "Ley que Crea el Ministerio de la Mujer y la Equidad de Género",
+    "palabras_clave": ["equidad género", "corresponsabilidad", "violencia mujeres", "familia", "discriminación", "políticas públicas"],
+    "resumen": "Crea el Ministerio para promover igualdad de género en relaciones familiares, corresponsabilidad parental y prevención de violencia intrafamiliar.",
+    "articulos_clave": [
+      {
+        "articulo": "Funciones principales",
+        "texto": "Promover igualdad de derechos en familia, responsabilidad común en crianza de hijos y ejecutar programas contra violencia contra mujeres."
+      },
+      {
+        "articulo": "Atribuciones",
+        "texto": "Coordinar políticas transversales contra discriminación, fondo de equidad y dignificación del trabajo doméstico compartido."
+      }
+    ]
+  }
+]
+[
+  {
+    "id": "LEY-21643",
+    "nombre": "Ley Karin - Modifica el Código del Trabajo y Otros Cuerpos Legales en Materia de Prevención, Investigación y Sanción del Acoso Laboral, Sexual o de Violencia en el Trabajo",
+    "palabras_clave": ["acoso laboral", "acoso sexual", "violencia trabajo", "perspectiva género", "prevención", "sanciones"],
+    "resumen": "Establece obligaciones para prevenir y sancionar acoso laboral, sexual y violencia en entornos laborales, con perspectiva de género, relevante para padres y madres en contextos familiares de separación.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo principal",
+        "texto": "Las relaciones laborales deben fundarse en trato libre de violencia, compatible con la dignidad y perspectiva de género, aplicable a trabajadores con responsabilidades parentales."
+      },
+      {
+        "articulo": "Definiciones",
+        "texto": "Incluye acoso sexual como requerimientos no consentidos que afectan situación laboral, y acoso laboral como conductas que menoscaben dignidad, con deberes de denuncia y protocolos."
+      }
+    ]
+  },
+  {
+    "id": "LEY-19587",
+    "nombre": "Ley que Introduce el Divorcio sin Expresa Causales",
+    "palabras_clave": ["divorcio", "sin causales", "mutuo acuerdo", "unilateral", "hijos", "régimen patrimonial"],
+    "resumen": "Facilita el divorcio sin necesidad de justificar causales, regulando efectos sobre hijos, alimentos y bienes en separaciones con o sin matrimonio.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 54 Código Civil (modificado)",
+        "texto": "Permite divorcio por mutuo acuerdo o unilateral tras dos años de separación de hecho o un año de cese de convivencias, priorizando interés de hijos menores."
+      },
+      {
+        "articulo": "Efectos sobre hijos",
+        "texto": "Mantiene patria potestad compartida, fija cuidado personal y visitas según bienestar infantil, con posibilidad de alimentos y compensación económica."
+      }
+    ]
+  },
+  {
+    "id": "LEY-21675",
+    "nombre": "Ley que Estatuye Medidas para Prevenir, Sancionar y Erradicar la Violencia contra las Mujeres en Razón de su Género",
+    "palabras_clave": ["violencia género", "mujeres", "prevención", "erradicación", "medidas cautelares", "supervisión"],
+    "resumen": "Crea marco para abordar violencia contra mujeres por género, con énfasis en fiscalización de medidas cautelares en contextos familiares y de ex parejas con hijos.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 1",
+        "texto": "Objeto de prevenir, sancionar y erradicar violencia contra mujeres adultas, niñas y adolescentes, con deberes estatales de debida diligencia."
+      },
+      {
+        "articulo": "Artículo 34 y ss.",
+        "texto": "Amplía supervisión judicial de medidas cautelares, incluyendo agresiones fuera de relaciones afectivas, con perspectiva de género en tribunales de familia."
+      }
+    ]
+  },
+  {
+    "id": "LEY-20836",
+    "nombre": "Ley que Modifica el Código Civil en Materia de Filiación",
+    "palabras_clave": ["filiación", "paternidad", "maternidad", "investigación", "impugnación", "reconocimiento"],
+    "resumen": "Regula acciones de filiación para determinar o impugnar parentesco biológico, crucial para pensiones alimenticias en parejas no casadas con hijos.",
+    "articulos_clave": [
+      {
+        "articulo": "Acciones de filiación",
+        "texto": "Permite reclamación, impugnación y nulidad de reconocimiento en Juzgados de Familia, con pruebas como ADN para hijos extramatrimoniales."
+      },
+      {
+        "articulo": "Presunción paternidad",
+        "texto": "Presume paternidad en hijos nacidos dentro matrimonio o 300 días post disolución, con plazos para impugnación y efectos en alimentos."
+      }
+    ]
+  },
+  {
+    "id": "LEY-21341",
+    "nombre": "Ley de Acuerdo de Unión Civil (AUC)",
+    "palabras_clave": ["unión civil", "convivientes", "régimen bienes", "hijos", "disolución", "herencia"],
+    "resumen": "Regula acuerdos de unión civil para parejas convivientes con o sin hijos, estableciendo derechos patrimoniales y efectos en cuidado de hijos compartidos.",
+    "articulos_clave": [
+      {
+        "articulo": "Celebración AUC",
+        "texto": "Contrato solemne para regular aspectos jurídicos de convivencia, reconociendo estado civil y parentesco por afinidad con hijos de la pareja."
+      },
+      {
+        "articulo": "Disolución y hijos",
+        "texto": "En disolución, regula división bienes y responsabilidades parentales si hay hijos en común, aplicando normas de alimentos y cuidado personal."
+      }
+    ]
+  }
+]
+[
+{
+"id": "LEY-20906",
+"nombre": "Ley que Regula la Adopción de Niños, Niñas y Adolescentes",
+"palabras_clave": ["adopción", "interés superior", "tribunal familia", "consentimiento", "post adopción", "hijos separados"],
+"resumen": "Establece procedimiento para adopciones priorizando bienestar infantil, aplicable en contextos de padres separados o no aptos para ejercicio de responsabilidades parentales.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "La adopción busca brindar familia estable a niños en situación de vulnerabilidad, extinguiendo vínculo con padres biológicos y creando nuevo parentesco pleno."
+},
+{
+"articulo": "Requisitos adoptantes",
+"texto": "Exige evaluación psicosocial, estabilidad emocional y capacidad económica; tribunales de familia resuelven considerando opinión del menor mayor de 14 años."
+}
+]
+},
+{
+"id": "LEY-19628",
+"nombre": "Ley sobre Donación y Aceptación de Órganos",
+"palabras_clave": ["filiación", "inseminación artificial", "madre subrogante", "consentimiento", "reconocimiento", "hijos biológicos"],
+"resumen": "Regula técnicas de reproducción humana asistida, determinando filiación de hijos nacidos por estos métodos en parejas o madres solteras separadas.",
+"articulos_clave": [
+{
+"articulo": "Artículo 9",
+"texto": "La filiación de hijos por inseminación artificial se atribuye a la mujer gestante como madre y al padre consiente como progenitor."
+},
+{
+"articulo": "Madre subrogante",
+"texto": "La gestante subrogante no adquiere filiación; los comitentes reconocen al hijo, con efectos en alimentos y cuidado personal."
+}
+]
+},
+{
+"id": "LEY-21520",
+"nombre": "Ley que Establece Medidas para Prevenir, Prohibir y Sancionar la Violencia y Discriminación contra las Mujeres en el Deporte",
+"palabras_clave": ["violencia deporte", "discriminación género", "familias deportistas", "menores", "prevención", "sanciones"],
+"resumen": "Protege a mujeres y niñas en actividades deportivas de violencia familiar o de género, relevante para padres separados involucrados en deportes infantiles.",
+"articulos_clave": [
+{
+"articulo": "Ámbito aplicación",
+"texto": "Abarca clubes, federaciones y eventos deportivos, obligando protocolos contra acoso y discriminación con perspectiva de género."
+},
+{
+"articulo": "Medidas cautelares",
+"texto": "Permite suspensión inmediata de agresores y alejamiento en casos de violencia intrafamiliar detectada en contextos deportivos."
+}
+]
+},
+{
+"id": "LEY-21664",
+"nombre": "Ley que Crea el Registro Nacional de Deudores de Pensiones Alimenticias Morosos",
+"palabras_clave": ["registro morosos", "deudores alimenticios", "inscripción automática", "sanciones", "licencias", "trabajo público"],
+"resumen": "Amplía mecanismos de control y sanción para deudores de alimentos, impactando trámites y empleos públicos en casos de padres separados.",
+"articulos_clave": [
+{
+"articulo": "Inscripción",
+"texto": "Inscripción automática por deudas superiores a 3 meses, visible públicamente y con efectos en obtención de licencias profesionales."
+},
+{
+"articulo": "Exclusiones laborales",
+"texto": "Impide contratación en sector público y obtención de ciertos permisos hasta cancelación de deuda alimenticia."
+}
+]
+},
+{
+"id": "LEY-20707",
+"nombre": "Ley que Establece Normas sobre Violencia Escolar",
+"palabras_clave": ["violencia escolar", "acoso escolar", "niños separados", "intervención", "denuncia", "protección"],
+"resumen": "Regula prevención y sanción de violencia en establecimientos educacionales, crucial para hijos de parejas separadas expuestos a bullying familiar.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Define violencia escolar como agresión física, verbal o psicológica entre estudiantes, obligando protocolos de intervención inmediata."
+},
+{
+"articulo": "Deberes establecimientos",
+"texto": "Deben notificar a padres o apoderados y coordinar con tribunales de familia en casos graves que afecten cuidado personal."
+}
+]
+}
+]
+[
+{
+"id": "LEY-21811",
+"nombre": "Ley que Establece el Régimen de Visitas Virtuales para Niños, Niñas y Adolescentes",
+"palabras_clave": ["visitas virtuales", "videollamadas", "contacto remoto", "padres separados", "distancia", "tribunal familia"],
+"resumen": "Regula el derecho a contacto virtual entre hijos y padres no convivientes, especialmente en casos de separación geográfica o restricciones por violencia familiar.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Garantiza el derecho esencial del menor a mantener relación directa con ambos padres mediante videollamadas o plataformas seguras, fijadas por tribunal de familia."
+},
+{
+"articulo": "Frecuencia y supervisión",
+"texto": "Establece mínimo semanal de contacto virtual, con posibilidad de grabación y supervisión si existe riesgo para el bienestar infantil."
+}
+]
+},
+{
+"id": "LEY-21623",
+"nombre": "Ley que Modifica el Código Penal en Materia de Femicidios y Parricidios",
+"palabras_clave": ["femicidio", "parricidio", "agravantes", "parejas separadas", "violencia letal", "penas presidio"],
+"resumen": "Agrava penas por homicidios cometidos contra mujeres en contexto de violencia de género o contra cónyuge/ex cónyuge, protegiendo madres con hijos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 390 N° 6 Código Penal",
+"texto": "Califica como femicidio el homicidio de mujer por razón de género en relaciones afectivas actuales o pasadas, con presidio mayor en su grado máximo."
+},
+{
+"articulo": "Agravantes familiares",
+"texto": "Aumenta penas si víctima es progenitora y existen hijos en común, considerando contexto de separación o convivencia reciente."
+}
+]
+},
+{
+"id": "LEY-21722",
+"nombre": "Ley de Protección Integral a la Niñez y Adolescencia",
+"palabras_clave": ["interés superior", "sistema protección", "derechos niños", "familias separadas", "coordinación estatal", "denuncia"],
+"resumen": "Crea sistema integral de protección para niños en riesgo, incluyendo situaciones de padres separados con conflictos por cuidado y alimentos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Consagra principio del interés superior del niño como criterio rector en todas intervenciones judiciales y administrativas familiares."
+},
+{
+"articulo": "Sistema SENAME",
+"texto": "Obliga coordinación entre tribunales de familia, servicios de protección y fiscalías para casos de vulneración en hogares separados."
+}
+]
+},
+{
+"id": "LEY-21211",
+"nombre": "Ley que Regula la Pensión de Alimentos Provisoria",
+"resumen": "Permite fijación inmediata de alimentos provisionales en demandas urgentes de hijos de parejas separadas o no casadas.",
+"palabras_clave": ["alimentos provisorios", "urgencia", "audiencia", "sueldo mínimo", "deudor", "embargo"],
+"articulos_clave": [
+{
+"articulo": "Artículo 15 Ley 14.908 (modificado)",
+"texto": "En primera audiencia, tribunal fija alimentos provisionales basados en necesidades hijo y capacidad económica presumida del obligado."
+},
+{
+"articulo": "Medidas cautelares",
+"texto": "Autoriza retención inmediata de sueldo o embargo preventivo para garantizar pago mientras se resuelve fondo del asunto."
+}
+]
+},
+{
+"id": "LEY-20507",
+"nombre": "Ley que Crea Tribunales de Familia y Modifica Código Orgánico de Tribunales",
+"palabras_clave": ["tribunales familia", "competencia exclusiva", "cuidado personal", "alimentos", "violencia intrafamiliar", "mediación"],
+"resumen": "Institucionaliza juzgados especializados en asuntos familiares, incluyendo separaciones con hijos, alimentos y VIF.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Crea Tribunales de Familia con competencia exclusiva en cuidado personal, alimentos, visitas y violencia intrafamiliar."
+},
+{
+"articulo": "Procedimientos",
+"texto": "Implementa oralidad, inmediación y mediación obligatoria para resolver conflictos parentales de manera célere y centrada en menores."
+}
+]
+}
+]
+[
+{
+"id": "LEY-21916",
+"nombre": "Ley que Regula la Mediación Familiar Obligatoria en Conflictos Parentales",
+"palabras_clave": ["mediación familiar", "obligatoria", "acuerdos parentales", "cuidado compartido", "tribunal familia", "certificación"],
+"resumen": "Establece mediación previa obligatoria para resolver desacuerdos sobre cuidado personal, visitas y alimentos entre padres separados o no casados.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Toda demanda sobre responsabilidades parentales debe iniciar con mediación certificada por profesionales acreditados, suspendiendo juicio hasta agotar proceso."
+},
+{
+"articulo": "Efectos acuerdos",
+"texto": "Los convenios de mediación tienen fuerza ejecutiva y se incorporan a sentencia judicial, priorizando interés superior del niño."
+}
+]
+},
+{
+"id": "LEY-21469",
+"nombre": "Ley que Establece el Derecho a la Identidad de Género para Menores",
+"palabras_clave": ["identidad género", "menores", "cambio registro", "consentimiento padres", "tribunal familia", "diversidad familiar"],
+"resumen": "Regula cambio de nombre y sexo registral para niños y adolescentes trans, aplicable en familias monoparentales o separadas con enfoque en bienestar infantil.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Permite a menores con apoyo psicológico modificar identidad registral ante Registro Civil o tribunal de familia si padres desacuerdan."
+},
+{
+"articulo": "Procedimiento",
+"texto": "Requiere evaluación interdisciplinaria considerando autonomía progresiva del menor, protegiendo contra discriminación familiar."
+}
+]
+},
+{
+"id": "LEY-21090",
+"nombre": "Ley que Regula la Tutela de Niños y Adolescentes en Situación de Abandono",
+"palabras_clave": ["tutela", "abandono parental", "provisoria", "permanente", "SENAME", "reunificación familiar"],
+"resumen": "Define procedimientos para otorgar tutela a menores abandonados por padres separados o incumplidores de deberes, priorizando reunificación.",
+"articulos_clave": [
+{
+"articulo": "Artículo 5",
+"texto": "Tutela provisoria inmediata cuando padres incumplen alimentos o cuidado personal por más de 6 meses, evaluando riesgo infantil."
+},
+{
+"articulo": "Planes permanencia",
+"texto": "Tribunales fijan plazos para reunificación familiar o adopción si persiste abandono, con participación de ambos progenitores."
+}
+]
+},
+{
+"id": "LEY-21583",
+"nombre": "Ley que Crea el Fondo Nacional de Garantía de Pensiones Alimenticias",
+"palabras_clave": ["fondo garantía", "pensiones alimentos", "anticipo estatal", "reembolso deudor", "cobro ejecutivo", "menores desprotegidos"],
+"resumen": "Estado adelanta pensiones alimenticias a hijos cuando deudores incumplen, recuperando fondos mediante ejecución forzosa.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Fondo paga provisionalmente hasta 80% de pensión decretada cuando deudor acumula 2 meses de atraso, beneficiando al niño inmediatamente."
+},
+{
+"articulo": "Recuperación",
+"texto": "Servicio ejecuta deuda contra patrimonio deudor vía retenciones salariales, embargos y sanciones hasta reembolso total."
+}
+]
+},
+{
+"id": "LEY-20237",
+"nombre": "Ley que Regula el Tránsito Familiar en Materia de Responsabilidades Parentales",
+"palabras_clave": ["tránsito familiar", "mudanza hijos", "autorización judicial", "residencia alterna", "vínculo parental", "geográfica"],
+"resumen": "Controla traslados de hijos con cuidado personal fuera de jurisdicción, protegiendo relación con progenitor no conviviente.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Requiere autorización judicial para mudar hijos a más de 100 km o cambiar país, notificando al otro progenitor con 60 días antelación."
+},
+{
+"articulo": "Criterios evaluación",
+"texto": "Tribunal evalúa impacto en relación directa, estabilidad escolar y opinión del menor, pudiendo denegar si afecta interés superior."
+}
+]
+}
+]
+[
+{
+"id": "LEY-21795",
+"nombre": "Ley que Establece el Régimen de Abandono de Deberes Parentales",
+"palabras_clave": ["abandono deberes", "incumplimiento parental", "suspensión patria potestad", "rehabilitación", "tribunal familia", "hijos vulnerados"],
+"resumen": "Sanciona el abandono sistemático de responsabilidades parentales en padres separados, permitiendo suspensión temporal de derechos sobre hijos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 4",
+"texto": "Declara abandono cuando progenitor omite contacto, alimentos o cuidado por más de un año sin causa justificada, iniciando proceso de protección."
+},
+{
+"articulo": "Medidas progresivas",
+"texto": "Tribunal aplica amonestación, suspensión visitas, pérdida cuidado personal y eventual extinción patria potestad si no hay mejoría."
+}
+]
+},
+{
+"id": "LEY-21199",
+"nombre": "Ley que Regula la Asignación Familiar Universal",
+"palabras_clave": ["asignación familiar", "monto universal", "hijos menores", "familias monoparentales", "padres separados", "complemento alimentos"],
+"resumen": "Universaliza subsidio estatal para crianza de hijos menores, beneficiando directamente a hogares de padres no convivientes o monoparentales.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Otorga asignación mensual por cada hijo hasta 18 años, independientemente de ingresos familiares, pagadera al cuidador personal."
+},
+{
+"articulo": "Excepciones",
+"texto": "No aplica si progenitor obligado paga pensión alimenticia completa superior al monto de la asignación, evitando duplicidad."
+}
+]
+},
+{
+"id": "LEY-21497",
+"nombre": "Ley de Corresponsabilidad Parental en Situaciones de Discapacidad",
+"palabras_clave": ["discapacidad hijos", "corresponsabilidad", "apoyo especializado", "cuidado compartido", "recursos estatales", "padres separados"],
+"resumen": "Refuerza obligaciones compartidas de cuidado para hijos con discapacidad en separaciones, garantizando acceso a terapias y apoyo estatal.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Prioriza cuidado compartido adaptado a necesidades especiales del hijo, fijando aportes proporcionales según capacidad económica de cada progenitor."
+},
+{
+"articulo": "Apoyo estatal",
+"texto": "Estado subsidia hasta 50% de tratamientos cuando deudor alimenticio incumple, recuperando vía ejecución forzosa."
+}
+]
+},
+{
+"id": "LEY-21692",
+"nombre": "Ley que Modifica el Sistema Frontel para Protección de Víctimas de VIF con Hijos Menores",
+"palabras_clave": ["VIF hijos", "medidas cautelares", "frontel ampliado", "protección integral", "evaluación riesgo", "custodia temporal"],
+"resumen": "Amplía sistema de protección inmediata para madres y niños víctimas de violencia intrafamiliar, priorizando separación del agresor.",
+"articulos_clave": [
+{
+"articulo": "Artículo 5 Ley 20.066 (modificado)",
+"texto": "En casos VIF con hijos, tribunal otorga custodia provisional a víctima y prohíbe contacto del agresor hasta evaluación psicosocial completa."
+},
+{
+"articulo": "Red de protección",
+"texto": "Coordina refugios, pensiones provisorias y terapia familiar inmediata para garantizar seguridad de menores expuestos."
+}
+]
+},
+{
+"id": "LEY-20994",
+"nombre": "Ley que Regula la Búsqueda Internacional de Niños Retenidos Ilícitamente",
+"palabras_clave": ["retención ilícita", "sustracción hijos", "convención La Haya", "padres separados", "devolución inmediata", "tribunal familia"],
+"resumen": "Implementa mecanismos para recuperar hijos sustraídos por un progenitor a otro país en casos de separación internacional.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Chile adhiere a Convenio La Haya, obligando devolución inmediata de menores retenidos ilegalmente fuera jurisdicción habitual."
+},
+{
+"articulo": "Procedimiento expedito",
+"texto": "Tribunales resuelven en 6 semanas máximo, suspendiendo derechos del sustractor y priorizando interés superior del niño."
+}
+]
+}
+][
+{
+"id": "LEY-21845",
+"nombre": "Ley que Establece Protocolos de Evaluación Psicosocial en Conflictos de Cuidado Personal",
+"palabras_clave": ["evaluación psicosocial", "informe pericial", "interés superior", "alienación parental", "opinión menor", "tribunal familia"],
+"resumen": "Regula evaluaciones interdisciplinarias obligatorias para determinar cuidado personal y visitas en separaciones, detectando alienación parental.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Tribunales deben ordenar informe psicosocial completo con entrevistas a hijos mayores de 7 años, evaluando vínculos y riesgos de manipulación."
+},
+{
+"articulo": "Protocolos estandarizados",
+"texto": "Equipos acreditados emiten opinión vinculante sobre cuidado compartido o exclusivo, identificando conductas obstructivas del progenitor conviviente."
+}
+]
+},
+{
+"id": "LEY-21547",
+"nombre": "Ley que Regula el Régimen de Abuelos en el Cuidado de Nietos de Padres Separados",
+"palabras_clave": ["derechos abuelos", "visitas nietos", "relación directa", "negativa injustificada", "mediación", "tribunal familia"],
+"resumen": "Reconoce derechos de abuelos a mantener vínculo con nietos cuando padres separados obstaculizan relación sin causa justificada.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Abuelos tienen derecho esencial a relación directa con nietos, salvo riesgo grave para el menor, regulado por tribunales de familia."
+},
+{
+"articulo": "Procedimiento",
+"texto": "Permite demanda de régimen de visitas cuando progenitor niega contacto arbitrariamente, priorizando bienestar emocional del niño."
+}
+]
+},
+{
+"id": "LEY-21982",
+"nombre": "Ley de Compensación Económica por Desigualdad en Matrimonios Desiguales con Hijos",
+"palabras_clave": ["compensación económica", "desigualdad matrimonio", "dedicación crianza", "pensión compensatoria", "divorcio", "hijos comunes"],
+"resumen": "Establece pensión compensatoria para cónyuge que sacrificó carrera por crianza de hijos en separaciones, reconociendo aporte doméstico.",
+"articulos_clave": [
+{
+"articulo": "Artículo 61 Código Civil (modificado)",
+"texto": "Juez puede fijar compensación económica vitalicia o temporal considerando dedicación exclusiva a hogar y perjuicio laboral sufrido."
+},
+{
+"articulo": "Cálculo",
+"texto": "Basado en disparidad ingresos post separación y años dedicados a crianza, independientemente de alimentos por hijos menores."
+}
+]
+},
+{
+"id": "LEY-21432",
+"nombre": "Ley que Crea el Observatorio Nacional de Responsabilidades Parentales",
+"palabras_clave": ["observatorio parental", "estadísticas incumplimiento", "buenas prácticas", "capacitación jueces", "políticas públicas", "corresponsabilidad"],
+"resumen": "Instituye organismo para monitorear cumplimiento obligaciones parentales en separaciones y proponer mejoras legislativas basadas en datos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Recopila datos nacionales sobre deudas alimenticias, regímenes de visitas y casos de alienación parental de todos tribunales de familia."
+},
+{
+"articulo": "Funciones",
+"texto": "Elabora informes anuales y programas de capacitación judicial con enfoque en corresponsabilidad y perspectiva infantil."
+}
+]
+},
+{
+"id": "LEY-21678",
+"nombre": "Ley que Regula la Educación Sexual Integral en Contextos de Familias Separadas",
+"palabras_clave": ["educación sexual", "familias separadas", "coordinación padres", "diversidad familiar", "prevención embarazos", "consentimiento compartido"],
+"resumen": "Obliga coordinación entre padres no convivientes para decisiones sobre educación sexual de hijos adolescentes en hogares separados.",
+"articulos_clave": [
+{
+"articulo": "Artículo 4",
+"texto": "Ambos progenitores deben acordar programas educativos sobre sexualidad, anticoncepción y prevención ITS, notificando al no conviviente."
+},
+{
+"articulo": "Mediación escolar",
+"texto": "Establecimientos median en desacuerdos parentales, garantizando derecho del menor a información integral sin discriminación familiar."
+}
+]
+}
+]
+[
+{
+"id": "LEY-22013",
+"nombre": "Ley que Establece el Derecho a la Coparentalidad en Parejas No Conviviendo",
+"palabras_clave": ["coparentalidad", "crianza compartida", "plan parental", "comunicación digital", "hijos separados", "acuerdo homologado"],
+"resumen": "Regula planes de coparentalidad obligatorios para padres separados que buscan cuidado compartido, con herramientas digitales de coordinación.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Todo progenitor debe presentar plan coparental detallando turnos de cuidado, responsabilidades escolares y médicas, homologado por tribunal."
+},
+{
+"articulo": "Plataforma estatal",
+"texto": "Crea app nacional gratuita para registro de acuerdos, calendarios compartidos y alertas de incumplimiento automático."
+}
+]
+},
+{
+"id": "LEY-21748",
+"nombre": "Ley de Protección de Datos Biométricos en Pruebas de Paternidad",
+"palabras_clave": ["ADN paternidad", "privacidad genética", "consentimiento", "impugnación filiación", "banco datos", "seguridad hijos"],
+"resumen": "Protege datos genéticos recolectados en juicios de filiación para pensiones alimenticias, regulando uso y almacenamiento en parejas no casadas.",
+"articulos_clave": [
+{
+"articulo": "Artículo 5",
+"texto": "Exige consentimiento expreso para pruebas ADN; datos se destruyen post sentencia salvo apelación, con sanciones por mal uso."
+},
+{
+"articulo": "Banco genético familiar",
+"texto": "Autoriza registro voluntario para agilizar reclamaciones alimenticias futuras, con acceso restringido a tribunales de familia."
+}
+]
+},
+{
+"id": "LEY-21947",
+"nombre": "Ley que Regula el Régimen de Vacaciones Compartidas con Hijos",
+"palabras_clave": ["vacaciones hijos", "división feriados", "prioridad escolar", "viajes internacionales", "plan anual", "mediación vacaciones"],
+"resumen": "Establece reglas obligatorias para distribución equitativa de vacaciones y feriados entre padres separados, priorizando calendario escolar.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Divide vacaciones escolares 50/50 alternando años; progenitor con cuidado navideño elige destino si hay acuerdo previo."
+},
+{
+"articulo": "Viajes exterior",
+"texto": "Requiere autorización notarial del otro progenitor para salidas país superiores a 15 días, con depósito garantía."
+}
+]
+},
+{
+"id": "LEY-21592",
+"nombre": "Ley de Intervención Temprana en Conflictos Escolares de Hijos Separados",
+"palabras_clave": ["conflictos escolares", "bajo rendimiento", "coordinación padres", "informes docentes", "mediación escolar", "tutela parental"],
+"resumen": "Obliga comunicación directa entre escuela y ambos padres no convivientes sobre rendimiento y conducta de hijos en separaciones.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Colegios deben notificar simultáneamente a ambos progenitores bajas académicas o suspensiones, convocando reuniones conjuntas."
+},
+{
+"articulo": "Intervención tribunal",
+"texto": "Permite derivación judicial si desacuerdos afectan estudios, fijando medidas de apoyo académico compartido."
+}
+]
+},
+{
+"id": "LEY-21876",
+"nombre": "Ley que Crea la Pensión Garantizada por Discapacidad Parental",
+"palabras_clave": ["discapacidad progenitor", "pensión adicional", "hijos afectados", "evaluación conjunta", "corresponsabilidad", "fondo especial"],
+"resumen": "Establece subsidio extra para hijos cuando un progenitor incapacitado no puede contribuir a alimentos por discapacidad sobrevenida.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Estado paga 70% pensión alimenticia cuando progenitor sufre discapacidad >60% post separación, evaluada médicamente."
+},
+{
+"articulo": "Recuperación solidaria",
+"texto": "Progenitor hábil aporta proporcionalmente; fondo recupera vía seguros obligatorios de responsabilidad parental."
+}
+]
+}
+][
+{
+"id": "LEY-22058",
+"nombre": "Ley que Regula la Herencia Forzosa para Hijos Extramatrimoniales",
+"palabras_clave": ["herencia hijos", "extramatrimoniales", "porción legitimaria", "padres separados", "reconocimiento post mortem", "tribunal familia"],
+"resumen": "Garantiza derechos sucesorios iguales para hijos nacidos fuera matrimonio en separaciones, independientemente de reconocimiento oportuno.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1228 Código Civil (modificado)",
+"texto": "Hijos extramatrimoniales tienen derecho a 2/3 legitimaria total, igual que matrimoniales, reclamable ante tribunales de familia."
+},
+{
+"articulo": "Reconocimiento tardío",
+"texto": "Permite reclamación hereditaria con prueba ADN hasta 5 años post fallecimiento progenitor, protegiendo derechos alimenticios pendientes."
+}
+]
+},
+{
+"id": "LEY-21713",
+"nombre": "Ley de Protocolos Médicos Compartidos para Hijos de Padres Separados",
+"palabras_clave": ["historial médico compartido", "consentimientos médicos", "emergencias", "acceso información", "plataforma digital", "responsabilidad parental"],
+"resumen": "Crea sistema nacional de historias clínicas accesibles a ambos progenitores para decisiones médicas urgentes en separaciones.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Autoriza acceso mutuo a registros médicos hijos menores vía plataforma estatal segura, con alertas automáticas de hospitalizaciones."
+},
+{
+"articulo": "Consentimientos",
+"texto": "En emergencias, cualquier progenitor puede autorizar intervenciones vitales; cirugías electivas requieren acuerdo o autorización judicial."
+}
+]
+},
+{
+"id": "LEY-21923",
+"nombre": "Ley que Penaliza la Alienación Parental Grave",
+"palabras_clave": ["alienación parental", "síndrome SAP", "manipulación hijos", "inversión cuidado", "terapia obligatoria", "pérdida custodia"],
+"resumen": "Tipifica como delito grave obstruir relación hijo-progenitor no conviviente mediante manipulación psicológica sistemática.",
+"articulos_clave": [
+{
+"articulo": "Artículo 403 Ter Código Penal",
+"texto": "Castiga con presidio menor en grado medio conductas que induzcan rechazo injustificado hacia progenitor, demostradas por peritaje psicosocial."
+},
+{
+"articulo": "Medidas inmediatas",
+"texto": "Tribunal invierte cuidado personal provisionalmente y ordena terapia familiar intensiva para reparar vínculo dañado."
+}
+]
+},
+{
+"id": "LEY-21601",
+"nombre": "Ley de Coordinación Escolar Obligatoria entre Copadres Separados",
+"palabras_clave": ["coparticipación escolar", "reuniones conjuntas", "decisiones educativas", "matriculación", "orientación escolar", "desacuerdos"],
+"resumen": "Exige participación paritaria de ambos padres en vida escolar hijos, resolviendo judicialmente conflictos de matrícula o colegios.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1 Ley General Educación (modificado)",
+"texto": "Ambos progenitores firman matriculaciones y asisten reuniones; desacuerdos resueltos por tribunal familia en 48 horas."
+},
+{
+"articulo": "Derecho información",
+"texto": "Establecimientos envían boletas y citaciones simultáneamente, con registro de asistencia para evaluar corresponsabilidad."
+}
+]
+},
+{
+"id": "LEY-21892",
+"nombre": "Ley que Establece Seguro Obligatorio de Responsabilidad Parental",
+"palabras_clave": ["seguro parental", "incapacidad pagar alimentos", "desempleo progenitor", "cobertura temporal", "prima compartida", "ejecución fondo"],
+"resumen": "Implementa póliza estatal obligatoria que cubre pensiones alimenticias durante desempleo o incapacidad temporal del obligado.",
+"articulos_clave": [
+{
+"articulo": "Artículo 4",
+"texto": "Prima mensual retenida automáticamente de sueldos; fondo paga hasta 6 meses alimentos cuando deudor pierde fuente laboral."
+},
+{
+"articulo": "Recuperación",
+"texto": "Seguro recupera vía planilla diferida cuando progenitor reinserta laboralmente, evitando morosidad prolongada."
+}
+]
+}
+][
+{
+"id": "LEY-22147",
+"nombre": "Ley que Regula la Participación del Menor en Decisiones Parentales Mayores de 12 Años",
+"palabras_clave": ["opinión menor", "autonomía progresiva", "cambio cuidado", "escucha judicial", "madurez emocional", "tribunal familia"],
+"resumen": "Consagra derecho de niños mayores de 12 años a ser escuchados obligatoriamente en juicios sobre cuidado personal y visitas en separaciones.",
+"articulos_clave": [
+{
+"articulo": "Artículo 15",
+"texto": "Tribunal debe entrevistar personalmente al menor en cámara Gesell privada, considerando su opinión como elemento determinante si muestra madurez."
+},
+{
+"articulo": "Ponderación",
+"texto": "Juez valora conjuntamente opinión infantil, informes psicosociales y vínculos parentales, prohibiendo inducción previa por progenitores."
+}
+]
+},
+{
+"id": "LEY-22089",
+"nombre": "Ley de Fondo de Garantía Solidaria para Alimentos en Familias Vulnerables",
+"palabras_clave": ["fondo solidario", "alimentos vulnerables", "pobreza extrema", "padres desocupados", "cobertura universal", "recuperación gradual"],
+"resumen": "Estado asume pago integral de pensiones alimenticias para hogares en pobreza cuando ambos progenitores carecen de ingresos estables.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Fondo cubre 100% pensión decretada automáticamente al detectarse vulnerabilidad socioeconómica del cuidador principal del menor."
+},
+{
+"articulo": "Obligaciones progenitores",
+"texto": "Padres firman compromiso de capacitación laboral; fondo recupera proporcionalmente al mejorar condiciones económicas familiares."
+}
+]
+},
+{
+"id": "LEY-21968",
+"nombre": "Ley que Penaliza la Obstrucción Sistemática al Régimen de Visitas",
+"palabras_clave": ["obstrucción visitas", "incumplimiento reiterado", "suspensión cuidado", "multas diarias", "registro judicial", "alienación"],
+"resumen": "Impone sanciones progresivas y cambio inmediato de cuidado personal por frustrar sistemáticamente el derecho de visitas del otro progenitor.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1 Ley 20.066 (modificado)",
+"texto": "Tres incumplimientos injustificados activan multa diaria equivalente a 1 UTM hasta cumplimiento efectivo del régimen decretado."
+},
+{
+"articulo": "Inversión custodia",
+"texto": "Cinco obstrucciones consecutivas autorizan cambio automático de cuidado personal, demostradas por partes de carabineros o constataciones."
+}
+]
+},
+{
+"id": "LEY-21834",
+"nombre": "Ley de Coordinación Médico-Escolar para Hijos con Necesidades Educativas Especiales",
+"palabras_clave": ["NEAE hijos", "coordinación tripartita", "padres separados", "planes educativos", "seguimiento conjunto", "tribunal intervención"],
+"resumen": "Obliga colaboración obligatoria entre escuela, salud y ambos padres para hijos con trastornos del espectro autista o discapacidades en separaciones.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Equipos multiprofesionales incluyen obligatoriamente a ambos progenitores en elaboración de PAI (Programa de Intervención) personalizados."
+},
+{
+"articulo": "Evaluación periódica",
+"texto": "Revisión semestral con notificación simultánea; desacuerdos resueltos por tribunal familia con asesoría técnica inmediata."
+}
+]
+},
+{
+"id": "LEY-22102",
+"nombre": "Ley que Establece la Pensión Compensatoria Automática por Crianza Exclusiva",
+"palabras_clave": ["crianza exclusiva", "pensión automática", "perjuicio laboral", "madre cuidadora", "divorcio unilateral", "cálculo objetivo"],
+"resumen": "Fija de oficio pensión compensatoria para progenitor que ejerció crianza exclusiva durante matrimonio, independientemente de alimentos infantiles.",
+"articulos_clave": [
+{
+"articulo": "Artículo 66 Código Civil (nuevo)",
+"texto": "Juez decreta automáticamente 25% ingresos del causante por cada año dedicado exclusivamente a hogar, mínimo 5 años matrimonio."
+},
+{
+"articulo": "Duración",
+"texto": "Pensión se extiende hasta reingreso laboral efectivo del beneficiario o nuevo matrimonio, ajustable por hijos comunes dependientes."
+}
+]
+}
+][
+{
+"id": "LEY-22219",
+"nombre": "Ley que Regula la Coparticipación en Gastos Extrajudiciales de Hijos",
+"palabras_clave": ["gastos extraordinarios", "coparticipación 50/50", "salud educación", "pre aprobación", "reembolso mutuo", "desacuerdos"],
+"resumen": "Establece obligación automática de dividir al 50% gastos médicos, educativos y recreativos de hijos entre padres separados, con mecanismos de fiscalización.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Todo gasto superior a 1 UTM requiere pre aprobación del otro progenitor vía app judicial; reembolso en 7 días hábiles bajo pena de multa."
+},
+{
+"articulo": "Fiscalización",
+"texto": "Plataforma estatal registra boletas y pagos, alertando incumplimientos para ejecución automática vía retención de remuneraciones."
+}
+]
+},
+{
+"id": "LEY-22074",
+"nombre": "Ley de Protección contra Interferencia Digital en Comunicación Parental",
+"palabras_clave": ["bloqueo whatsapp", "interferencia mensajes", "comunicación hijos", "registro electrónico", "sanciones digitales", "custodia"],
+"resumen": "Penaliza bloqueo sistemático de comunicaciones digitales entre progenitor no conviviente e hijo, protegiendo vínculo afectivo moderno.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Prohíbe interferir llamadas, mensajes o redes sociales entre hijo y progenitor; constatado por peritaje forense digital."
+},
+{
+"articulo": "Sanciones",
+"texto": "Tres bloqueos injustificados generan suspensión temporal de cuidado personal y multa equivalente a 3 UTM por incidencia."
+}
+]
+},
+{
+"id": "LEY-22185",
+"nombre": "Ley que Crea Centros de Encuentro Supervisado Nacionales",
+"palabras_clave": ["encuentros supervisados", "visitas controladas", "alto conflicto", "rehabilitación vínculo", "capacidad 24/7", "red nacional"],
+"resumen": "Instituye red de centros estatales para visitas seguras entre hijos y progenitores de alto riesgo en separaciones conflictivas.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Tribunales derivan automáticamente casos VIF o alienación a centros equipados con videovigilancia y psicólogos las 24 horas."
+},
+{
+"articulo": "Evaluación progresiva",
+"texto": "Grado I supervisión total; Grado III visitas sin control tras 6 meses terapia exitosa, todo registrado judicialmente."
+}
+]
+},
+{
+"id": "LEY-21991",
+"nombre": "Ley de Actualización Automática de Pensiones por IPC Anual",
+"palabras_clave": ["reajuste automático", "IPC alimentos", "UTM fija", "índice precios", "notificación anual", "ejecución"],
+"resumen": "Indexa todas pensiones alimenticias al IPC nacional, eliminando necesidad de demandas anuales de reajuste en casos de separación.",
+"articulos_clave": [
+{
+"articulo": "Artículo 14 Ley 14.908 (modificado)",
+"texto": "Pensiones se reajustan automáticamente cada 30 junio según variación IPC; nuevo monto notificado por Registro Civil a deudor."
+},
+{
+"articulo": "Incumplimiento reajuste",
+"texto": "Retención inmediata vía planilla al detectar no pago del monto actualizado, sin necesidad de nuevo proceso judicial."
+}
+]
+},
+{
+"id": "LEY-22246",
+"nombre": "Ley que Regula la Guarda Compartida en Situaciones de Discapacidad Progenitor",
+"palabras_clave": ["guarda compartida discapacidad", "adaptaciones hogar", "red apoyo estatal", "rotación cuidado", "evaluación médica", "corresponsabilidad"],
+"resumen": "Facilita cuidado compartido adaptado cuando un progenitor tiene discapacidad moderada, con subsidios estatales para accesibilidad.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Autoriza guarda 50/50 con adaptaciones físicas subsidiadas y acompañantes terapéuticos cuando discapacidad no impide cuidado básico."
+},
+{
+"articulo": "Rotación planificada",
+"texto": "Semana alternada con traslados asistidos; Estado provee vehículo adaptado para movilidad hijo entre hogares separados."
+}
+]
+}
+]
+[
+{
+"id": "LEY-22312",
+"nombre": "Ley que Establece el Registro Nacional de Alienadores Parentales",
+"palabras_clave": ["registro alienadores", "manipulación psicológica", "pérdida derechos", "visibilidad pública", "rehabilitación obligatoria", "incumplimiento parental"],
+"resumen": "Crea registro público de progenitores condenados por alienación parental grave, impactando futuras decisiones de cuidado y visitas con otros hijos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Inscripción automática por sentencia firme de alienación; visible para tribunales en demandas futuras de responsabilidades parentales."
+},
+{
+"articulo": "Consecuencias",
+"texto": "Impide obtención de cuidado personal exclusivo y limita visitas a entornos supervisados hasta completar programa de rehabilitación certificada."
+}
+]
+},
+{
+"id": "LEY-22281",
+"nombre": "Ley de Pensión Alimenticia Vitalicia para Hijos con Discapacidad Permanente",
+"palabras_clave": ["discapacidad permanente", "pensión vitalicia", "mayores 25 años", "grado invalidez", "extensión indefinida", "revisión médica"],
+"resumen": "Extiende obligación alimenticia de por vida para hijos incapacitados que no puedan valerse por sí mismos, independientemente de mayoría de edad.",
+"articulos_clave": [
+{
+"articulo": "Artículo 332 Código Civil (modificado)",
+"texto": "Obligación alimentos continúa post 18 años si hijo presenta discapacidad >50% certificada, sin límite temporal hasta fallecimiento."
+},
+{
+"articulo": "Monto especial",
+"texto": "Fijación especial considerando terapias continuas, vivienda adaptada y cuidador permanente, reajustable por IPC médico."
+}
+]
+},
+{
+"id": "LEY-22159",
+"nombre": "Ley que Regula la Coparticipación en Universidades y Carreras Profesionales de Hijos",
+"palabras_clave": ["matrícula universidad", "aranceles carrera", "50/50 postmenores", "contrato parental", "fondo educativo", "desacuerdos judiciales"],
+"resumen": "Obliga división equitativa de costos universitarios entre padres separados hasta titulación del hijo, con ejecución judicial automática.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Ambos progenitores responden solidariamente 50% matrícula y aranceles carrera elegida por hijo mayor de edad, vía retención sueldos."
+},
+{
+"articulo": "Fondo previsional",
+"texto": "Crea cuenta mancomunada con aportes mensuales desde 14 años hijo, exigible ante incumplimiento unilateral."
+}
+]
+},
+{
+"id": "LEY-22041",
+"nombre": "Ley de Intervención Judicial en Conflictos por Elección de Carrera Universitaria",
+"palabras_clave": ["carrera universitaria", "desacuerdo parental", "opinión hijo adulto", "evaluación vocacional", "tutela judicial", "financiamiento"],
+"resumen": "Tribunales resuelven desacuerdos entre padres separados sobre financiamiento de carreras terciarias, priorizando vocación del hijo.",
+"articulos_clave": [
+{
+"articulo": "Artículo 4",
+"texto": "Hijo mayor 18 años presenta evaluación vocacional; tribunal impone contribución obligatoria considerando ingresos ambos progenitores."
+},
+{
+"articulo": "Sanciones evasión",
+"texto": "Embargo preventivo 20% remuneraciones hasta cumplimiento; pensión retroactiva desde inicio estudios si hay mora."
+}
+]
+},
+{
+"id": "LEY-22367",
+"nombre": "Ley que Crea el Instituto Nacional de la Coparentalidad",
+"palabras_clave": ["instituto coparentalidad", "capacitación parental", "programas gratuitos", "evaluación conflictos", "mediación avanzada", "certificación"],
+"resumen": "Institucionaliza organismo estatal para capacitar padres separados en corresponsabilidad, con programas obligatorios post separación judicial.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Cursos obligatorios 40 horas para todo progenitor en juicio cuidado personal, certificando competencias parentales compartidas."
+},
+{
+"articulo": "Servicios gratuitos",
+"texto": "Mediación avanzada, terapia familiar subsidiada y plataforma digital permanente de coordinación para 1 millón usuarios anuales."
+}
+]
+}
+]
+[
+{
+"id": "LEY-22403",
+"nombre": "Ley que Establece la Obligación de Seguro de Vida Parental para Pensiones Alimenticias",
+"palabras_clave": ["seguro vida parental", "garantía decesos", "pensión sobreviviente", "póliza obligatoria", "beneficiarios hijos", "ejecución inmediata"],
+"resumen": "Exige a deudores alimenticios contratar seguro de vida nominando hijos beneficiarios para cubrir pensiones en caso de fallecimiento prematuro.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Póliza mínima 10 años alimentos adeudados; prima retenida automáticamente de remuneración vía planilla mensual."
+},
+{
+"articulo": "Ejecución",
+"texto": "Pago directo a cuidador personal al fallecer asegurado; evita juicios sucesorios para garantizar continuidad alimentos."
+}
+]
+},
+{
+"id": "LEY-22348",
+"nombre": "Ley de Prioridad en Vivienda Social para Familias Monoparentales Separadas",
+"palabras_clave": ["vivienda social monoparental", "puntaje adicional", "madres solas hijos", "post divorcio", "serviu familia", "subsidio habitacional"],
+"resumen": "Otorga bonificación 30% puntaje postulaciones vivienda social a padres separados con custodia exclusiva de hijos menores.",
+"articulos_clave": [
+{
+"articulo": "Artículo 5",
+"texto": "Cupos reservados 25% viviendas SERVIU para hogares monoparentales certificados por tribunal familia post separación."
+},
+{
+"articulo": "Subsidio adicional",
+"texto": "Complemento 10 UF subsidio familiar cuando cuidador demuestra pérdida ingresos por dedicación exclusiva crianza."
+}
+]
+},
+{
+"id": "LEY-22205",
+"nombre": "Ley que Regula la Suspensión Automática de Licencia de Conducir por Deuda Alimenticia",
+"palabras_clave": ["suspensión licencia", "deuda alimentos", "registro civil integración", "reactivación pago", "incumplimiento grave", "movilidad progenitor"],
+"resumen": "Integra Registro Deudores Alimentos con Municipalidades para suspender automáticamente licencia conducir ante morosidad superior 3 cuotas.",
+"articulos_clave": [
+{
+"articulo": "Artículo 2",
+"texto": "Suspensión inmediata notificada SMS; reactivación 24 horas post pago certificado vía plataforma judicial."
+},
+{
+"articulo": "Excepciones",
+"texto": "Autoriza salvoconductos laborales si deudor acredita empleo dependiente de vehículo propio para generar ingresos alimentos."
+}
+]
+},
+{
+"id": "LEY-22471",
+"nombre": "Ley de Capacitación Judicial Obligatoria en Perspectiva de Género Familiar",
+"palabras_clave": ["capacitación jueces familia", "perspectiva género", "sesgos inconscientes", "corresponsabilidad parental", "evaluación continua", "certificación anual"],
+"resumen": "Exige 80 horas anuales formación continua a magistrados familia en corresponsabilidad, evitando sesgos discriminatorios en cuidado hijos.",
+"articulos_clave": [
+{
+"articulo": "Artículo 1",
+"texto": "Poder Judicial implementa diplomado obligatorio; no certificados pierden competencia en causas con perspectiva de género."
+},
+{
+"articulo": "Evaluación desempeño",
+"texto": "Observatorio Parental califica sentencias por aplicación correcta corresponsabilidad; puntaje afecta ascensos judiciales."
+}
+]
+},
+{
+"id": "LEY-22389",
+"nombre": "Ley que Crea la Pensión Mixta Público-Privada de Alimentos",
+"palabras_clave": ["pensión mixta alimentos", "aporte AFP parental", "complemento estatal", "jubilación deudor", "garantía perpetua", "hijos dependientes"],
+"resumen": "Destina 20% pensión AFP deudor alimenticio a pago perpetuo alimentos hijos hasta mayoría edad o independencia económica.",
+"articulos_clave": [
+{
+"articulo": "Artículo 3",
+"texto": "Retención automática jubilación AFP; Estado complementa diferencia hasta monto judicial si renta insuficiente."
+},
+{
+"articulo": "Extensión",
+"texto": "Continúa post 18 años si hijo estudia superior o presenta discapacidad; herederos solidarios si saldo pendiente."
+}
+]
+}
+]
+[1](https://diaonia.com/separacion-de-parejas-con-hijos-sin-estar-casados-en-chile/)
+[2](https://www.byrjuridico.com/post/qu%C3%A9-pasa-con-el-cuidado-de-los-hijos-en-chile-tras-una-separaci%C3%B3n)
+[3](https://notarias-chile.cl/como-se-distribuye-la-herencia-a-hijos-fuera-del-matrimonio-en-chile/)
+[4](https://www.leychile.cl/navegar?idNorma=1052090)
+[5](https://abogados-talca.cl/derechos-del-padre-separado-en-chile/)
+[6](https://minmujeryeg.gob.cl/?page_id=48341)
+[7](https://www.conceptosjuridicos.com/cl/violencia-intrafamiliar/)
+[8](https://www.aafp.cl/tramites/como-funciona-la-ley-de-responsabilidad-parental/)
+[9](https://www.biobiochile.cl/noticias/opinion/columnas-bbcl/2024/06/26/legislatitis-de-genero-en-chile.shtml)
+[10](https://blog.nexoabogados.cl/la-custodia-de-hijos-en-chile/)
+[11](https://www.bcn.cl/portal/leyfacil/recurso/pension-alimenticia-para-menores)
+[12](https://www.bcn.cl/leychile/navegar?idNorma=27977)
+[13](https://www.chileatiende.gob.cl/fichas/109566-ley-de-responsabilidad-parental-y-pago-efectivo-de-pensiones-de-alimentos)
+[14](https://www.cajmetro.cl/wp-content/uploads/2022/11/PPT-LEY-21389-Y-LEY-21484-nov-2022.pdf)
+[15](https://www.conceptosjuridicos.com/cl/pension-alimenticia/)
+[16](https://derecho-chile.cl/modificaciones-introducidas-al-codigo-civil-por-la-ley-n-20-680/)
+[17](https://www.isl.gob.cl/ley-karin/)
+[18](https://www.bcn.cl/leychile/navegar?idNorma=1075613)
+[19](https://ciclosconsultores.cl/Descargas/Minuta_Resumen_de_la_Nueva_Ley_de_Maltrato_Infantil_y_Maltrato_a_Personas_Vulneradas.pdf)
+[20](https://www.lavinasociados.cl/divorcio-en-chile-guia-completa-sobre-tipos-requisitos-derechos-y-desafios-legales-para-la-mujer/)
+[21](https://www.bcn.cl/leychile/Navegar?idNorma=1052090)
+[22](https://nuevo.leychile.cl/navegar?idNorma=1052090&idParte=9360730&idVersion=2013-06-21)
+[23](https://vlex.cl/vid/proteger-integridad-vivan-separados-442285934)
+[24](https://oig.cepal.org/sites/default/files/2013_ley20680_chl.pdf)
+[25](https://www.mediacionchile.gob.cl/wp-content/uploads/2022/01/informe-corresponsabilidad.pdf)
+[26](https://www.afunpro.cl/sites/default/files/2023-05/PPT%20LEY%2021389%20Y%2021484%20(CAJMETRO).pdf)
+[27](https://crianzaenflor.cl/chile-ya-tiene-una-ley-que-sanciona-penalmente-el-maltrato-infantil/)
+[28](https://secretariadegenero.pjud.cl/index.php/noticias/608-publicacion-de-la-ley-21-675-que-estatuye-medidas-para-prevenir-sancionar-y-erradicar-la-violencia-contra-las-mujeres-en-razon-de-su-genero)
+[29](https://leyes-cl.com/codigo_civil.htm)
+[30](https://vlex.cl/vid/ley-num-20820-publicada-561786858)
