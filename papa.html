@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía para Padres | LeyResponsable.cl</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7868880098336635" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { dark: '#0B0F19', papa: '#3B82F6', papaDark: '#1e3a8a' },
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'], body: ['Lato', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #F3F4F6; }
+        .hero-papa { background: radial-gradient(circle at top right, #1e3a8a 0%, #0B0F19 60%); }
+        .accordion-content { display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .ai-card { background: #0f172a; border-left: 4px solid #3B82F6; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; position: relative; z-index: 50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .badge-ia { background: #3B82F6; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem; display: inline-block; }
+    </style>
+</head>
+<body class="hero-papa min-h-screen">
+
+    <!-- Header -->
+    <nav class="w-full py-4 px-6 flex justify-between items-center border-b border-white/10 bg-black/20 backdrop-blur sticky top-0 z-50">
+        <a href="index.html" class="text-white font-bold hover:text-papa transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio</a>
+        <div class="bg-papa/20 text-papa px-3 py-1 rounded-full text-xs font-bold border border-papa/50">MODO PAPÁ</div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        
+        <!-- IA CONTEXTUAL PAPÁ -->
+        <div class="mb-12 bg-black/40 p-6 rounded-2xl border border-papa/30 shadow-xl backdrop-blur-sm">
+            <h2 class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-robot text-papa mr-2"></i> Asistente Legal para Padres</h2>
+            <p class="text-gray-400 text-sm mb-4">Consulta sobre defensa de deudores, rebajas, visitas y regularización.</p>
+            <div class="flex gap-2">
+                <input type="text" id="ai-input-papa" placeholder="Ej: Me quedé cesante..." class="w-full bg-slate-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-papa outline-none">
+                <button onclick="askAIPapa()" class="bg-papa hover:bg-blue-600 text-white px-6 rounded-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+            <div id="ai-response-papa" class="hidden"></div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-8">Guía de Regularización y Derechos</h1>
+        
+        <div class="space-y-8">
+            <!-- Sección 1 -->
+            <section class="bg-slate-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-xl font-bold text-papa mb-3">1. No pagues "por fuera"</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    Este es el error número 1 que genera deuda injusta. Si la sentencia dice que debes pagar 150.000 pesos en la cuenta del BancoEstado, <strong>SOLO ESO CUENTA</strong>.
+                </p>
+                <div class="bg-red-500/10 border-l-4 border-red-500 p-4 text-sm text-gray-300">
+                    <p class="font-bold text-red-400 mb-1">NO CUENTA LEGALMENTE:</p>
+                    <ul class="list-disc pl-5">
+                        <li>Pagar el furgón o colegio directo.</li>
+                        <li>Comprar ropa o zapatillas.</li>
+                        <li>Pasar dinero en efectivo en la mano.</li>
+                    </ul>
+                    <p class="mt-2">Todo eso son "regalos" ante la ley. La deuda en el tribunal seguirá creciendo si no depositas en la cuenta oficial.</p>
+                </div>
+            </section>
+
+            <!-- Sección 2: Acordeón -->
+            <section>
+                <h3 class="text-2xl font-bold text-white mb-6">Preguntas Críticas</h3>
+                
+                <div class="space-y-2">
+                    <!-- Q1 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq1')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            Quedé cesante, ¿se congela la deuda?
+                            <i class="fa-solid fa-chevron-down text-papa"></i>
+                        </button>
+                        <div id="faq1" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            <strong>NO.</strong> La deuda sigue corriendo mes a mes al mismo valor anterior. Es vital que vayas INMEDIATAMENTE al Tribunal de Familia o a una mediación para solicitar una <strong>Rebaja de Alimentos</strong>. Si no lo haces, acumularás una deuda millonaria imposible de pagar después.
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq2')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            No me dejan ver a mi hijo porque debo plata
+                            <i class="fa-solid fa-chevron-down text-papa"></i>
+                        </button>
+                        <div id="faq2" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            Eso es ilegal. Las visitas (Régimen de Relación Directa y Regular) son un <strong>Derecho del Niño</strong>, no un premio por pagar. Si la madre te prohíbe las visitas, está vulnerando los derechos del niño. Puedes interponer una demanda de cumplimiento de relación directa y regular, o pedir compensación de días.
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq3')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            Ella gasta la plata en ella (uñas, fiestas)
+                            <i class="fa-solid fa-chevron-down text-papa"></i>
+                        </button>
+                        <div id="faq3" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            La ley otorga la administración de los fondos a quien tiene el cuidado personal. El tribunal raramente audita "en qué se gastó cada peso" a menos que haya una vulneración evidente de derechos del niño (ej: el niño está desnutrido o sin escolaridad). Si el niño está bien, el tribunal asume que el dinero libera fondos de la madre para otros gastos del hogar.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "AIzaSyArHwc0NJbfG9a0Eepu2ZRsjVwOSv6Mr-U"; // TU LLAVE
+
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('active');
+        }
+
+        async function askAIPapa() {
+            const query = document.getElementById('ai-input-papa').value.trim();
+            const responseDiv = document.getElementById('ai-response-papa');
+            
+            if (!query) return;
+            responseDiv.classList.remove('hidden');
+            responseDiv.innerHTML = `<div class="text-papa mt-2 animate-pulse">Analizando...</div>`;
+
+            // Prompt ESPECIALIZADO PARA PAPÁS
+            const systemPrompt = `
+                Eres el Abogado de LeyResponsable.cl ayudando a un PADRE.
+                Tono: Objetivo, directo y enfocado en soluciones legales (no moralista).
+                Ley: Enfócate en derechos de visitas, rebaja de pensión por cesantía, y defensa ante deudas injustas.
+                Responde breve y con pasos claros.
+            `;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: query }] }], systemInstruction: { parts: [{ text: systemPrompt }] } })
+                });
+                const data = await response.json();
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                responseDiv.innerHTML = `<div class="ai-card"><span class="badge-ia">Respuesta Legal</span><p class="text-gray-200">${text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-papa">$1</strong>').replace(/\n/g, '<br>')}</p></div>`;
+            } catch (e) { responseDiv.innerHTML = "Error de conexión."; }
+        }
+    </script>
+</body>
+</html>
