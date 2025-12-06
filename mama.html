@@ -31,15 +31,33 @@
         .badge-ia { background: #EC4899; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem; display: inline-block; }
     </style>
 </head>
-<body class="hero-mama min-h-screen">
+<body class="hero-mama min-h-screen flex flex-col">
 
     <!-- Header -->
     <nav class="w-full py-4 px-6 flex justify-between items-center border-b border-white/10 bg-black/20 backdrop-blur sticky top-0 z-50">
-        <a href="index.html" class="text-white font-bold hover:text-mama transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio</a>
+        <a href="index.html" class="text-white font-bold hover:text-mama transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-house"></i> <span class="hidden md:inline">Inicio</span>
+        </a>
         <div class="bg-mama/20 text-mama px-3 py-1 rounded-full text-xs font-bold border border-mama/50">MODO MAMÁ</div>
     </nav>
 
-    <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto px-4 py-12 flex-grow">
+        
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-8 text-center md:text-left">Guía de Cobro Efectivo</h1>
+
+        <!-- VIDEO EXPLICATIVO -->
+        <div class="mb-12">
+            <div class="relative w-full pb-[56.25%] h-0 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                <iframe src="https://www.youtube.com/embed/NuCZCGTmeH0" 
+                    title="Video Explicativo Mamá"
+                    class="absolute top-0 left-0 w-full h-full"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-3"><i class="fa-brands fa-youtube text-red-500 mr-1"></i> Mira este video para entender tus derechos en minutos.</p>
+        </div>
         
         <!-- IA CONTEXTUAL -->
         <div class="mb-12 bg-black/40 p-6 rounded-2xl border border-mama/30 shadow-xl backdrop-blur-sm">
@@ -52,9 +70,6 @@
             <div id="ai-response-mama" class="hidden"></div>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL -->
-        <h1 class="text-4xl md:text-5xl font-black text-white mb-8">Guía de Cobro Efectivo</h1>
-        
         <div class="space-y-8">
             <!-- Sección 1 -->
             <section class="bg-slate-900/50 p-6 rounded-xl border border-gray-800">
@@ -112,6 +127,13 @@
 
         <div class="mt-12 p-4 bg-gray-800 rounded text-center text-gray-500 text-sm">
             Recuerda: Todos los trámites se hacen en <a href="https://tramitefacil.pjud.cl" target="_blank" class="text-mama underline">tramitefacil.pjud.cl</a> con Clave Única.
+        </div>
+
+        <!-- BOTÓN VOLVER HOME -->
+        <div class="mt-12 mb-8 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg">
+                <i class="fa-solid fa-house text-mama"></i> Volver al Home Familiar
+            </a>
         </div>
     </div>
 
