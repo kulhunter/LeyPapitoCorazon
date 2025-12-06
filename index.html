@@ -3,47 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsabilidad Parental Chile | Guía Definitiva de Derechos y Deberes</title>
+    <title>Ley de Responsabilidad Parental Chile | Guía Completa 2024</title>
     
-    <!-- SEO METADATA CRITICA -->
-    <meta name="description" content="Guía completa sobre la Ley de Responsabilidad Parental en Chile. Aprende sobre pensión de alimentos, visitas, cuidado personal y registro de deudores en lenguaje simple.">
-    <meta name="keywords" content="ley papito corazón, pensión de alimentos chile, cuidado personal compartido, registro de deudores, relación directa y regular, ley 21484 explicada, abogados de familia gratis">
+    <!-- SEO METADATA -->
+    <meta name="description" content="Guía definitiva sobre la Ley 21.484 de Responsabilidad Parental y Pago Efectivo de Pensiones en Chile. Procedimiento de cobro AFP, retención bancaria y registro de deudores.">
+    <meta name="keywords" content="ley papito corazón, retiro afp pensión alimentos, registro nacional de deudores, ley 21484, cobro pensión alimentos chile, cuidado personal, relación directa y regular">
     <meta name="author" content="Defensa Parental Chile">
     
-    <!-- SCHEMA.ORG para Google (AEO/GEO Optimization) -->
+    <!-- SCHEMA.ORG (Article + FAQ) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "¿Qué pasa si no pago la pensión de alimentos en Chile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Con la nueva Ley de Responsabilidad Parental, si debes pensión, entras al Registro Nacional de Deudores. Esto implica: retención de devolución de impuestos, imposibilidad de renovar licencia de conducir y pasaporte, y retención de créditos bancarios. Además, se puede perseguir el pago a través de tus fondos de AFP."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Me pueden quitar a mi hijo si no tengo trabajo?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "FALSO. La situación económica (pobreza) no es causal para quitar el cuidado personal de un hijo. Los tribunales de familia en Chile buscan el interés superior del niño, priorizando su estabilidad emocional por sobre la riqueza material del padre o madre."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿El dinero de la pensión es para la mamá o el niño?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Legalmente, el dinero es propiedad exclusiva del hijo/a. El padre/madre custodio es solo el administrador de esos fondos. Deben usarse en vivienda, alimentación, vestimenta, salud, educación y recreación del menor."
-        }
-      }]
+      "@type": "Article",
+      "headline": "Guía Definitiva de la Ley de Responsabilidad Parental en Chile",
+      "description": "Explicación detallada de los mecanismos de cobro de pensión de alimentos mediante retención bancaria y fondos de AFP según la Ley 21.484.",
+      "author": {
+        "@type": "Organization",
+        "name": "Defensa Parental Chile"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Defensa Parental Chile"
+      }
     }
     </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -65,26 +53,17 @@
                         sans: ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        dark: '#020617', // Slate 950
-                        glass: 'rgba(255, 255, 255, 0.05)',
-                        glassBorder: 'rgba(255, 255, 255, 0.1)',
+                        dark: '#0f172a', 
                         neonBlue: '#3b82f6',
-                        neonPurple: '#8b5cf6',
-                        accent: '#f43f5e' // Rose 500
+                        neonPurple: '#a855f7',
+                        neonPink: '#ec4899',
                     },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
-                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(40px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
+                    fontSize: {
+                        'md': '1.05rem',
+                        'lg': '1.15rem',
+                        'xl': '1.25rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
                     }
                 }
             }
@@ -92,7 +71,8 @@
     </script>
 
     <style>
-        body { margin: 0; background-color: #020617; color: #e2e8f0; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; background-color: #020617; color: #f1f5f9; overflow-x: hidden; }
         
         #canvas-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -101,481 +81,436 @@
         }
 
         .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 50%, #f472b6 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        .btn-interact {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-interact:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #a855f7;
         }
 
-        /* Utilidades de estado */
-        .hidden-section { display: none; opacity: 0; pointer-events: none; }
-        .visible-section { display: flex; animation: fadeIn 0.5s forwards; pointer-events: auto; }
+        /* Utilidades */
+        .hidden-section { display: none; }
+        .visible-section { display: block; animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilos de contenido enriquecido */
+        .content-body h3 { font-size: 1.75rem; font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; color: #fff; }
+        .content-body h4 { font-size: 1.4rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.8rem; color: #e2e8f0; display: flex; align-items: center; gap: 0.5rem; }
+        .content-body p { margin-bottom: 1.2rem; line-height: 1.8; color: #cbd5e1; font-size: 1.15rem; }
+        .content-body ul { margin-bottom: 1.5rem; list-style: none; padding-left: 0; }
+        .content-body li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; line-height: 1.6; font-size: 1.1rem; }
+        .content-body li::before { content: "•"; color: #a855f7; position: absolute; left: 0; font-weight: bold; font-size: 1.5rem; line-height: 1.2; }
+        
+        /* Highlight box */
+        .highlight-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0; margin: 2rem 0; }
+        .warning-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0; margin: 2rem 0; }
+        .success-box { background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0; margin: 2rem 0; }
+
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col relative overflow-hidden text-slate-200">
+<body class="antialiased">
 
     <!-- 3D Background -->
     <div id="canvas-container"></div>
 
-    <!-- MAIN UI -->
-    <main class="relative z-10 w-full max-w-7xl mx-auto px-4 py-6 min-h-screen flex flex-col">
-        
-        <!-- NAVBAR SIMPLE -->
-        <nav class="flex justify-between items-center py-4 mb-8 border-b border-white/5">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-scale-balanced text-2xl text-neonBlue"></i>
-                <span class="font-bold text-xl tracking-tight text-white">LEY<span class="text-neonPurple">RESPONSABLE</span>.CL</span>
-            </div>
-            <div class="text-xs md:text-sm text-gray-400">
-                <i class="fa-solid fa-flag text-red-500 mr-1"></i> Actualizado Ley 21.484
+    <!-- MAIN UI WRAPPER -->
+    <div class="relative z-10 w-full min-h-screen flex flex-col">
+
+        <!-- NAVBAR GLOBAL -->
+        <nav class="w-full glass-panel border-b border-white/10 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="goHome()">
+                    <i class="fa-solid fa-scale-balanced text-2xl text-neonPurple"></i>
+                    <span class="font-black text-xl tracking-tight text-white">LEY<span class="text-neonBlue">RESPONSABLE</span></span>
+                </div>
+                <div class="text-xs md:text-sm font-semibold bg-white/10 px-3 py-1 rounded-full text-gray-300">
+                    <i class="fa-solid fa-check-circle text-green-400 mr-1"></i> Actualizado Ley 21.484
+                </div>
             </div>
         </nav>
 
-        <!-- SECCIÓN 1: INTRO Y SELECCIÓN -->
-        <div id="intro-section" class="flex flex-col items-center justify-center flex-grow text-center space-y-8 py-10">
+        <!-- SECCIÓN 1: HOME (SELECCIÓN DE PERFIL) -->
+        <header id="intro-section" class="flex flex-col items-center justify-center min-h-[90vh] text-center px-4 py-12 relative">
             
-            <header class="animate-slide-up max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
-                    BASTA DE <span class="text-gradient">PELEAR</span>.<br>
-                    EMPIEZA A <span class="text-white">CONSTRUIR</span>.
+            <div class="animate-slide-up max-w-5xl mx-auto space-y-8">
+                <span class="text-neonPurple font-bold tracking-widest uppercase text-sm md:text-base">Guía Definitiva 2024</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight">
+                    LA VERDAD SOBRE<br>
+                    <span class="text-gradient">TU FAMILIA</span>
                 </h1>
-                <p class="text-lg md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-                    La Ley de Responsabilidad Parental no es para amenazarte. Es para garantizar el futuro de tu hijo. 
-                    <strong class="text-white font-semibold">Olvídate de lo que te dijo tu vecino.</strong> Aquí está la verdad legal explicada en simple.
+                <p class="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+                    La "Ley Papito Corazón" (21.484) cambió las reglas del juego en Chile. 
+                    <br><strong class="text-white font-medium">Se acabaron las excusas.</strong>
+                    Elige tu perfil para entender cómo te afecta realmente.
                 </p>
-            </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mt-8 animate-slide-up" style="animation-delay: 0.2s;">
-                
-                <!-- Card Mamá -->
-                <button onclick="loadContent('mama')" class="group relative overflow-hidden rounded-2xl glass-panel p-1 btn-interact text-left h-full">
-                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="relative z-10 p-8 flex flex-col h-full">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-pink-500/20 text-pink-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Perfil Madre</span>
-                            <i class="fa-solid fa-venus text-3xl text-pink-500"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto mt-12">
+                    <!-- Botón Mamá -->
+                    <button onclick="loadGuide('mama')" class="group relative overflow-hidden rounded-3xl glass-panel p-1 text-left transition-all hover:scale-[1.02] duration-300 hover:shadow-[0_0_40px_rgba(236,72,153,0.3)]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-600/30 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10 p-8 h-full flex flex-col justify-between min-h-[250px]">
+                            <div>
+                                <i class="fa-solid fa-venus text-5xl text-pink-500 mb-6"></i>
+                                <h2 class="text-4xl font-black text-white mb-2">SOY MAMÁ</h2>
+                                <p class="text-pink-200 text-lg font-medium">Quiero cobrar la pensión y proteger a mi hijo.</p>
+                            </div>
+                            <div class="mt-6 flex items-center text-white font-bold text-lg">
+                                LEER GUÍA COMPLETA <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                            </div>
                         </div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Soy Mamá</h3>
-                        <p class="text-gray-400 text-sm mb-4">"No me paga la pensión", "Quiere visitas pero no ayuda", "¿Me pueden quitar a mi hijo?"</p>
-                        <div class="mt-auto flex items-center text-pink-400 font-bold text-sm">
-                            VER MIS DERECHOS REALES <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <!-- Card Papá -->
-                <button onclick="loadContent('papa')" class="group relative overflow-hidden rounded-2xl glass-panel p-1 btn-interact text-left h-full">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="relative z-10 p-8 flex flex-col h-full">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Perfil Padre</span>
-                            <i class="fa-solid fa-mars text-3xl text-blue-500"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-white mb-2">Soy Papá</h3>
-                        <p class="text-gray-400 text-sm mb-4">"No me deja ver a mi hijo", "La plata se la gasta ella", "Estoy cesante y no puedo pagar"</p>
-                        <div class="mt-auto flex items-center text-blue-400 font-bold text-sm">
-                            VER MIS DEBERES Y DERECHOS <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </button>
-
-            </div>
-        </div>
-
-        <!-- SECCIÓN 2: BASE DE CONOCIMIENTO (Dashboard) -->
-        <div id="knowledge-base" class="hidden-section flex-col flex-grow w-full max-w-6xl mx-auto h-full">
-            
-            <!-- Header Sección -->
-            <div class="flex flex-col md:flex-row justify-between items-end md:items-center mb-6 gap-4">
-                <div>
-                    <button onclick="goBack()" class="text-gray-400 hover:text-white mb-2 flex items-center gap-2 text-sm font-semibold transition-colors">
-                        <i class="fa-solid fa-arrow-left"></i> VOLVER AL INICIO
                     </button>
-                    <h2 id="kb-title" class="text-3xl md:text-4xl font-black text-white uppercase tracking-wide">
-                        <!-- JS Title -->
-                    </h2>
-                </div>
-                
-                <!-- Selector de Categorías -->
-                <div class="flex bg-white/5 p-1 rounded-xl overflow-x-auto no-scrollbar w-full md:w-auto">
-                    <button onclick="switchTab('pension')" class="tab-btn active px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap" data-tab="pension">LA PLATA (PENSIÓN)</button>
-                    <button onclick="switchTab('visitas')" class="tab-btn px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-gray-400 hover:text-white" data-tab="visitas">LAS VISITAS</button>
-                    <button onclick="switchTab('custodia')" class="tab-btn px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-gray-400 hover:text-white" data-tab="custodia">CUIDADO PERSONAL</button>
-                    <button onclick="switchTab('miedos')" class="tab-btn px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-red-400 hover:text-red-300" data-tab="miedos">MIEDOS Y MITOS</button>
+
+                    <!-- Botón Papá -->
+                    <button onclick="loadGuide('papa')" class="group relative overflow-hidden rounded-3xl glass-panel p-1 text-left transition-all hover:scale-[1.02] duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative z-10 p-8 h-full flex flex-col justify-between min-h-[250px]">
+                            <div>
+                                <i class="fa-solid fa-mars text-5xl text-blue-500 mb-6"></i>
+                                <h2 class="text-4xl font-black text-white mb-2">SOY PAPÁ</h2>
+                                <p class="text-blue-200 text-lg font-medium">Quiero cumplir, ver a mi hijo y entender mis derechos.</p>
+                            </div>
+                            <div class="mt-6 flex items-center text-white font-bold text-lg">
+                                LEER GUÍA COMPLETA <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                            </div>
+                        </div>
+                    </button>
                 </div>
             </div>
+        </header>
 
-            <!-- Contenedor Principal de Contenido -->
-            <div class="glass-panel rounded-3xl p-6 md:p-10 flex-grow relative overflow-hidden min-h-[60vh]">
+        <!-- SECCIÓN 2: GUÍA COMPLETA (READER VIEW) -->
+        <div id="guide-section" class="hidden-section w-full max-w-7xl mx-auto px-4 py-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Área de contenido dinámico -->
-                <div id="content-area" class="h-full overflow-y-auto custom-scrollbar pr-4 pb-20">
-                    <!-- El contenido se inyecta aquí -->
+                <!-- SIDEBAR DE NAVEGACIÓN (ÍNDICE) -->
+                <aside class="lg:col-span-3 hidden lg:block">
+                    <div class="sticky-nav glass-panel rounded-2xl p-6">
+                        <h3 class="text-white font-bold text-lg mb-4 uppercase tracking-wider border-b border-white/10 pb-2">Índice</h3>
+                        <nav class="flex flex-col space-y-1" id="toc-desktop">
+                            <!-- Inyectado por JS -->
+                        </nav>
+                        
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <button onclick="goHome()" class="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-semibold transition-colors">
+                                <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- MENÚ MÓVIL (Sticky Top) -->
+                <div class="lg:hidden sticky top-[73px] z-40 bg-[#0f172a]/95 backdrop-blur-md border-b border-white/10 -mx-4 px-4 py-3 mb-6 overflow-x-auto whitespace-nowrap custom-scrollbar" id="toc-mobile">
+                     <!-- Inyectado por JS -->
                 </div>
 
-                <!-- Footer del Panel -->
-                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#0f172a] to-transparent h-24 pointer-events-none"></div>
-            </div>
+                <!-- CONTENIDO PRINCIPAL -->
+                <article class="lg:col-span-9 glass-panel rounded-3xl p-6 md:p-12 min-h-screen content-body" id="article-content">
+                    <!-- Contenido inyectado por JS -->
+                </article>
 
+            </div>
         </div>
 
-    </main>
+    </div>
 
-    <!-- DATA BASE LEGAL (El corazón de la app) -->
+    <!-- BASE DE DATOS DE CONTENIDO (HTML ENRIQUECIDO) -->
     <script>
-        const legalData = {
-            mama: {
-                title: "Guía Legal para <span class='text-pink-500'>Madres</span>",
-                content: {
-                    pension: `
-                        <div class="space-y-8 animate-fade-in">
-                            <div class="border-l-4 border-pink-500 pl-6">
-                                <h3 class="text-2xl font-bold text-white mb-2">¿Cómo aseguro el pago real?</h3>
-                                <p class="text-gray-300 text-lg">La Ley de Responsabilidad Parental (21.484) cambió el juego. Ya no basta con pedir; el Estado ahora busca el dinero por ti.</p>
-                            </div>
+        const contentData = {
+            mama: `
+                <header class="mb-12 border-b border-white/10 pb-8">
+                    <span class="text-pink-500 font-bold tracking-wider uppercase mb-2 block">Guía Legal Actualizada</span>
+                    <h1 class="text-4xl md:text-6xl font-black text-white mb-4">Manual de Cobro y Defensa para Madres</h1>
+                    <p class="text-xl text-gray-300">Entiende la Ley 21.484, cómo activar el pago por AFP y cómo defender el patrimonio de tu hijo sin miedo.</p>
+                </header>
 
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="bg-white/5 p-6 rounded-xl">
-                                    <h4 class="text-pink-400 font-bold mb-3 flex items-center"><i class="fa-solid fa-fingerprint mr-2"></i> Registro Nacional de Deudores</h4>
-                                    <p class="text-sm text-gray-300">Si debe 3 meses continuos o 5 discontinuos, entra al registro. No podrá renovar licencia de conducir, ni pasaporte, y los bancos le retendrán créditos.</p>
-                                </div>
-                                <div class="bg-white/5 p-6 rounded-xl">
-                                    <h4 class="text-pink-400 font-bold mb-3 flex items-center"><i class="fa-solid fa-piggy-bank mr-2"></i> Pago con AFP</h4>
-                                    <p class="text-sm text-gray-300">Si no tiene dinero en cuentas bancarias, el tribunal puede ordenar el pago con los fondos de su cuenta de capitalización individual (AFP). Esto es un procedimiento especial.</p>
-                                </div>
-                            </div>
+                <section id="contexto" class="mb-16">
+                    <h3>1. El Nuevo Paradigma: El Estado Busca el Dinero</h3>
+                    <p>Antes, tú tenías que hacer de investigadora privada: buscar dónde trabajaba el padre, si tenía auto, si tenía casa. <strong>Eso se acabó.</strong></p>
+                    <p>La Ley de Responsabilidad Parental (Ley 21.484) establece que si existe una deuda de alimentos decretada por un tribunal, es el Estado (a través de los Tribunales de Familia) el encargado de investigar el patrimonio del deudor.</p>
+                    <div class="highlight-box">
+                        <h4 class="text-blue-300 m-0">Dato Clave</h4>
+                        <p class="m-0 text-sm">Ya no es necesario que demandes "Cumplimiento" eternamente. Ahora existen procedimientos especiales que se activan cuando hay deuda.</p>
+                    </div>
+                </section>
 
-                            <div class="bg-red-500/10 border border-red-500/30 p-6 rounded-xl">
-                                <h4 class="text-red-400 font-bold mb-2">MITO: "Si no me deja ver al niño, no le pago" / "Si no paga, no lo ve"</h4>
-                                <p class="text-gray-200">Esto es FALSO y PELIGROSO. Las visitas (Relación Directa y Regular) y los Alimentos van por carriles separados. No puedes prohibir las visitas porque no pague, y él no puede dejar de pagar porque no lo ve. Ambas acciones vulneran los derechos del niño y te perjudicarán ante un juez.</p>
-                            </div>
-                        </div>
-                    `,
-                    visitas: `
-                        <div class="space-y-6 animate-fade-in">
-                            <h3 class="text-2xl font-bold text-white">Relación Directa y Regular (Visitas)</h3>
-                            <p class="text-gray-300">Entiende esto: <strong class="text-white">Es un derecho de TU HIJO, no del padre.</strong> Tu hijo tiene el derecho humano de mantener vínculo con ambos padres.</p>
-                            
-                            <ul class="space-y-4 mt-4">
-                                <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
-                                    <i class="fa-solid fa-check text-green-400 mt-1"></i>
-                                    <div>
-                                        <strong class="block text-white">El Régimen Comunicacional</strong>
-                                        <span class="text-gray-400 text-sm">Si no llegan a acuerdo, el juez fijará días y horas. Lo estándar es fin de semana por medio y una tarde a la semana, pero esto cambia según la edad del niño.</span>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
-                                    <i class="fa-solid fa-triangle-exclamation text-orange-400 mt-1"></i>
-                                    <div>
-                                        <strong class="block text-white">¿Cuándo puedo negar las visitas?</strong>
-                                        <span class="text-gray-400 text-sm">Solo si hay <strong class="text-white">riesgo inminente y comprobable</strong> para el niño (violencia, abuso, consumo de drogas frente al menor). Si es solo "porque me cae mal", te arriesgas a multas o perder el cuidado personal.</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    `,
-                    custodia: `
-                        <div class="space-y-6 animate-fade-in">
-                            <h3 class="text-2xl font-bold text-white">Cuidado Personal (Tuición)</h3>
-                            <p class="text-gray-300">Por defecto, si los padres viven separados, el cuidado personal lo tiene quien convive con el niño (usualmente la madre). Pero la Ley 20.680 promueve la <strong class="text-pink-400">Corresponsabilidad</strong>.</p>
-                            
-                            <div class="bg-blue-900/30 p-6 rounded-xl border border-blue-500/30">
-                                <h4 class="text-blue-300 font-bold mb-2">Cuidado Personal Compartido</h4>
-                                <p class="text-sm text-gray-300">Es el ideal legal. Significa que ambos padres participan activamente en la crianza y educación, y el niño pasa tiempos similares con ambos. Requiere mucha madurez de los padres.</p>
-                            </div>
-                        </div>
-                    `,
-                    miedos: `
-                        <div class="grid gap-6 animate-fade-in">
-                            <div class="bg-red-500/10 border-l-4 border-red-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"¿Me va a quitar a mi hijo porque gana más plata?"</h4>
-                                <p class="text-gray-300">NO. Rotundamente NO. La capacidad económica no determina quién es mejor padre/madre. El tribunal busca quién le da estabilidad emocional y cuidados diarios (apego). El dinero se suple con la pensión, no con el cambio de casa.</p>
-                            </div>
-                            <div class="bg-red-500/10 border-l-4 border-red-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"¿Puede pedir rebaja de pensión si tiene otro hijo?"</h4>
-                                <p class="text-gray-300">Sí, puede pedirla, pero no es automática. Debe probar que sus gastos aumentaron considerablemente. Tu hijo (el mayor) tiene derechos adquiridos.</p>
-                            </div>
-                            <div class="bg-red-500/10 border-l-4 border-red-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"Me amenaza con abogados caros"</h4>
-                                <p class="text-gray-300">En Familia, los hechos pesan más que los abogados. Si eres una madre presente, responsable y que no obstruye el vínculo con el padre, tienes el 90% del camino ganado. No te dejes amedrentar.</p>
-                            </div>
-                        </div>
-                    `
-                }
-            },
-            papa: {
-                title: "Guía Legal para <span class='text-blue-500'>Padres</span>",
-                content: {
-                    pension: `
-                        <div class="space-y-8 animate-fade-in">
-                            <div class="border-l-4 border-blue-500 pl-6">
-                                <h3 class="text-2xl font-bold text-white mb-2">La Realidad de la Pensión</h3>
-                                <p class="text-gray-300 text-lg">Pagar pensión no es "ayudar". Es tu obligación legal principal. Si fallas aquí, pierdes credibilidad moral y legal para exigir otros derechos.</p>
-                            </div>
+                <section id="retencion-bancaria" class="mb-16">
+                    <h3>2. Procedimiento Especial: Búsqueda de Fondos</h3>
+                    <p>Si el padre adeuda <strong class="text-white">una sola mensualidad</strong>, puedes solicitar al Tribunal que inicie el "Procedimiento Especial".</p>
+                    <h4>¿Qué hace el Tribunal?</h4>
+                    <ul>
+                        <li>Consulta automáticamente a la Comisión para el Mercado Financiero (CMF), al SII y a otros organismos.</li>
+                        <li>Busca cuentas bancarias, instrumentos de inversión, devoluciones de impuestos y créditos.</li>
+                        <li>Si encuentra dinero, ordena al banco <strong>retener</strong> esos fondos y transferirlos a la cuenta de la pensión.</li>
+                    </ul>
+                    <p>Todo esto ocurre en un plazo máximo de días acotados por la ley. Ya no hay secreto bancario para los deudores de alimentos.</p>
+                </section>
 
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="bg-white/5 p-6 rounded-xl">
-                                    <h4 class="text-blue-400 font-bold mb-3 flex items-center"><i class="fa-solid fa-calculator mr-2"></i> ¿Cuánto debo pagar?</h4>
-                                    <p class="text-sm text-gray-300">El mínimo legal (por un hijo) es el 40% de un Ingreso Mínimo Mensual si ganas poco. No existe un "máximo" fijo, pero no puede exceder el 50% de tus ingresos totales. Se calcula según las <strong class="text-white">necesidades del niño</strong> y tu <strong class="text-white">capacidad económica</strong>.</p>
-                                </div>
-                                <div class="bg-white/5 p-6 rounded-xl">
-                                    <h4 class="text-blue-400 font-bold mb-3 flex items-center"><i class="fa-solid fa-file-invoice-dollar mr-2"></i> Gastos Extraordinarios</h4>
-                                    <p class="text-sm text-gray-300">La pensión cubre lo ordinario (comida, techo, colegio). Los gastos extraordinarios (frenillos, giras de estudio, operaciones de urgencia) se pagan APARTE y usualmente al 50% cada uno.</p>
-                                </div>
-                            </div>
-                            
-                             <div class="bg-orange-500/10 border border-orange-500/30 p-6 rounded-xl">
-                                <h4 class="text-orange-400 font-bold mb-2">CONSEJO DE ORO</h4>
-                                <p class="text-gray-200">Paga SIEMPRE en la cuenta bancaria que ordenó el tribunal (BancoEstado usualmente). Si le pasas plata en efectivo, le compras ropa o pagas el furgón directo, <strong class="text-white">legalmente eso no cuenta como pensión</strong> y quedarás como deudor igual. ¡Cuidado!</p>
-                            </div>
-                        </div>
-                    `,
-                    visitas: `
-                        <div class="space-y-6 animate-fade-in">
-                            <h3 class="text-2xl font-bold text-white">Tu Derecho a Ser Papá (Relación Directa)</h3>
-                            <p class="text-gray-300">No eres una visita. Eres el padre. La ley chilena busca que el niño tenga ambos referentes.</p>
-                            
-                            <ul class="space-y-4 mt-4">
-                                <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
-                                    <i class="fa-solid fa-gavel text-blue-400 mt-1"></i>
-                                    <div>
-                                        <strong class="block text-white">Si la madre obstruye las visitas</strong>
-                                        <span class="text-gray-400 text-sm">Debes dejar constancia en Carabineros (Comisaría Virtual) CADA VEZ que vas y no te entregan al niño. Luego, pide al tribunal "Compensación de días" y multas para la madre. Si es reiterado, puedes pedir el Cuidado Personal.</span>
-                                    </div>
-                                </li>
-                                <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
-                                    <i class="fa-solid fa-clock text-blue-400 mt-1"></i>
-                                    <div>
-                                        <strong class="block text-white">La constancia es clave</strong>
-                                        <span class="text-gray-400 text-sm">Si tienes visitas fin de semana por medio, CÚMPLELAS. Si fallas tú, pierdes fuerza moral para reclamar después.</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    `,
-                    custodia: `
-                         <div class="space-y-6 animate-fade-in">
-                            <h3 class="text-2xl font-bold text-white">¿Quieres el Cuidado Personal?</h3>
-                            <p class="text-gray-300">No se pide para "quitarle el niño a la mamá" ni para "dejar de pagar pensión". Se pide porque tú eres la mejor opción de estabilidad para el niño.</p>
-                            
-                            <div class="bg-white/5 p-6 rounded-xl border-l-4 border-blue-500">
-                                <h4 class="text-white font-bold mb-2">Lo que evalúa el juez:</h4>
-                                <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                    <li>Vínculo afectivo con el niño (apego).</li>
-                                    <li>Aptitud para garantizar su bienestar (tiempo, red de apoyo, salud mental).</li>
-                                    <li>La actitud de los padres para cooperar con el otro (si hablas mal de la mamá al niño, te resta puntos).</li>
-                                    <li>La opinión del niño (según su madurez).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    `,
-                    miedos: `
-                        <div class="grid gap-6 animate-fade-in">
-                            <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"¿La plata se la gasta ella en la peluquería?"</h4>
-                                <p class="text-gray-300">Este es el reclamo #1. Entiende esto: La pensión cubre vivienda (luz, agua, arriendo), comida, transporte. Si el niño vive con ella, esos gastos existen aunque no los veas tangiblemente en un juguete. Deja de controlar cada peso y enfócate en que a tu hijo no le falte nada.</p>
-                            </div>
-                            <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"Estoy cesante, ¿me voy preso?"</h4>
-                                <p class="text-gray-300">La prisión (arresto nocturno o total) es la última medida, pero existe. Si quedas cesante, debes DEMANDAR INMEDIATAMENTE una <strong class="text-white">Rebaja de Alimentos</strong>. Si simplemente dejas de pagar sin avisar al tribunal, la deuda se acumula y te van a cobrar igual. El tribunal no adivina que estás sin trabajo.</p>
-                            </div>
-                            <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-r-xl">
-                                <h4 class="text-white font-bold text-lg mb-1">"¿Mi nueva pareja influye?"</h4>
-                                <p class="text-gray-300">Legalmente no, mientras ella trate bien a tu hijo. Pero intenta introducirla con respeto y tiempos adecuados al niño. No fuerces la relación.</p>
-                            </div>
-                        </div>
-                    `
-                }
-            }
+                <section id="pago-afp" class="mb-16">
+                    <h3>3. El Pago con Fondos de AFP (Procedimiento Extraordinario)</h3>
+                    <p>Este es el punto más fuerte de la nueva ley. Si el deudor no tiene dinero en los bancos (o es insuficiente), se puede perseguir su ahorro previsional.</p>
+                    
+                    <div class="warning-box">
+                        <h4 class="text-red-300">Requisitos Obligatorios</h4>
+                        <ul>
+                            <li>Que existan <strong>3 pensiones impagas</strong> (continuas o discontinuas).</li>
+                            <li>Que no se hayan encontrado fondos suficientes en cuentas bancarias (paso anterior).</li>
+                        </ul>
+                    </div>
+
+                    <h4>Límites del Retiro</h4>
+                    <p>No se saca todo el dinero de la AFP indiscriminadamente. La ley fija límites según los años que le falten para jubilar:</p>
+                    <ul>
+                        <li>Si le faltan 15 a 30 años: Puede sacar hasta el <strong>50%</strong> de sus fondos.</li>
+                        <li>Si le faltan menos de 15 años: Puede sacar hasta el <strong>80%</strong>.</li>
+                        <li>Si ya está pensionado: Hasta el <strong>90%</strong>.</li>
+                    </ul>
+                </section>
+
+                <section id="registro-deudores" class="mb-16">
+                    <h3>4. Registro Nacional de Deudores</h3>
+                    <p>Si debe 3 meses continuos o 5 discontinuos, ingresa al Registro. Estar aquí es la "muerte civil" financiera.</p>
+                    <h4>Consecuencias Inmediatas:</h4>
+                    <ul>
+                        <li><strong>Licencia de Conducir:</strong> No podrá renovarla ni sacarla.</li>
+                        <li><strong>Pasaporte:</strong> No podrá emitirlo.</li>
+                        <li><strong>Venta de Inmuebles/Vehículos:</strong> El Conservador de Bienes Raíces o Registro Civil inscribirá la venta SOLO si se paga la deuda de alimentos con las ganancias.</li>
+                        <li><strong>Devolución de Impuestos:</strong> Tesorería retendrá su devolución de renta.</li>
+                        <li><strong>Créditos Bancarios:</strong> Si pide un crédito de consumo de 50 UF o más, el banco debe retener parte del dinero para pagar la deuda.</li>
+                    </ul>
+                </section>
+
+                <section id="visitas-miedos" class="mb-16">
+                    <h3>5. Visitas y Tus Miedos Frecuentes</h3>
+                    <p>Muchas madres temen exigir el pago por miedo a represalias con el niño.</p>
+                    
+                    <div class="success-box">
+                        <h4 class="text-green-300">La Verdad Legal</h4>
+                        <p><strong>El dinero NO compra derechos sobre el niño.</strong></p>
+                        <p>Que él pague la pensión (incluso si es a la fuerza por AFP) no le da derecho automático a pedir el Cuidado Personal (tuición) ni a llevarse al niño cuando quiera. Son carriles separados.</p>
+                    </div>
+
+                    <p>Si él amenaza con "quitarte al niño" porque lo demandaste, mantén la calma. Los Tribunales de Familia saben que esas demandas suelen ser represalias. Lo que importa es quién ha cuidado al niño diariamente (tú) y su estabilidad emocional.</p>
+                </section>
+            `,
+            papa: `
+                <header class="mb-12 border-b border-white/10 pb-8">
+                    <span class="text-blue-500 font-bold tracking-wider uppercase mb-2 block">Guía Legal Actualizada</span>
+                    <h1 class="text-4xl md:text-6xl font-black text-white mb-4">Manual de Cumplimiento y Derechos del Padre</h1>
+                    <p class="text-xl text-gray-300">Cómo cumplir con la ley, evitar embargos, regularizar tu situación y, lo más importante, asegurar tu relación con tu hijo.</p>
+                </header>
+
+                <section id="obligacion-pago" class="mb-16">
+                    <h3>1. La Obligación de Pagar: Sin Excusas</h3>
+                    <p>La pensión de alimentos no es opcional ni un favor. Es un derecho humano de tu hijo. Con la Ley 21.484, el sistema para cobrar se volvió automático y muy eficaz.</p>
+                    <div class="warning-box">
+                        <h4 class="text-red-300">¡Cuidado con los pagos informales!</h4>
+                        <p class="m-0">Si compras ropa, pagas el colegio directo o le pasas efectivo a la madre, <strong>eso NO es pensión ante la ley</strong>. Para el tribunal, sigues debiendo dinero. Debes depositar SIEMPRE en la cuenta de ahorro del BancoEstado abierta por el tribunal.</p>
+                    </div>
+                </section>
+
+                <section id="consecuencias-deuda" class="mb-16">
+                    <h3>2. Si No Pagas: Consecuencias Reales</h3>
+                    <p>Olvídate del "arresto nocturno" como única medida. Ahora te tocan el bolsillo directamente.</p>
+                    <h4>Mecanismos Automáticos:</h4>
+                    <ul>
+                        <li><strong>Retención Bancaria:</strong> El tribunal puede ordenar a todos los bancos informar tus saldos y retener el dinero sin previo aviso.</li>
+                        <li><strong>Fondos AFP:</strong> Si debes más de 3 pensiones, pueden sacar dinero de tu cuenta de capitalización individual, afectando tu jubilación futura.</li>
+                        <li><strong>Registro de Deudores:</strong> Si entras aquí, no podrás renovar licencia de conducir ni pasaporte. Además, si vendes tu auto o casa, te retendrán la ganancia.</li>
+                    </ul>
+                </section>
+
+                <section id="derecho-relacion" class="mb-16">
+                    <h3>3. Tu Derecho a la Relación Directa y Regular (Visitas)</h3>
+                    <p>Muchos padres creen que son solo un "cajero automático". La ley no dice eso. Tu hijo tiene derecho a tener un padre presente.</p>
+                    <p>La <strong>Relación Directa y Regular</strong> es un derecho/deber. Si la madre te impide ver al niño injustificadamente, debes actuar legalmente, no dejar de pagar.</p>
+                    
+                    <div class="highlight-box">
+                        <h4 class="text-blue-300">¿Qué hacer si obstruyen las visitas?</h4>
+                        <ol class="list-decimal pl-4 space-y-2 mt-2">
+                            <li>Acude a Carabineros a dejar una <strong>Constancia</strong> por cada incumplimiento.</li>
+                            <li>Solicita en el Tribunal "Compensación de días" (recuperar el tiempo perdido).</li>
+                            <li>Solicita "Apremio" (multas) para la madre por desacato.</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section id="cuidado-compartido" class="mb-16">
+                    <h3>4. Cuidado Personal Compartido</h3>
+                    <p>La Ley 20.680 introdujo la corresponsabilidad. Si quieres criar activamente (no solo visitar fin de semana por medio), puedes solicitar el Cuidado Personal Compartido.</p>
+                    <p>Esto implica que el niño vive tiempos similares con ambos. Requiere que vivas cerca, tengas una relación civilizada con la madre y condiciones habitacionales adecuadas para el niño.</p>
+                </section>
+
+                <section id="mitos-padres" class="mb-16">
+                    <h3>5. Mitos que debes olvidar</h3>
+                    <ul>
+                        <li><strong>"Si estoy cesante no pago":</strong> FALSO. La deuda se acumula igual. Si quedas sin trabajo, debes demandar <strong class="text-white">Rebaja de Alimentos</strong> inmediatamente.</li>
+                        <li><strong>"Ella gasta la plata en ella":</strong> La ley asume que quien vive con el niño cubre gastos de vivienda y alimentación que tú no ves. Enfócate en que a tu hijo no le falte lo esencial.</li>
+                    </ul>
+                </section>
+            `
         };
 
-        // Estado Global
-        let currentProfile = null;
-        let currentTab = 'pension';
+        const tocData = {
+            mama: [
+                { id: "contexto", text: "1. Nuevo Paradigma" },
+                { id: "retencion-bancaria", text: "2. Retención Bancaria" },
+                { id: "pago-afp", text: "3. Pago con AFP" },
+                { id: "registro-deudores", text: "4. Registro de Deudores" },
+                { id: "visitas-miedos", text: "5. Miedos y Visitas" }
+            ],
+            papa: [
+                { id: "obligacion-pago", text: "1. Obligación de Pago" },
+                { id: "consecuencias-deuda", text: "2. Consecuencias Deuda" },
+                { id: "derecho-relacion", text: "3. Derecho a Visitas" },
+                { id: "cuidado-compartido", text: "4. Cuidado Compartido" },
+                { id: "mitos-padres", text: "5. Mitos Comunes" }
+            ]
+        };
 
-        // Elementos DOM
-        const introSection = document.getElementById('intro-section');
-        const kbSection = document.getElementById('knowledge-base');
-        const kbTitle = document.getElementById('kb-title');
-        const contentArea = document.getElementById('content-area');
-        const tabs = document.querySelectorAll('.tab-btn');
+        function loadGuide(profile) {
+            // 1. Transición UI
+            document.getElementById('intro-section').classList.add('hidden-section');
+            document.getElementById('guide-section').classList.remove('hidden-section');
+            document.getElementById('guide-section').classList.add('visible-section');
+            
+            // 2. Inyectar Contenido
+            document.getElementById('article-content').innerHTML = contentData[profile];
 
-        // Función Principal: Cargar Perfil
-        function loadContent(profile) {
-            currentProfile = profile;
-            
-            // UI Transition
-            introSection.classList.add('hidden-section');
-            introSection.classList.remove('flex'); // remove flex layout
-            
-            kbSection.classList.remove('hidden-section');
-            kbSection.classList.add('visible-section');
+            // 3. Generar Índice (Desktop)
+            const tocDesktop = document.getElementById('toc-desktop');
+            tocDesktop.innerHTML = tocData[profile].map(item => 
+                `<a href="#${item.id}" class="nav-link block py-2 px-4 text-gray-400 hover:text-white hover:bg-white/5 rounded-r-lg text-sm transition-all">${item.text}</a>`
+            ).join('');
 
-            // Set Title
-            kbTitle.innerHTML = legalData[profile].title;
-            
-            // Set Color Theme based on profile
-            updateTabStyles(profile);
-            
-            // Load Initial Tab
-            renderTabContent();
+            // 4. Generar Índice (Móvil)
+            const tocMobile = document.getElementById('toc-mobile');
+            tocMobile.innerHTML = tocData[profile].map(item => 
+                `<a href="#${item.id}" class="inline-block px-4 py-2 mr-2 bg-white/10 rounded-full text-sm text-white border border-white/10">${item.text}</a>`
+            ).join('');
+
+            // 5. Scroll to top
+            window.scrollTo(0, 0);
+
+            // 6. Activar Intersection Observer para el Índice
+            setupScrollSpy();
         }
 
-        // Volver al Inicio
-        function goBack() {
-            kbSection.classList.remove('visible-section');
-            kbSection.classList.add('hidden-section');
+        function goHome() {
+            document.getElementById('guide-section').classList.remove('visible-section');
+            document.getElementById('guide-section').classList.add('hidden-section');
             
-            setTimeout(() => {
-                introSection.classList.remove('hidden-section');
-                introSection.classList.add('flex');
-                introSection.classList.add('animate-slide-up');
-            }, 100);
+            document.getElementById('intro-section').classList.remove('hidden-section');
+            // Pequeño hack para reiniciar la animación
+            const intro = document.getElementById('intro-section');
+            intro.style.animation = 'none';
+            intro.offsetHeight; /* trigger reflow */
+            intro.style.animation = null; 
         }
 
-        // Cambiar Pestaña
-        function switchTab(tabName) {
-            currentTab = tabName;
-            
-            // Update UI Tabs
-            tabs.forEach(btn => {
-                const isActive = btn.dataset.tab === tabName;
-                if(isActive) {
-                    btn.classList.add('bg-white', 'text-dark');
-                    btn.classList.remove('text-gray-400');
-                    if(currentProfile === 'mama') btn.classList.add('text-pink-600');
-                    else btn.classList.add('text-blue-600');
-                } else {
-                    btn.classList.remove('bg-white', 'text-dark', 'text-pink-600', 'text-blue-600');
-                    btn.classList.add('text-gray-400');
-                }
-            });
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-            renderTabContent();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remover clase activa de todos
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        // Agregar clase activa al correspondiente
+                        const id = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -60% 0px' }); // Ajuste para detectar mejor al leer
+
+            sections.forEach(section => observer.observe(section));
         }
-
-        function updateTabStyles(profile) {
-            const activeColor = profile === 'mama' ? 'text-pink-600' : 'text-blue-600';
-            const activeTab = document.querySelector(`.tab-btn[data-tab="${currentTab}"]`);
-            // Reset base styles handled in switchTab, this is just fail-safe
-        }
-
-        // Renderizar HTML del contenido
-        function renderTabContent() {
-            const htmlContent = legalData[currentProfile].content[currentTab];
-            contentArea.innerHTML = htmlContent;
-            contentArea.scrollTop = 0; // Reset scroll
-        }
-
-        // Inicialización
-        switchTab('pension'); // Default tab styling
 
     </script>
 
-    <!-- SCENE 3D (Three.js) - Optimizado para ambiente serio pero moderno -->
+    <!-- 3D SCENE (Fondo Sutil) -->
     <script>
         const container = document.getElementById('canvas-container');
         const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x020617, 0.02);
-
+        // Color de fondo oscuro sólido para evitar banding excesivo
+        
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 30;
+        camera.position.z = 25;
 
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         container.appendChild(renderer.domElement);
 
-        // Grupo principal
-        const group = new THREE.Group();
-        scene.add(group);
-
-        // Geometría Abstracta (Representando estructura/ley)
-        const geometry = new THREE.IcosahedronGeometry(12, 1);
-        const material = new THREE.MeshStandardMaterial({ 
-            color: 0x1e293b, 
-            roughness: 0.4,
-            metalness: 0.8,
-            wireframe: true,
+        // Geometría flotante
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x3b82f6, 
+            wireframe: true, 
             transparent: true, 
-            opacity: 0.1
+            opacity: 0.05 
         });
-        const shape = new THREE.Mesh(geometry, material);
-        group.add(shape);
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
 
-        // Partículas (Datos/Conocimiento)
-        const particlesGeo = new THREE.BufferGeometry();
-        const count = 1000;
-        const pos = new Float32Array(count * 3);
-        for(let i=0; i<count*3; i++) {
-            pos[i] = (Math.random() - 0.5) * 80;
+        // Partículas ambiente
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 800;
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 80;
         }
-        particlesGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        const particlesMat = new THREE.PointsMaterial({
-            size: 0.1,
-            color: 0x60a5fa,
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.15,
+            color: 0xffffff,
             transparent: true,
-            opacity: 0.6
+            opacity: 0.2
         });
-        const particles = new THREE.Points(particlesGeo, particlesMat);
-        group.add(particles);
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
 
-        // Luces
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-        scene.add(ambientLight);
-
-        const light1 = new THREE.PointLight(0x3b82f6, 1, 100);
-        light1.position.set(10, 10, 10);
-        scene.add(light1);
-
-        const light2 = new THREE.PointLight(0xec4899, 1, 100);
-        light2.position.set(-10, -10, 10);
-        scene.add(light2);
-
-        // Animación
-        let mouseX = 0;
-        let mouseY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX - window.innerWidth / 2) * 0.001;
-            mouseY = (e.clientY - window.innerHeight / 2) * 0.001;
-        });
-
+        // Animación Loop
         function animate() {
             requestAnimationFrame(animate);
-            
-            group.rotation.y += 0.002;
-            group.rotation.x += 0.001;
-
-            // Parallax suave
-            group.rotation.y += 0.05 * (mouseX - group.rotation.y);
-            group.rotation.x += 0.05 * (mouseY - group.rotation.x);
-
+            torusKnot.rotation.x += 0.001;
+            torusKnot.rotation.y += 0.002;
+            particlesMesh.rotation.y -= 0.0005;
             renderer.render(scene, camera);
         }
         animate();
 
+        // Resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
