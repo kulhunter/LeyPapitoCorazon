@@ -1,0 +1,66 @@
+[
+  {
+    "id": "LEY-21484",
+    "nombre": "Ley de Responsabilidad Parental y Pago Efectivo de Deudas de Pensiones de Alimentos",
+    "palabras_clave": ["retención", "bancos", "afp", "investigación", "patrimonio", "cobro", "automático"],
+    "resumen": "Establece un procedimiento especial para el cobro de deudas de alimentos, permitiendo al tribunal investigar el patrimonio del deudor en bancos e instituciones financieras y ordenar la retención de fondos.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 19 quater",
+        "texto": "Procedimiento especial para el cobro de deudas de alimentos. Si existe una deuda de alimentos decretada judicialmente, el tribunal deberá iniciar una investigación del patrimonio del deudor activo a través de la interconexión con la Comisión para el Mercado Financiero (CMF), el Servicio de Impuestos Internos (SII) y otras instituciones."
+      },
+      {
+        "articulo": "Retención de Fondos",
+        "texto": "Si como resultado de la investigación se detectan fondos en cuentas bancarias, instrumentos de inversión o ahorro, el juez decretará una medida cautelar de retención de dichos fondos hasta por el monto total de la deuda."
+      }
+    ]
+  },
+  {
+    "id": "LEY-14908",
+    "nombre": "Ley sobre Abandono de Familia y Pago de Pensiones Alimenticias",
+    "palabras_clave": ["arresto", "arraigo", "licencia", "registro", "deudores", "cesante", "mínimo"],
+    "resumen": "Regula la obligación de alimentos y las sanciones por incumplimiento (apremios).",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 3",
+        "texto": "Toda resolución que fije una pensión de alimentos deberá indicar la suma mensual a pagar en Unidades Tributarias Mensuales (UTM), para asegurar su reajustabilidad."
+      },
+      {
+        "articulo": "Presunción de Ingresos",
+        "texto": "Si el demandado no presenta antecedentes de sus ingresos, se presumirá que percibe al menos el sueldo mínimo mensual remuneracional y la pensión se fijará en base a esta presunción."
+      }
+    ]
+  },
+  {
+    "id": "CODIGO-CIVIL-TUICION",
+    "nombre": "Código Civil - Título IX De los Derechos y Deberes entre los Padres y los Hijos",
+    "palabras_clave": ["cuidado personal", "tuición", "visitas", "relación directa", "regular", "abuelos"],
+    "resumen": "Normas sobre quién vive con el hijo y cómo se relaciona con el padre que no vive con él.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 225",
+        "texto": "Si los padres viven separados, podrán determinar de común acuerdo que el cuidado personal de los hijos corresponda al padre, a la madre o a ambos en forma compartida. A falta de acuerdo, los hijos continuarán bajo el cuidado personal del padre o madre con quien estén conviviendo."
+      },
+      {
+        "articulo": "Artículo 229",
+        "texto": "El padre o madre que no tenga el cuidado personal del hijo tendrá el derecho y el deber de mantener con él una relación directa y regular, la que se ejercerá con la frecuencia y libertad acordada con quien lo tiene a su cargo."
+      }
+    ]
+  },
+  {
+    "id": "LEY-20066",
+    "nombre": "Ley de Violencia Intrafamiliar (VIF)",
+    "palabras_clave": ["violencia", "golpes", "amenazas", "miedo", "riesgo", "protección"],
+    "resumen": "Previene y sanciona hechos de violencia entre parientes o parejas.",
+    "articulos_clave": [
+      {
+        "articulo": "Artículo 5",
+        "texto": "Será constitutivo de violencia intrafamiliar todo maltrato que afecte la vida o la integridad física o psíquica de quien tenga o haya tenido la calidad de cónyuge del ofensor o una relación de convivencia con él."
+      },
+      {
+        "articulo": "Deber de Denuncia",
+        "texto": "Existe obligación de denunciar los hechos de violencia intrafamiliar. El tribunal de familia deberá tomar medidas cautelares inmediatas (como el alejamiento del agresor) ante situaciones de riesgo inminente."
+      }
+    ]
+  }
+]
