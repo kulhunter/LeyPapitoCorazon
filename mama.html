@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía para Madres | LeyResponsable.cl</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7868880098336635" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { dark: '#0B0F19', mama: '#EC4899', mamaDark: '#831843' },
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'], body: ['Lato', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #F3F4F6; }
+        .hero-mama { background: radial-gradient(circle at top right, #831843 0%, #0B0F19 60%); }
+        .accordion-content { display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .ai-card { background: #1F1018; border-left: 4px solid #EC4899; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; position: relative; z-index: 50; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .badge-ia { background: #EC4899; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem; display: inline-block; }
+    </style>
+</head>
+<body class="hero-mama min-h-screen">
+
+    <!-- Header -->
+    <nav class="w-full py-4 px-6 flex justify-between items-center border-b border-white/10 bg-black/20 backdrop-blur sticky top-0 z-50">
+        <a href="index.html" class="text-white font-bold hover:text-mama transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i> Volver al Inicio</a>
+        <div class="bg-mama/20 text-mama px-3 py-1 rounded-full text-xs font-bold border border-mama/50">MODO MAMÁ</div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        
+        <!-- IA CONTEXTUAL -->
+        <div class="mb-12 bg-black/40 p-6 rounded-2xl border border-mama/30 shadow-xl backdrop-blur-sm">
+            <h2 class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-robot text-mama mr-2"></i> Asistente Legal para Madres</h2>
+            <p class="text-gray-400 text-sm mb-4">Pregunta específica sobre cobros, retenciones o miedos.</p>
+            <div class="flex gap-2">
+                <input type="text" id="ai-input-mama" placeholder="Ej: El papá trabaja sin contrato..." class="w-full bg-slate-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-mama outline-none">
+                <button onclick="askAIMama()" class="bg-mama hover:bg-pink-600 text-white px-6 rounded-lg font-bold transition-colors"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+            <div id="ai-response-mama" class="hidden"></div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-8">Guía de Cobro Efectivo</h1>
+        
+        <div class="space-y-8">
+            <!-- Sección 1 -->
+            <section class="bg-slate-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-xl font-bold text-mama mb-3">1. La Carga es del Estado (Ley 21.484)</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    Ya no tienes que jugar al detective. La ley establece que el Tribunal de Familia tiene la obligación de investigar el patrimonio del deudor. Esto se llama <strong>Procedimiento Especial de Cobro</strong>.
+                </p>
+                <ul class="list-disc pl-5 text-gray-400 space-y-2">
+                    <li>Se revisan cuentas bancarias (CMF).</li>
+                    <li>Se revisan devoluciones de impuestos (SII).</li>
+                    <li>Se revisan instrumentos de inversión.</li>
+                </ul>
+            </section>
+
+            <!-- Sección 2: Acordeón -->
+            <section>
+                <h3 class="text-2xl font-bold text-white mb-6">Preguntas Frecuentes</h3>
+                
+                <div class="space-y-2">
+                    <!-- Q1 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq1')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            ¿Qué pasa si él trabaja "en negro" (informal)?
+                            <i class="fa-solid fa-chevron-down text-mama"></i>
+                        </button>
+                        <div id="faq1" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            La ley chilena aplica la <strong>Presunción de Ingresos</strong>. Si él no puede demostrar cuánto gana, el tribunal asume legalmente que gana el Sueldo Mínimo y calcula la pensión sobre esa base. Además, el tribunal puede pedir al SII que informe sobre sus gastos (si compra auto, usa tarjetas de crédito) para probar que tiene plata oculta.
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq2')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            ¿Me puede quitar a mis hijos si lo demando?
+                            <i class="fa-solid fa-chevron-down text-mama"></i>
+                        </button>
+                        <div id="faq2" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            <strong>FALSO.</strong> Es la amenaza más común de los deudores ("te voy a quitar la tuición"). El Cuidado Personal no tiene nada que ver con el cobro de dinero. Para quitártelo, tendría que iniciar un juicio aparte y probar negligencia grave de tu parte, lo cual es muy difícil si eres una madre presente. No tengas miedo.
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="border border-gray-700 rounded-lg bg-slate-900 overflow-hidden">
+                        <button onclick="toggleFaq('faq3')" class="w-full text-left p-4 font-bold flex justify-between items-center hover:bg-white/5">
+                            ¿Cómo funciona la Retención de AFP?
+                            <i class="fa-solid fa-chevron-down text-mama"></i>
+                        </button>
+                        <div id="faq3" class="accordion-content p-4 text-gray-400 bg-black/20 border-t border-gray-700">
+                            Es la medida de última instancia. Si se investigan los bancos y NO hay dinero, y se deben 3 pensiones (total o parcial), el tribunal puede ordenar el pago con los fondos de su cuenta de capitalización individual de la AFP.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-12 p-4 bg-gray-800 rounded text-center text-gray-500 text-sm">
+            Recuerda: Todos los trámites se hacen en <a href="https://tramitefacil.pjud.cl" target="_blank" class="text-mama underline">tramitefacil.pjud.cl</a> con Clave Única.
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "AIzaSyArHwc0NJbfG9a0Eepu2ZRsjVwOSv6Mr-U"; // TU LLAVE
+
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('active');
+        }
+
+        async function askAIMama() {
+            const query = document.getElementById('ai-input-mama').value.trim();
+            const responseDiv = document.getElementById('ai-response-mama');
+            
+            if (!query) return;
+            responseDiv.classList.remove('hidden');
+            responseDiv.innerHTML = `<div class="text-mama mt-2 animate-pulse">Consultando...</div>`;
+
+            // Prompt ESPECIALIZADO PARA MAMÁS
+            const systemPrompt = `
+                Eres el Abogado de LeyResponsable.cl ayudando a una MADRE.
+                Tono: Muy empático, protector y firme. Entiendes la carga mental de cobrar.
+                Ley: Enfócate en medidas de apremio (arresto, arraigo), Ley 21.484 (búsqueda de patrimonio) y protección de derechos.
+                Responde breve y con pasos claros.
+            `;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: query }] }], systemInstruction: { parts: [{ text: systemPrompt }] } })
+                });
+                const data = await response.json();
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                responseDiv.innerHTML = `<div class="ai-card"><span class="badge-ia">Respuesta Legal</span><p class="text-gray-200">${text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-mama">$1</strong>').replace(/\n/g, '<br>')}</p></div>`;
+            } catch (e) { responseDiv.innerHTML = "Error de conexión."; }
+        }
+    </script>
+</body>
+</html>
