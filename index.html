@@ -67,6 +67,13 @@
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
@@ -153,18 +160,42 @@
         .faq-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
         .faq-answer { display: none; padding: 1rem 1.2rem; color: #cbd5e1; border-left: 3px solid #a855f7; margin-bottom: 2rem; }
 
-        /* Estilos del buscador IA */
+        /* Estilos del buscador IA - AHORA CON ASPECTO DE CHAT */
         .ai-result {
-            background: rgba(0,0,0,0.6);
-            border-left: 4px solid #9333ea;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 0 0.5rem 0.5rem 0;
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            padding: 1.2rem;
+            margin-bottom: 0.8rem;
+            border-radius: 1rem;
+            border-bottom-left-radius: 0;
             animation: slideDown 0.3s ease-out;
+            position: relative;
         }
-        .ai-highlight {
-            color: #e879f9;
-            font-weight: bold;
+        .ai-avatar {
+            width: 30px;
+            height: 30px;
+            background: #9333ea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #9333ea;
+            border-radius: 50%;
+            animation: typing 1s infinite;
+            margin: 0 2px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
     </style>
 </head>
@@ -186,35 +217,43 @@
                 <span class="gradient-text">CORAZÓN</span>
             </h1>
 
-            <!-- CEREBRO DIGITAL (BUSCADOR IA) -->
+            <!-- CEREBRO DIGITAL 2.0 (IA SIMULADA) -->
             <div class="w-full max-w-2xl mx-auto mt-8 mb-12 relative z-50">
                 <div class="ai-input-container rounded-2xl p-2 flex items-center">
-                    <div class="pl-4 pr-2 text-neonPurple animate-pulse-slow">
+                    <div class="pl-4 pr-2 text-neonPurple animate-float">
                         <i class="fa-solid fa-robot text-2xl"></i>
                     </div>
                     <input type="text" id="ai-search-input" 
-                        placeholder="Pregúntame sin filtro... (Ej: 'se gasta la plata en uñas', 'no paga', 'me funaron')" 
+                        placeholder="Pregúntame algo difícil... (Ej: 'se va fuera del país', 'vive con los abuelos')" 
                         class="w-full bg-transparent border-none outline-none text-white placeholder-gray-500 py-3 px-2 text-lg font-medium font-sans"
                         onkeypress="handleKeyPress(event)">
                     <button onclick="performSearch()" class="bg-neonPurple hover:bg-purple-600 text-white p-3 rounded-xl transition-colors font-bold">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
                 
-                <!-- Resultados de Búsqueda -->
-                <div id="ai-results-container" class="hidden w-full bg-zinc-900/95 border border-white/10 rounded-xl mt-4 p-4 text-left shadow-2xl max-h-[60vh] overflow-y-auto custom-scrollbar absolute top-full left-0">
+                <!-- Contenedor de Respuestas IA -->
+                <div id="ai-results-container" class="hidden w-full bg-[#0a0a0a] border border-white/10 rounded-xl mt-4 p-4 text-left shadow-2xl max-h-[60vh] overflow-y-auto custom-scrollbar absolute top-full left-0">
                     <div class="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Resultados de la IA</span>
+                        <span class="text-xs font-bold text-neonPurple uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-brain"></i> IA Legal
+                        </span>
                         <button onclick="closeSearch()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
                     </div>
-                    <div id="ai-results-list" class="space-y-2">
+
+                    <div id="ai-typing" class="hidden mb-4 p-3">
+                        <div class="typing-indicator"><span></span><span></span><span></span></div>
+                    </div>
+
+                    <div id="ai-results-list" class="space-y-4">
                         <!-- Se llena con JS -->
                     </div>
+
                     <!-- Fallback Google -->
-                    <div id="ai-fallback" class="hidden mt-4 pt-4 border-t border-white/10">
-                        <p class="text-gray-400 text-sm mb-2">🤔 No encontré una respuesta exacta en la guía...</p>
+                    <div id="ai-fallback" class="hidden mt-6 pt-4 border-t border-white/10">
+                        <p class="text-gray-400 text-sm mb-2 font-mono">⚠️ Mis circuitos no encontraron esto en la guía local. Busquemos en la red:</p>
                         <a id="google-fallback-link" href="#" target="_blank" class="block w-full text-center bg-zinc-800 hover:bg-zinc-700 text-white py-3 rounded-lg transition-colors font-bold border border-white/10">
-                            <i class="fa-brands fa-google mr-2 text-red-500"></i> Buscar "<span id="fallback-query"></span>" en Google Chile
+                            <i class="fa-brands fa-google mr-2 text-red-500"></i> Buscar en Google Chile
                         </a>
                     </div>
                 </div>
@@ -230,7 +269,7 @@
                         <h2 class="text-3xl font-black text-white uppercase italic">Soy<br><span class="text-pink-500">Mamá</span></h2>
                         <i class="fa-solid fa-person-breastfeeding text-4xl text-zinc-700 group-hover:text-pink-500 transition-colors"></i>
                     </div>
-                    <p class="text-gray-400 text-sm font-mono">"Quiero cobrar", "Retención AFP", "Registro deudores"</p>
+                    <p class="text-gray-400 text-sm font-mono">"Quiero cobrar", "Retención AFP", "Registro deudores", "Visitas abuelos"</p>
                 </button>
 
                 <button onclick="enterSite('papa')" class="group relative bg-zinc-900 border border-zinc-800 hover:border-blue-500 rounded-2xl p-8 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] text-left">
@@ -238,7 +277,7 @@
                         <h2 class="text-3xl font-black text-white uppercase italic">Soy<br><span class="text-blue-500">Papá</span></h2>
                         <i class="fa-solid fa-person-hiking text-4xl text-zinc-700 group-hover:text-blue-500 transition-colors"></i>
                     </div>
-                    <p class="text-gray-400 text-sm font-mono">"Estoy cesante", "Visitas", "Me demandaron"</p>
+                    <p class="text-gray-400 text-sm font-mono">"Estoy cesante", "Visitas", "Me demandaron", "Funas"</p>
                 </button>
             </div>
         </div>
@@ -263,7 +302,7 @@
 
         <div class="max-w-7xl mx-auto pt-20 pb-20 px-4 grid grid-cols-1 lg:grid-cols-12 gap-10">
             <aside class="lg:col-span-3 hidden lg:block">
-                <nav class="sticky top-24 space-y-2" id="toc-desktop">
+                <nav class="sticky top-24 space-y-2 max-h-[80vh] overflow-y-auto custom-scrollbar pr-2" id="toc-desktop">
                     <!-- Inyectado por JS -->
                 </nav>
             </aside>
@@ -275,79 +314,132 @@
 
     <!-- DATOS Y LÓGICA -->
     <script>
-        // --- DATA DE LA GUÍA ---
+        // --- HELPER: FAQ CREATOR ---
+        function createFAQ(question, answer, colorClass, keywords = "") {
+            const id = 'faq-' + Math.random().toString(36).substr(2, 9);
+            return `
+                <div data-keywords="${keywords}">
+                    <button onclick="toggleFAQ('${id}')" class="faq-btn group">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg text-white group-hover:text-${colorClass}-400 transition-colors">"${question}"</span>
+                            <i class="fa-solid fa-chevron-down text-zinc-500 group-hover:text-white"></i>
+                        </div>
+                    </button>
+                    <div id="${id}" class="faq-answer border-${colorClass}-500">
+                        <p class="text-lg leading-relaxed text-gray-300">${answer}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createBlock(title, simpleText, legalText, iconClass, colorClass, keywords = "") {
+            const randomId = 'legal-' + Math.random().toString(36).substr(2, 9);
+            return `
+                <section class="group scroll-mt-24 mb-12 search-target" data-keywords="${keywords}">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 rounded-lg bg-${colorClass}-500/10 text-${colorClass}-500">
+                            <i class="${iconClass} text-xl"></i>
+                        </div>
+                        <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">${title}</h3>
+                    </div>
+                    
+                    <div class="simple-explain">
+                        ${simpleText}
+                    </div>
+                    
+                    <button onclick="toggleLegal('${randomId}')" class="text-xs font-mono text-${colorClass}-400 hover:text-white mt-2 flex items-center gap-2 underline underline-offset-4 decoration-dotted">
+                        <i class="fa-solid fa-scale-balanced"></i> Ver el detalle legal (Ley 21.484)
+                    </button>
+                    
+                    <div id="${randomId}" class="legal-detail rounded-lg">
+                        <strong class="text-zinc-300 block mb-2">Fundamento Legal:</strong>
+                        ${legalText}
+                    </div>
+                </section>
+                <hr class="border-zinc-800 my-12" />
+            `;
+        }
+
+        // --- DATA DE LA GUÍA (MASIVA) ---
         const data = {
             mama: {
                 badge: '<span class="text-pink-500 bg-pink-500/10 border border-pink-500/20 px-3 py-1 rounded">MODO: MAMÁ</span>',
                 theme: 'pink',
                 toc: [
-                    { t: 'Cobrar la Plata', id: 'cobro' },
-                    { t: 'Retención AFP', id: 'afp' },
-                    { t: 'Miedos Comunes', id: 'miedos' },
-                    { t: 'Preguntas Sin Filtro', id: 'faq' }
+                    { t: 'Cobro Automático', id: 'cobro' },
+                    { t: 'Retiro AFP', id: 'afp' },
+                    { t: 'Miedos y Custodia', id: 'miedos' },
+                    { t: 'Fallas del Sistema', id: 'fallas' },
+                    { t: 'Preguntas: Dinero', id: 'faq-dinero' },
+                    { t: 'Preguntas: Visitas', id: 'faq-visitas' },
+                    { t: 'Preguntas: Situaciones', id: 'faq-situaciones' }
                 ],
                 content: `
-                    <div id="cobro" class="scroll-mt-24 search-target" data-keywords="cobrar deuda pago no paga banco retencion sii investigacion patrimonio">
-                        <h2 class="text-4xl font-black text-white mb-8">COBRAR LA PENSIÓN (SIN VOLVERSE LOCA)</h2>
-                        <!-- Block 1 -->
-                        <section class="group scroll-mt-24 mb-12">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-pink-500/10 text-pink-500"><i class="fa-solid fa-magnifying-glass-dollar text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">YA NO TIENES QUE INVESTIGAR TÚ</h3>
-                            </div>
-                            <div class="simple-explain">Olvídate de buscar si se compró un auto o dónde trabaja. Ahora el Tribunal apreta un botón y busca la plata en todos los bancos e instituciones financieras de Chile automáticamente.</div>
-                            <button onclick="toggleLegal('l1')" class="text-xs font-mono text-pink-400 hover:text-white mt-2 flex items-center gap-2 underline underline-offset-4 decoration-dotted"><i class="fa-solid fa-scale-balanced"></i> Ver detalle legal (Ley 21.484)</button>
-                            <div id="l1" class="legal-detail rounded-lg"><strong class="text-zinc-300 block mb-2">Fundamento Legal:</strong>Artículo 19 quater de la Ley 14.908: Establece el "Procedimiento Especial de Cobro". Si existe una deuda de al menos una mensualidad, el tribunal debe investigar de oficio el patrimonio a través del SII, CMF y otros servicios.</div>
-                        </section>
-
-                        <!-- Block 2 -->
-                         <section class="group scroll-mt-24 mb-12" data-keywords="registro deudores funa licencia conducir pasaporte credito banco castigo">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-pink-500/10 text-pink-500"><i class="fa-solid fa-ban text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">REGISTRO DE DEUDORES = MUERTE CIVIL</h3>
-                            </div>
-                            <div class="simple-explain">Si te debe 3 meses seguidos (o 5 salteados), entra al Registro. No podrá sacar licencia de conducir, ni pasaporte, y si pide un crédito de más de 50 UF, el banco le retiene la plata para pagarte a ti.</div>
-                            <button onclick="toggleLegal('l2')" class="text-xs font-mono text-pink-400 hover:text-white mt-2 flex items-center gap-2 underline underline-offset-4 decoration-dotted"><i class="fa-solid fa-scale-balanced"></i> Ver detalle legal</button>
-                            <div id="l2" class="legal-detail rounded-lg"><strong class="text-zinc-300 block mb-2">Fundamento Legal:</strong>Ley 21.389 crea el Registro Nacional de Deudores. Establece consecuencias como la retención de devoluciones de impuestos, imposibilidad de inscribir vehículos o inmuebles sin acreditar pago.</div>
-                        </section>
+                    <div id="cobro" class="scroll-mt-24">
+                        <h2 class="text-4xl font-black text-white mb-8">1. COBRO AUTOMÁTICO</h2>
+                        ${createBlock(
+                            'YA NO TIENES QUE INVESTIGAR TÚ', 
+                            'Olvídate de buscar si se compró un auto o dónde trabaja. Ahora el Tribunal apreta un botón y busca la plata en todos los bancos e instituciones financieras de Chile automáticamente (Bancos, CMF, SII).', 
+                            'Artículo 19 quater Ley 14.908. Procedimiento Especial de Cobro.',
+                            'fa-solid fa-magnifying-glass-dollar', 'pink', 'investigar buscar bienes patrimonio oculto'
+                        )}
+                        ${createBlock(
+                            'REGISTRO DE DEUDORES = MUERTE CIVIL', 
+                            'Si te debe 3 meses seguidos (o 5 salteados), entra al Registro. No podrá sacar licencia de conducir, ni pasaporte, y si pide un crédito de más de 50 UF, el banco le retiene la plata para pagarte a ti.', 
+                            'Ley 21.389 crea el Registro Nacional de Deudores.',
+                            'fa-solid fa-ban', 'pink', 'registro deudores funa castigo licencia pasaporte'
+                        )}
                     </div>
 
-                    <div id="afp" class="scroll-mt-24 search-target" data-keywords="afp fondos retiro jubilacion plata dinero cuenta capitalizacion">
-                        <h2 class="text-4xl font-black text-white mb-8">CUANDO NO TIENE NADA: LA AFP</h2>
-                        <section class="group scroll-mt-24 mb-12">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-pink-500/10 text-pink-500"><i class="fa-solid fa-piggy-bank text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">LA ÚLTIMA CARTA: TOCAR SUS FONDOS</h3>
-                            </div>
-                            <div class="simple-explain">Si el tribunal buscó en los bancos y no encontró nada (o muy poco), AHORA SÍ puedes pedir que le saquen plata de su cuenta obligatoria de AFP para pagarte.</div>
-                            <button onclick="toggleLegal('l3')" class="text-xs font-mono text-pink-400 hover:text-white mt-2 flex items-center gap-2 underline underline-offset-4 decoration-dotted"><i class="fa-solid fa-scale-balanced"></i> Ver detalle legal</button>
-                            <div id="l3" class="legal-detail rounded-lg"><strong class="text-zinc-300 block mb-2">Fundamento Legal:</strong>Artículo 19 quinquies: Procedimiento Extraordinario. Procede cuando hay 3 pensiones adeudadas y no hay fondos bancarios suficientes.</div>
-                        </section>
+                    <div id="afp" class="scroll-mt-24">
+                        <h2 class="text-4xl font-black text-white mb-8">2. LA CARTA AFP</h2>
+                        ${createBlock(
+                            'CUANDO NO TIENE NADA EN EL BANCO', 
+                            'Si el tribunal buscó en los bancos y no encontró nada (o muy poco), AHORA SÍ puedes pedir que le saquen plata de su cuenta obligatoria de AFP para pagarte.', 
+                            'Artículo 19 quinquies: Procedimiento Extraordinario de cobro AFP.',
+                            'fa-solid fa-piggy-bank', 'pink', 'afp retiro fondos jubilacion'
+                        )}
                     </div>
 
-                    <div id="miedos" class="scroll-mt-24 search-target" data-keywords="quitar hijo tuicion cuidado personal miedo amenaza demanda">
-                        <h2 class="text-4xl font-black text-white mb-8">TUS MIEDOS (Y LA VERDAD)</h2>
-                        <section class="group scroll-mt-24 mb-12">
-                             <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-pink-500/10 text-pink-500"><i class="fa-solid fa-shield-heart text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">¿ME PUEDE QUITAR AL NIÑO?</h3>
-                            </div>
-                            <div class="simple-explain">NO. La plata y el cuidado son cosas distintas. Que él empiece a pagar (obligado) no le da derecho a llevarse al niño ni a pedir la tuición. Para eso necesitaría probar que tú eres negligente, no que él tiene plata.</div>
-                        </section>
+                    <div id="miedos" class="scroll-mt-24">
+                        <h2 class="text-4xl font-black text-white mb-8">3. TUS MIEDOS</h2>
+                        ${createBlock(
+                            '¿ME PUEDE QUITAR AL NIÑO?', 
+                            'NO. La plata y el cuidado son cosas distintas. Que él empiece a pagar (obligado) no le da derecho a llevarse al niño ni a pedir la tuición. Para eso necesitaría probar que tú eres negligente grave, no que él tiene plata.', 
+                            'Art. 222 CC Interés Superior del Niño. La capacidad económica no determina el cuidado personal.',
+                            'fa-solid fa-shield-heart', 'pink', 'quitar hijo tuicion cuidado personal amenaza'
+                        )}
                     </div>
 
-                    <div id="faq" class="scroll-mt-24 search-target" data-keywords="negro contrato sin trabajo auto nuevo retroactivo">
-                        <h2 class="text-4xl font-black text-white mb-8">PREGUNTAS SIN FILTRO</h2>
-                        <!-- Pregunta 1 -->
-                        <div data-keywords="trabajo negro informal sin contrato">
-                            <button onclick="toggleFAQ('f1')" class="faq-btn group"><div class="flex justify-between items-center"><span class="font-bold text-lg text-white group-hover:text-pink-400">"Trabaja 'en negro' y dice que no tiene plata"</span><i class="fa-solid fa-chevron-down text-zinc-500"></i></div></button>
-                            <div id="f1" class="faq-answer border-pink-500"><p class="text-lg leading-relaxed">Da lo mismo lo que él diga. La ley asume que todo padre tiene capacidad de ganar al menos el Sueldo Mínimo. Se le fija la pensión en base a eso.</p></div>
-                        </div>
-                        <!-- Pregunta 2 -->
-                        <div data-keywords="retroactivo años anteriores deuda antigua">
-                            <button onclick="toggleFAQ('f2')" class="faq-btn group"><div class="flex justify-between items-center"><span class="font-bold text-lg text-white group-hover:text-pink-400">"¿La pensión es retroactiva?"</span><i class="fa-solid fa-chevron-down text-zinc-500"></i></div></button>
-                            <div id="f2" class="faq-answer border-pink-500"><p class="text-lg leading-relaxed">Solo se debe desde que notificas la demanda. Si nunca lo has demandado legalmente, esos años hacia atrás se perdieron. ¡Demanda hoy!</p></div>
-                        </div>
+                    <!-- BATERÍA DE PREGUNTAS MASIVA -->
+                    <div id="faq-dinero" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-pink-500 mb-6 mt-12">FAQ: SOBRE LA PLATA</h2>
+                        ${createFAQ('Trabaja "en negro" y dice que no tiene plata', 'Da lo mismo. La ley asume que gana el Sueldo Mínimo y se le calcula en base a eso. La deuda se acumula igual.', 'pink', 'negro informal sin contrato')}
+                        ${createFAQ('Vive con sus papás y no tiene nada a su nombre', 'La deuda es personal, pero si es menor de 21 (o 28 estudiando), se puede demandar a los ABUELOS subsidiariamente.', 'pink', 'abuelos suegros casa papas')}
+                        ${createFAQ('¿La pensión es retroactiva?', 'Solo desde que notificas la demanda o mediación frustrada. Los años anteriores sin demanda se perdieron.', 'pink', 'retroactivo antiguo años atras')}
+                        ${createFAQ('Le pagan bonos en el trabajo, ¿me toca?', 'Sí. Las gratificaciones y bonos también son parte de los ingresos. Debes pedir "retención judicial" al empleador para que te depositen directo.', 'pink', 'bonos aguinaldo gratificacion')}
+                        ${createFAQ('¿Quién paga la Isapre y el colegio?', 'Depende del acuerdo. Usualmente es APARTE de la pensión (gastos extraordinarios) o se incluye un monto mayor. Revísalo en tu mediación.', 'pink', 'salud isapre colegio escolar')}
+                        ${createFAQ('Se ganó un premio o herencia', 'Si él recibe una herencia o premio y tiene deuda de alimentos, puedes pedir que se retenga esa plata antes que la toque.', 'pink', 'herencia premio loto')}
+                        ${createFAQ('Me deposita 10 lucas para que no lo arresten', 'Pagar incompleto ES deuda. Igual entra al registro de deudores si hay saldo pendiente.', 'pink', 'abono incompleto poco')}
+                    </div>
+
+                    <div id="faq-visitas" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-pink-500 mb-6 mt-12">FAQ: VISITAS Y RELACIÓN</h2>
+                        ${createFAQ('Me amenaza con dejar de verlo si lo demando', 'Es chantaje emocional. Si él abandona a su hijo por dinero, es su decisión. Tú protege el derecho de tu hijo a comer.', 'pink', 'amenaza chantaje abandono')}
+                        ${createFAQ('Viene borracho o drogado a buscarlo', 'NO se lo entregues. Llama a Carabineros por VIF o vulneración de derechos y pon una medida de protección inmediata.', 'pink', 'alcohol drogas estado ebriedad')}
+                        ${createFAQ('¿Puedo prohibir que lo vean los abuelos paternos?', 'No, salvo que sean un peligro probado para el niño. Los abuelos tienen derecho propio a visitas (Ley 20.680).', 'pink', 'abuelos suegros prohibir')}
+                        ${createFAQ('Mi hijo no quiere ir con él', 'Si es pequeño, no se le puede obligar a la fuerza, pero debes fomentar el vínculo. Si es adolescente, su opinión pesa más en el tribunal.', 'pink', 'no quiere ir llora obligar')}
+                        ${createFAQ('Se lo llevó y no me lo devuelve', 'Eso puede ser sustracción de menores si viola el régimen. Denuncia inmediata en Carabineros y Tribunal de Familia.', 'pink', 'secuestro sustraccion devolver')}
+                    </div>
+
+                    <div id="faq-situaciones" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-pink-500 mb-6 mt-12">FAQ: SITUACIONES COMPLEJAS</h2>
+                        ${createFAQ('Él se fue fuera de Chile', 'Si tiene deuda, puedes pedir ARRAIGO para que no salga. Si ya salió, se puede cobrar bienes que dejó acá.', 'pink', 'extranjero viaje arraigo internacional')}
+                        ${createFAQ('Tiene hijos con otra mujer ahora', 'Puede pedir rebaja, pero no dejar de pagar. El tribunal equilibra, pero no desprotege a tu hijo.', 'pink', 'otra familia hijos nuevos mujer')}
+                        ${createFAQ('Me funó en redes sociales', 'Cuidado. Las funas no son legales y te pueden demandar por injurias (aunque él sea deudor). Usa el Registro Nacional de Deudores, esa es la "funa" legal.', 'pink', 'funa facebook instagram red social')}
+                        ${createFAQ('¿Hasta qué edad se paga?', 'Hasta los 21 años. O hasta los 28 si está estudiando una carrera u oficio.', 'pink', 'edad 21 28 estudios')}
+                        ${createFAQ('Se cambió de ciudad y no avisó', 'Debe informar domicilio al tribunal. Si no lo encuentras, el tribunal puede oficiar a la policía para buscarlo.', 'pink', 'domicilio ciudad esconderse')}
+                        ${createFAQ('Soy extranjera, ¿aplica igual?', 'Sí. Si el niño vive en Chile, aplica la ley chilena, sin importar tu nacionalidad o situación migratoria.', 'pink', 'extranjera migrante papeles')}
                     </div>
                 `
             },
@@ -357,61 +449,80 @@
                 toc: [
                     { t: 'Tu Deber (La Plata)', id: 'deber' },
                     { t: 'Visitas y Obstrucción', id: 'visitas' },
-                    { t: 'Quedé Cesante', id: 'cesante' },
-                    { t: 'Preguntas Sin Filtro', id: 'faq' }
+                    { t: 'Cesantía y Rebaja', id: 'cesante' },
+                    { t: 'Preguntas: Pagos', id: 'faq-pagos' },
+                    { t: 'Preguntas: Conflictos', id: 'faq-conflictos' },
+                    { t: 'Preguntas: Legal', id: 'faq-legal' }
                 ],
                 content: `
-                    <div id="deber" class="scroll-mt-24 search-target" data-keywords="pagar por fuera mano regalo deuda obligacion registro">
-                         <h2 class="text-4xl font-black text-white mb-8">ENTENDIENDO TU DEUDA</h2>
-                         <section class="group scroll-mt-24 mb-12">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-blue-500/10 text-blue-500"><i class="fa-solid fa-triangle-exclamation text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">LOS PAGOS "POR FUERA" NO EXISTEN</h3>
-                            </div>
-                            <div class="simple-explain">Si le compras zapatillas, pagas el furgón directo o le pasas 50 lucas en la mano... PARA EL JUEZ SIGUES DEBIENDO. Tienes que depositar en la cuenta del BancoEstado que te dio el tribunal.</div>
-                            <button onclick="toggleLegal('pl1')" class="text-xs font-mono text-blue-400 hover:text-white mt-2 flex items-center gap-2 underline underline-offset-4 decoration-dotted"><i class="fa-solid fa-scale-balanced"></i> Ver detalle legal</button>
-                            <div id="pl1" class="legal-detail rounded-lg"><strong class="text-zinc-300 block mb-2">Fundamento Legal:</strong>El pago de la pensión debe ser íntegro y oportuno en la cuenta decretada. Los gastos directos no se imputan a la pensión salvo acuerdo formal.</div>
-                        </section>
+                    <div id="deber" class="scroll-mt-24">
+                         <h2 class="text-4xl font-black text-white mb-8">1. ENTENDIENDO TU DEUDA</h2>
+                         ${createBlock(
+                            'LOS PAGOS "POR FUERA" NO EXISTEN', 
+                            'Si le compras zapatillas, pagas el furgón directo o le pasas 50 lucas en la mano... PARA EL JUEZ SIGUES DEBIENDO. Tienes que depositar en la cuenta del BancoEstado que te dio el tribunal. Todo lo demás son regalos.', 
+                            'El pago debe ser íntegro, oportuno y en la forma decretada.',
+                            'fa-solid fa-triangle-exclamation', 'blue', 'pago mano directo regalo zapatillas'
+                        )}
                     </div>
 
-                    <div id="visitas" class="scroll-mt-24 search-target" data-keywords="visitas ver hijo bloqueo constancia carabineros">
-                        <h2 class="text-4xl font-black text-white mb-8">¿NO TE DEJA VERLO?</h2>
-                         <section class="group scroll-mt-24 mb-12">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-blue-500/10 text-blue-500"><i class="fa-solid fa-child-reaching text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">LA PLATA Y LAS VISITAS NO SE MEZCLAN</h3>
-                            </div>
-                            <div class="simple-explain">Muchos creen que "si no pago no lo veo" o "si no me deja verla no pago". ERROR. Si dejas de pagar como venganza, te conviertes en deudor. Si ella bloquea, demanda cumplimiento de visitas.</div>
-                        </section>
+                    <div id="visitas" class="scroll-mt-24">
+                        <h2 class="text-4xl font-black text-white mb-8">2. ¿NO TE DEJA VERLO?</h2>
+                         ${createBlock(
+                            'LA PLATA Y LAS VISITAS NO SE MEZCLAN', 
+                            'Muchos creen que "si no pago no lo veo" o "si no me deja verla no pago". ERROR. Si dejas de pagar como venganza, te conviertes en deudor. Si ella bloquea, demanda cumplimiento de visitas.', 
+                            'Régimen Comunicacional es derecho del niño.',
+                            'fa-solid fa-child-reaching', 'blue', 'bloqueo visitas ver hijo prohibicion'
+                        )}
+                        ${createBlock(
+                            'CÓMO DEFENDERTE SI TE BLOQUEA', 
+                            '1. Ve a buscar a tu hijo siempre.<br>2. Si no te lo entrega, deja CONSTANCIA en Carabineros (Comisaría Virtual o presencial).<br>3. Con eso pides "Compensación de días" y multas para ella.', 
+                            'Art. 48 Ley Menores: Apremio por incumplimiento de visitas.',
+                            'fa-solid fa-shield-halved', 'blue', 'constancia carabineros defensa'
+                        )}
                     </div>
 
-                    <div id="cesante" class="scroll-mt-24 search-target" data-keywords="cesante sin pega trabajo despido rebaja">
-                        <h2 class="text-4xl font-black text-white mb-8">SOS: QUEDÉ CESANTE</h2>
-                        <section class="group scroll-mt-24 mb-12">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="p-2 rounded-lg bg-blue-500/10 text-blue-500"><i class="fa-solid fa-user-slash text-xl"></i></div>
-                                <h3 class="text-zinc-500 font-mono text-sm font-bold uppercase tracking-widest">NO DEJES DE PAGAR EN SILENCIO</h3>
-                            </div>
-                            <div class="simple-explain">Si te echaron, el tribunal NO lo sabe. Para ellos sigues debiendo el monto completo. Tienes que demandar "REBAJA DE ALIMENTOS" inmediatamente.</div>
-                        </section>
+                    <div id="cesante" class="scroll-mt-24">
+                        <h2 class="text-4xl font-black text-white mb-8">3. SOS: QUEDÉ CESANTE</h2>
+                        ${createBlock(
+                            'NO DEJES DE PAGAR EN SILENCIO', 
+                            'Si te echaron, el tribunal NO lo sabe. Para ellos sigues debiendo el monto completo. Tienes que demandar "REBAJA DE ALIMENTOS" inmediatamente. La rebaja no es retroactiva, aplica desde que demandas.', 
+                            'Art 3 Ley 14.908. Variación de circunstancias.',
+                            'fa-solid fa-user-slash', 'blue', 'cesante despido sin trabajo rebaja'
+                        )}
                     </div>
 
-                     <div id="faq" class="scroll-mt-24 search-target" data-keywords="gastos uñas peluqueria otra familia preso carcel sueldo minimo">
-                        <h2 class="text-4xl font-black text-white mb-8">PREGUNTAS SIN FILTRO</h2>
-                        <div data-keywords="se gasta la plata uñas peluqueria malgasta">
-                             <button onclick="toggleFAQ('pf1')" class="faq-btn group"><div class="flex justify-between items-center"><span class="font-bold text-lg text-white group-hover:text-blue-400">"Ella se gasta la pensión en peluquería y uñas"</span><i class="fa-solid fa-chevron-down text-zinc-500"></i></div></button>
-                            <div id="pf1" class="faq-answer border-blue-500"><p class="text-lg leading-relaxed">Si el niño vive con ella, ella paga luz, agua, arriendo, gas y comida. Esos son gastos invisibles. Mientras tu hijo esté bien cuidado, el tribunal no fiscaliza si ella se compró un rímel.</p></div>
-                        </div>
-                        <div data-keywords="preso carcel arresto nocturno">
-                             <button onclick="toggleFAQ('pf2')" class="faq-btn group"><div class="flex justify-between items-center"><span class="font-bold text-lg text-white group-hover:text-blue-400">"¿Me puedo ir preso por no pagar?"</span><i class="fa-solid fa-chevron-down text-zinc-500"></i></div></button>
-                            <div id="pf2" class="faq-answer border-blue-500"><p class="text-lg leading-relaxed">Sí. El arresto nocturno y el arresto total siguen vigentes si los otros métodos de cobro fallan.</p></div>
-                        </div>
+                    <!-- BATERÍA DE PREGUNTAS MASIVA -->
+                    <div id="faq-pagos" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-blue-500 mb-6 mt-12">FAQ: PAGOS Y DINERO</h2>
+                        ${createFAQ('Ella se gasta la plata en peluquería', 'Si el niño vive con ella, ella paga luz, agua, arriendo, gas y comida. Esos son gastos invisibles. Mientras tu hijo esté bien, el tribunal no fiscaliza si ella se compró un rímel. Suelta el control.', 'blue', 'gasta malgasta peluqueria uñas')}
+                        ${createFAQ('Gano el sueldo mínimo, ¿cuánto me sacan?', 'El mínimo legal es el 40% de un ingreso mínimo por un hijo. Sí, es casi la mitad de tu sueldo. La ley es dura ahí.', 'blue', 'minimo porcentaje cuanto')}
+                        ${createFAQ('Tengo otra familia e hijos', 'Puedes pedir REBAJA por cargas de familia. Pero no te van a eliminar la pensión del primero. Se distribuye la pobreza si es necesario.', 'blue', 'familia nueva hijos mujer')}
+                        ${createFAQ('¿Puedo pagar el colegio en vez de dar plata?', 'Solo si llegas a un acuerdo formal en mediación o tribunal. Si lo haces unilateralmente, la deuda en la libreta sigue creciendo.', 'blue', 'pagar colegio directo especie')}
+                        ${createFAQ('¿Me voy preso por no pagar?', 'Sí. El arresto nocturno y total siguen vigentes si fallan los embargos. Y los antecedentes penales manchados.', 'blue', 'preso carcel arresto')}
+                        ${createFAQ('¿Me pueden embargar el sueldo?', 'Sí. El tribunal ordena a tu empleador que retenga la plata ANTES de pagarte a ti. Aparece en tu liquidación.', 'blue', 'embargo sueldo retencion empleador')}
+                    </div>
+
+                    <div id="faq-conflictos" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-blue-500 mb-6 mt-12">FAQ: CONFLICTOS</h2>
+                        ${createFAQ('Me funaron en redes sociales', 'Guarda pantallazos. Puedes poner Recurso de Protección por honra, pero si eres deudor, el tribunal puede rechazarlo porque la deuda es verdad. Lo mejor es pagar y salir del registro.', 'blue', 'funa facebook escrache')}
+                        ${createFAQ('Ella me insulta delante del niño', 'Eso es Vulneración de Derechos (Maltrato psicológico). Puedes denunciar en Tribunal de Familia y pedir terapia o medidas.', 'blue', 'insultos gritos violencia')}
+                        ${createFAQ('Mi hijo me dice "tío" o le dice papá a la pareja de ella', 'Duele, pero legalmente tú eres el padre. Mantén la presencia constante. Si hay Síndrome de Alienación Parental (que hablen mal de ti), pide intervención psicosocial al tribunal.', 'blue', 'tio pareja nueva alienacion')}
+                        ${createFAQ('Se quiere llevar al niño fuera del país', 'Necesita tu autorización notarial o del tribunal. Si tienes visitas regularizadas, puedes oponerte si afecta tu relación con el niño.', 'blue', 'viaje pais extranjero autorizacion')}
+                    </div>
+
+                    <div id="faq-legal" class="scroll-mt-24">
+                        <h2 class="text-3xl font-black text-blue-500 mb-6 mt-12">FAQ: TRÁMITES</h2>
+                        ${createFAQ('¿Cómo pido Cuidado Personal Compartido?', 'Debes demandarlo. Necesitas probar que tienes condiciones de vivienda, tiempo y buena relación de coparentalidad. Es difícil si se llevan mal.', 'blue', 'tuicion compartida cuidado personal')}
+                        ${createFAQ('¿La deuda prescribe (vence)?', 'Es muy difícil. Son 5 años, pero cada vez que te notifican algo o se hace una gestión, el plazo se reinicia. No apuestes a eso.', 'blue', 'prescripcion vence borrar deuda')}
+                        ${createFAQ('¿Cómo pido que me borren del Dicom/Registro?', 'Pagando todo o llegando a un acuerdo de pago serio y aprobado por el tribunal. Una vez pagado, el tribunal ordena borrarte.', 'blue', 'borrar dicom registro salir')}
+                        ${createFAQ('No tengo abogado', 'Puedes ir a la Corporación de Asistencia Judicial (CAJ) de tu comuna. Es gratis si calificas socioeconómicamente.', 'blue', 'abogado gratis caj')}
+                        ${createFAQ('¿Qué es la liquidación de deuda?', 'Es el cálculo oficial que hace el tribunal de cuánto debes. Debes pedir que se actualice a UTM cada cierto tiempo.', 'blue', 'liquidacion calculo deuda')}
                     </div>
                 `
             }
         };
 
-        // --- LÓGICA DE LA IA (BUSCADOR SEMÁNTICO) ---
+        // --- LÓGICA DE LA IA "REAL" (SIMULADA) ---
         function handleKeyPress(e) {
             if (e.key === 'Enter') performSearch();
         }
@@ -424,116 +535,153 @@
             const query = document.getElementById('ai-search-input').value.toLowerCase().trim();
             const resultsContainer = document.getElementById('ai-results-container');
             const resultsList = document.getElementById('ai-results-list');
+            const typingIndicator = document.getElementById('ai-typing');
             const fallback = document.getElementById('ai-fallback');
             const fallbackLink = document.getElementById('google-fallback-link');
-            const fallbackQuerySpan = document.getElementById('fallback-query');
 
             if (!query) return;
 
+            // UI: Mostrar indicador de escribiendo
+            resultsContainer.classList.remove('hidden');
             resultsList.innerHTML = '';
-            let matches = [];
+            fallback.classList.add('hidden');
+            typingIndicator.classList.remove('hidden');
 
-            // Diccionario de sinónimos chilensis -> términos clave
-            const synonyms = {
-                "plata": "cobro deuda dinero pago",
-                "lucas": "cobro deuda dinero pago",
-                "funar": "registro deudores",
-                "funa": "registro deudores",
-                "pega": "trabajo cesante",
-                "yiro": "visitas",
-                "verlo": "visitas",
-                "ex": "papa mama deudor",
-                "cago": "deuda problema",
-                "carcel": "preso arresto",
-                "cana": "preso arresto"
-            };
-
-            // Expandir query con sinónimos
-            let expandedQuery = query;
-            Object.keys(synonyms).forEach(key => {
-                if (query.includes(key)) expandedQuery += " " + synonyms[key];
-            });
-
-            const keywords = expandedQuery.split(' ');
-
-            // Buscar en ambos perfiles
-            ['mama', 'papa'].forEach(profile => {
-                // Crear un elemento temporal para parsear el HTML del contenido
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = data[profile].content;
-
-                // Buscar en secciones marcadas con data-keywords o texto
-                const sections = tempDiv.querySelectorAll('.search-target, section, div[data-keywords]');
+            // SIMULACIÓN DE TIEMPO DE PENSADO (0.8s)
+            setTimeout(() => {
+                typingIndicator.classList.add('hidden');
                 
-                sections.forEach(section => {
-                    let score = 0;
-                    // Texto oculto en data-keywords (prioridad)
-                    const metaKeywords = section.getAttribute('data-keywords') || "";
-                    // Texto visible
-                    const visibleText = section.innerText.toLowerCase();
+                // 1. INTENCIONES CHAT (SALUDOS)
+                const chatResponses = {
+                    "hola": "¡Hola! Soy la IA de Ley Responsable. Pregúntame sobre pensiones, visitas o deudas.",
+                    "gracias": "De nada. Recuerda que lo más importante es el bienestar de los niños.",
+                    "chao": "¡Que te vaya bien! No olvides revisar tu causa en el Poder Judicial.",
+                    "quien eres": "Soy un asistente virtual entrenado con la Ley 21.484 de Responsabilidad Parental.",
+                    "ayuda": "Escribe tu problema, por ejemplo: 'no me paga', 'estoy cesante' o 'me bloquearon'."
+                };
+
+                if (chatResponses[query]) {
+                    renderAIResponse(chatResponses[query], "Asistente Virtual");
+                    return;
+                }
+
+                // 2. BÚSQUEDA SEMÁNTICA EN CONTENIDO
+                let bestMatch = null;
+                let maxScore = 0;
+
+                // Expandir query con sinónimos chilenos
+                const synonyms = {
+                    "plata": "cobro deuda dinero pago", "lucas": "cobro deuda dinero pago",
+                    "funar": "registro deudores", "funa": "registro deudores",
+                    "pega": "trabajo cesante", "yiro": "visitas", "verlo": "visitas",
+                    "ex": "papa mama deudor", "cago": "deuda problema",
+                    "carcel": "preso arresto", "cana": "preso arresto",
+                    "pacos": "carabineros", "tira": "pdi"
+                };
+                let expandedQuery = query;
+                Object.keys(synonyms).forEach(key => { if (query.includes(key)) expandedQuery += " " + synonyms[key]; });
+                const keywords = expandedQuery.split(' ');
+
+                ['mama', 'papa'].forEach(profile => {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = data[profile].content;
                     
-                    keywords.forEach(word => {
-                        if (word.length < 3) return; // Ignorar palabras cortas
-                        if (metaKeywords.includes(word)) score += 3;
-                        if (visibleText.includes(word)) score += 1;
-                    });
+                    // Buscar en bloques FAQ y Secciones
+                    const items = tempDiv.querySelectorAll('[data-keywords], .simple-explain, .faq-answer p');
 
-                    if (score > 0) {
-                        // Extraer un título o resumen
-                        let title = section.querySelector('h3, h2, span.font-bold')?.innerText || "Información Relacionada";
-                        let snippet = visibleText.substring(0, 80) + "...";
-                        
-                        // Encontrar el ID para el ancla
-                        let anchorId = section.id || section.closest('[id]')?.id;
-                        
-                        // Evitar duplicados toscos
-                        if (!matches.some(m => m.anchorId === anchorId && m.profile === profile)) {
-                            matches.push({ score, profile, title, snippet, anchorId });
-                        }
-                    }
-                });
-            });
+                    items.forEach(item => {
+                        let score = 0;
+                        let text = item.innerText.toLowerCase();
+                        let meta = item.getAttribute('data-keywords') || "";
+                        let parent = item.closest('[data-keywords]');
+                        if(parent) meta += " " + parent.getAttribute('data-keywords');
 
-            // Ordenar por relevancia
-            matches.sort((a, b) => b.score - a.score);
-            const topMatches = matches.slice(0, 4); // Top 4 resultados
+                        keywords.forEach(word => {
+                            if (word.length < 3) return; 
+                            if (meta.includes(word)) score += 5; // Alta relevancia keywords
+                            if (text.includes(word)) score += 2; // Relevancia texto
+                        });
 
-            if (topMatches.length > 0) {
-                fallback.classList.add('hidden');
-                topMatches.forEach(match => {
-                    const profileColor = match.profile === 'mama' ? 'text-pink-400' : 'text-blue-400';
-                    const profileName = match.profile === 'mama' ? 'Perfil Mamá' : 'Perfil Papá';
-                    
-                    const div = document.createElement('div');
-                    div.className = "ai-result cursor-pointer hover:bg-white/5 transition-colors";
-                    div.innerHTML = `
-                        <div class="text-xs ${profileColor} font-bold uppercase mb-1">${profileName}</div>
-                        <div class="font-bold text-white mb-1">${match.title}</div>
-                        <div class="text-sm text-gray-400">${match.snippet}</div>
-                    `;
-                    div.onclick = () => {
-                        enterSite(match.profile);
-                        setTimeout(() => {
-                            const el = document.getElementById(match.anchorId);
-                            if (el) {
-                                el.scrollIntoView({behavior: 'smooth', block: 'center'});
-                                el.classList.add('animate-pulse'); // Highlight visual
+                        if (score > maxScore) {
+                            maxScore = score;
+                            // Extraer la respuesta limpia
+                            let answerText = "";
+                            if (item.classList.contains('simple-explain')) answerText = item.innerText;
+                            else if (item.tagName === 'P') answerText = item.innerText;
+                            else {
+                                // Es un contenedor, buscar el texto dentro
+                                answerText = item.querySelector('.simple-explain, .faq-answer p')?.innerText || "Información relevante encontrada.";
                             }
-                        }, 500);
-                    };
-                    resultsList.appendChild(div);
+
+                            // Encontrar ID para scrollear
+                            let anchorId = item.closest('[id]')?.id || item.id;
+                            
+                            bestMatch = { 
+                                text: answerText, 
+                                profile: profile, 
+                                anchorId: anchorId 
+                            };
+                        }
+                    });
                 });
-            } else {
-                // FALLBACK GOOGLE
-                fallback.classList.remove('hidden');
-                fallbackQuerySpan.innerText = query;
-                // Generar link de búsqueda específico para Chile + legal
-                const googleQuery = encodeURIComponent(`ley responsabilidad parental chile ${query}`);
-                fallbackLink.href = `https://www.google.com/search?q=${googleQuery}`;
+
+                if (bestMatch && maxScore > 3) {
+                    renderAIResponse(bestMatch.text, "Respuesta de la Guía", bestMatch.profile, bestMatch.anchorId);
+                } else {
+                    // 3. FALLBACK GOOGLE
+                    fallback.classList.remove('hidden');
+                    const googleQuery = encodeURIComponent(`ley responsabilidad parental chile ${query}`);
+                    fallbackLink.href = `https://www.google.com/search?q=${googleQuery}`;
+                }
+
+            }, 800); // Fin timeout simulado
+        }
+
+        function renderAIResponse(text, title, profile = null, anchorId = null) {
+            const list = document.getElementById('ai-results-list');
+            const div = document.createElement('div');
+            div.className = "ai-result";
+            
+            let actionHtml = "";
+            if (profile && anchorId) {
+                const btnColor = profile === 'mama' ? 'text-pink-400 border-pink-500/30 hover:bg-pink-500/10' : 'text-blue-400 border-blue-500/30 hover:bg-blue-500/10';
+                actionHtml = `
+                    <button onclick="goToResult('${profile}', '${anchorId}')" class="mt-3 w-full py-2 border rounded-lg text-sm font-bold transition-colors ${btnColor}">
+                        <i class="fa-solid fa-book-open mr-2"></i> Leer en contexto
+                    </button>
+                `;
             }
 
-            resultsContainer.classList.remove('hidden');
+            div.innerHTML = `
+                <div class="flex items-start">
+                    <div class="ai-avatar"><i class="fa-solid fa-robot text-white"></i></div>
+                    <div>
+                        <div class="text-xs text-neonPurple font-bold uppercase mb-1">${title}</div>
+                        <div class="text-gray-200 leading-relaxed">${text}</div>
+                        ${actionHtml}
+                    </div>
+                </div>
+            `;
+            list.appendChild(div);
         }
+
+        function goToResult(profile, anchorId) {
+            enterSite(profile);
+            setTimeout(() => {
+                const el = document.getElementById(anchorId);
+                if (el) {
+                    el.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    el.classList.add('animate-pulse');
+                    // Abrir FAQ si es un botón
+                    const btn = el.querySelector('button');
+                    if(btn && el.querySelector('.faq-answer').style.display !== 'block') {
+                        btn.click();
+                    }
+                }
+                closeSearch();
+            }, 500);
+        }
+
 
         // --- LÓGICA DE NAVEGACIÓN ---
         const landing = document.getElementById('landing-section');
@@ -549,9 +697,9 @@
                 const info = data[profile];
                 badge.innerHTML = info.badge;
                 tocDesktop.innerHTML = `
-                    <p class="text-zinc-500 text-xs font-black uppercase tracking-widest mb-4 ml-2">Índice</p>
+                    <p class="text-zinc-500 text-xs font-black uppercase tracking-widest mb-4 ml-2 sticky top-0 bg-[#050505] py-2 z-10">Índice</p>
                     ${info.toc.map(item => `
-                        <a href="#${item.id}" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all border-l-2 border-transparent hover:border-${info.theme}-500">
+                        <a href="#${item.id}" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all border-l-2 border-transparent hover:border-${info.theme}-500 mb-1">
                             ${item.t}
                         </a>
                     `).join('')}
