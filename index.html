@@ -443,7 +443,8 @@
                     { "q": "Escondió la plata en otra cuenta bancaria", "r": "El Tribunal obliga a la CMF a buscar en **todos los bancos de Chile, fondos mutuos y APV**. Si la cuenta está a su RUT, la encontrarán, aunque sea nueva.", "tags": ["escondida", "bancos", "cmf", "ahorros"] },
                     { "q": "Debe pensión pero se va de viaje al extranjero", "r": "Solicita en el tribunal el **Arraigo Nacional**. Policía Internacional lo detendrá en el aeropuerto y no podrá salir de Chile hasta que pague o garantice la deuda.", "tags": ["viaje", "extranjero", "arraigo", "vacaciones"] },
                     { "q": "Puso su auto y casa a nombre de la nueva pareja", "r": "Es una trampa común. Se puede demandar por 'Simulación', pero es complejo. Lo más rápido es atacar directamente su sueldo, sus devoluciones de impuestos y su AFP.", "tags": ["nueva pareja", "bienes", "esconder", "auto"] },
-                    { "q": "Me pide rebaja porque tiene un hijo nuevo", "r": "La ley lo permite. Los nuevos hijos son 'nuevas cargas' y el juez debe ajustar la pensión para que el sueldo del padre alcance para alimentar a todos sus hijos proporcionalmente.", "tags": ["nuevo hijo", "rebaja", "pareja"] }
+                    { "q": "Me pide rebaja porque tiene un hijo nuevo", "r": "La ley lo permite. Los nuevos hijos son 'nuevas cargas' y el juez debe ajustar la pensión para que el sueldo del padre alcance para alimentar a todos sus hijos proporcionalmente.", "tags": ["nuevo hijo", "rebaja", "pareja"] },
+                    { "q": "Me dice que se quedó cesante y no me pagará", "r": "La cesantía **no congela la deuda**. Él está obligado a seguir pagando. Si no tiene dinero, debe pedir él mismo una rebaja en el tribunal, pero mientras el juez no la apruebe, te sigue debiendo el monto completo.", "tags": ["cesante", "despido", "trabajo", "desempleado", "renuncia"] }
                 ],
                 "mitos_papa": [
                     { "q": "Se gasta la plata de la pensión en fiestas y uñas", "r": "El tribunal asume que tu pago cubre los gastos del niño, lo que 'libera' el sueldo de la madre para sus gastos personales. Mientras el niño esté sano y escolarizado, el juez jamás le pedirá boletas.", "tags": ["uñas", "fiestas", "malgasta", "boletas"] },
@@ -460,28 +461,20 @@
             };
 
             try {
-                // Intentamos cargar el archivo local (funcionará en tu servidor web o GitHub Pages)
                 const response = await fetch('./leyes_familia_chile.json');
-                
-                if (!response.ok) {
-                    throw new Error("No se pudo cargar el archivo remoto");
-                }
-                
+                if (!response.ok) throw new Error("No se pudo cargar el archivo remoto");
                 const data = await response.json();
                 
-                // Verificamos si la data tiene la estructura esperada
                 if(data.leyes) {
                     legalBrain = data;
                 } else {
                     legalBrain = fallbackData;
                 }
-                
             } catch (error) {
-                console.warn("Usando base de datos de respaldo (Preview Mode):", error);
-                // Si falla (ej. en vista previa), inyectamos los datos de respaldo para que la app no se caiga
+                console.warn("Usando base de datos de respaldo (Preview Mode o Fallo de Red):", error);
                 legalBrain = fallbackData;
             } finally {
-                renderMitos(); // Renderizamos sin importar de dónde vino la data
+                renderMitos();
             }
         }
 
@@ -541,29 +534,52 @@
         }
 
         function queryAI() {
-            const query = document.getElementById('ai-input').value.toLowerCase().trim();
+            const queryRaw = document.getElementById('ai-input').value;
             const resultsBox = document.getElementById('ai-results');
             
-            if (query.length < 3) {
-                resultsBox.innerHTML = '<div class="text-center py-16 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50"><p class="text-xl text-slate-500">Escribe una duda más larga.</p></div>';
+            if (queryRaw.length < 3) {
+                resultsBox.innerHTML = '<div class="text-center py-16 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50"><p class="text-xl text-slate-500">Escribe una duda más larga o detallada.</p></div>';
                 return;
             }
 
-            // Buscar en Mitos (Respuesta Humana)
-            const mitosList = currentRole === 'mama' ? legalBrain.mitos_mama : legalBrain.mitos_papa;
-            const matchesHumano = mitosList.filter(item => 
-                item.tags.some(tag => query.includes(tag)) || 
-                item.q.toLowerCase().includes(query) || item.r.toLowerCase().includes(query)
-            );
+            // Normalizar texto (quitar tildes y pasar a minúsculas)
+            const normalizeStr = (str) => {
+                if (!str) return "";
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            };
 
-            // Buscar en Leyes Duras (Respuesta Legal)
-            const matchesLey = legalBrain.leyes.filter(item => 
-                (item.palabras_clave && item.palabras_clave.some(tag => query.includes(tag))) || 
-                item.nombre.toLowerCase().includes(query) || 
-                item.resumen.toLowerCase().includes(query) ||
-                (item.articulos_clave && item.articulos_clave.some(art => art.texto.toLowerCase().includes(query)))
-            );
+            const query = normalizeStr(queryRaw);
+            // Romper la búsqueda en palabras de más de 3 letras para ser más precisos (ej: "estoy cesante" -> ["estoy", "cesante"])
+            const searchWords = query.split(' ').filter(w => w.length >= 3);
 
+            // Juntamos ambos mitos para que el cerebro sepa todo, pero priorizamos los de tu rol
+            let todosLosMitos = [];
+            if (currentRole === 'mama') {
+                todosLosMitos = [...(legalBrain.mitos_mama || []), ...(legalBrain.mitos_papa || [])];
+            } else {
+                todosLosMitos = [...(legalBrain.mitos_papa || []), ...(legalBrain.mitos_mama || [])];
+            }
+
+            // Eliminar duplicados (por si un mito está en ambos lados)
+            const mitosUnicos = Array.from(new Map(todosLosMitos.map(item => [item.q, item])).values());
+
+            // --- BÚSQUEDA HUMANA (MITOS) ---
+            const matchesHumano = mitosUnicos.filter(item => {
+                const textoMito = normalizeStr(item.q + " " + item.r + " " + (item.tags ? item.tags.join(" ") : ""));
+                // Si ALGUNA de las palabras clave de búsqueda está en el texto del mito, lo atrapamos
+                return searchWords.some(word => textoMito.includes(word));
+            }).slice(0, 5); // Mostrar solo los 5 mejores resultados
+
+            // --- BÚSQUEDA LEYES (JSON DURO) ---
+            const matchesLey = (legalBrain.leyes || []).filter(item => {
+                const textoLey = normalizeStr(item.nombre + " " + item.resumen + " " + 
+                    (item.palabras_clave ? item.palabras_clave.join(" ") : "") + " " +
+                    (item.articulos_clave ? item.articulos_clave.map(a => a.texto).join(" ") : "")
+                );
+                return searchWords.some(word => textoLey.includes(word));
+            }).slice(0, 3); // Mostrar solo las 3 mejores leyes
+
+            // --- RENDER DE RESULTADOS ---
             if (matchesHumano.length > 0 || matchesLey.length > 0) {
                 let html = '';
 
@@ -597,7 +613,7 @@
 
                 resultsBox.innerHTML = html;
             } else {
-                resultsBox.innerHTML = `<div class="bg-rose-50 p-10 rounded-3xl border border-rose-200 text-center"><p class="text-xl text-rose-700 font-bold">No encontramos una ley específica para esa palabra. Intenta usar palabras más comunes como: Trabajo, AFP, Visitas, Colegio o Dinero.</p></div>`;
+                resultsBox.innerHTML = `<div class="bg-rose-50 p-10 rounded-3xl border border-rose-200 text-center"><p class="text-xl text-rose-700 font-bold">No encontramos respuestas específicas para esas palabras en nuestra base de datos. Intenta con palabras clave como: <b>Trabajo, AFP, Visitas, Colegio o Cesante.</b></p></div>`;
             }
         }
 
