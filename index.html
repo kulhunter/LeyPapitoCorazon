@@ -3,604 +3,688 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeyResponsable.cl | La Navaja Suiza Legal de Familia</title>
+    <title>LeyResponsable.cl | Tu Navaja Suiza Legal de Familia</title>
     
-    <meta name="description" content="La aplicación legal gratuita para padres y madres en Chile. Calcula pensiones, descarga plantillas, revisa checklists y entiende tus derechos (Ley 21.484, 14.908).">
+    <meta name="description" content="Aplicación legal gratuita en Chile. Calcula pensiones, prepárate para mediación, descarga escritos y consulta al Abogado Virtual.">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Variables Dinámicas */
-            --brand: #e11d48; /* Rose 600 (Mamá) */
-            --brand-light: #ffe4e6;
-            --brand-dark: #be123c;
-            --bg-color: #f8fafc;
-            --text-main: #0f172a;
+            /* Tema Mamá */
+            --brand: #e11d48; /* Rose 600 */
+            --brand-light: #fff1f2;
+            --brand-border: #fecdd3;
+            --brand-hover: #be123c;
+            --bg-main: #f8fafc;
+            --text-dark: #0f172a;
         }
         body.theme-papa {
-            --brand: #2563eb; /* Blue 600 (Papá) */
-            --brand-light: #dbeafe;
-            --brand-dark: #1d4ed8;
+            /* Tema Papá */
+            --brand: #2563eb; /* Blue 600 */
+            --brand-light: #eff6ff;
+            --brand-border: #bfdbfe;
+            --brand-hover: #1d4ed8;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+        /* Tipografía gigante y legible (Mobile First) */
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-dark); overflow-x: hidden; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;}
         .font-serif { font-family: 'Playfair Display', serif; }
         
         .text-brand { color: var(--brand); }
-        .bg-brand { background-color: var(--brand); }
-        .bg-brand-light { background-color: var(--brand-light); }
+        .bg-brand { background-color: var(--brand); color: white; }
+        .bg-brand-light { background-color: var(--brand-light); color: var(--brand); }
         .border-brand { border-color: var(--brand); }
         
-        .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); border: 1px solid #e2e8f0; background: white; border-radius: 1.5rem; }
-        .btn-brand { background-color: var(--brand); color: white; transition: all 0.2s; font-weight: 700; border-radius: 1rem; cursor: pointer; }
-        .btn-brand:hover { background-color: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        /* UI Accesible y Gordita */
+        .card-app { background: white; border-radius: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s; }
+        .btn-primary { background-color: var(--brand); color: white; padding: 1.25rem 1.5rem; border-radius: 1rem; font-weight: 700; font-size: 1.1rem; transition: all 0.2s; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; cursor: pointer;}
+        .btn-primary:hover { background-color: var(--brand-hover); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         
-        .input-premium { border: 2px solid #e2e8f0; border-radius: 1rem; padding: 1rem; outline: none; transition: border-color 0.2s; background: #f8fafc; width: 100%; font-weight: 500; }
-        .input-premium:focus { border-color: var(--brand); background: white; }
+        .input-app { width: 100%; border: 2px solid #e2e8f0; border-radius: 1rem; padding: 1.25rem 1rem; font-size: 1.1rem; font-weight: 600; background-color: #f8fafc; transition: all 0.2s; outline: none; }
+        .input-app:focus { border-color: var(--brand); background-color: white; box-shadow: 0 0 0 3px var(--brand-light);}
 
-        /* Tabs UI */
-        .tab-btn { padding: 0.75rem 1.5rem; font-weight: 600; color: #64748b; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; }
-        .tab-btn.active { color: var(--brand); border-bottom-color: var(--brand); }
-        .tab-btn:hover:not(.active) { color: #334155; border-bottom-color: #cbd5e1; }
-        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        /* Globos Flotantes (Tooltips Humanos) */
+        .tooltip-container { position: relative; display: inline-flex; align-items: center; margin-left: 0.5rem; cursor: help; vertical-align: middle;}
+        .tooltip-icon { background: var(--brand-light); color: var(--brand); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; border: 1px solid var(--brand-border); }
+        .tooltip-content { visibility: hidden; opacity: 0; position: absolute; bottom: 140%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 1.2rem; border-radius: 1rem; font-size: 0.95rem; width: 300px; z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: all 0.2s; font-weight: 400; line-height: 1.5; pointer-events: none;}
+        .tooltip-content::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 8px; border-style: solid; border-color: #1e293b transparent transparent transparent; }
+        
+        /* En móvil o desktop se muestra al hacer hover o focus */
+        .tooltip-container:hover .tooltip-content, .tooltip-container:active .tooltip-content { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(-5px); }
+
+        /* Tabs Navegación (Deslizables) */
+        .tab-nav { display: flex; overflow-x: auto; gap: 0.5rem; padding: 0.5rem; background: white; border-radius: 1.5rem; border: 1px solid #e2e8f0; margin-bottom: 2rem; scrollbar-width: none; }
+        .tab-nav::-webkit-scrollbar { display: none; }
+        .tab-btn { padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 700; font-size: 1rem; color: #64748b; white-space: nowrap; transition: all 0.2s; cursor: pointer; }
+        .tab-btn.active { background-color: var(--brand-light); color: var(--brand); }
+        .tab-btn:hover:not(.active) { background-color: #f1f5f9; color: #0f172a; }
+        
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Custom Scrollbar for Carousel & Tabs */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
         .hide-role { display: none !important; }
 
-        /* Checkbox custom */
-        .check-custom { appearance: none; width: 1.5rem; height: 1.5rem; border: 2px solid #cbd5e1; border-radius: 0.5rem; outline: none; transition: all 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .check-custom:checked { background-color: var(--brand); border-color: var(--brand); }
-        .check-custom:checked::after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: white; font-size: 0.8rem; }
+        /* Semáforo Custom */
+        .semaforo-box { border-left: 8px solid #e2e8f0; transition: all 0.3s; }
+        .sem-verde { border-color: #10b981; background-color: #ecfdf5; }
+        .sem-amarillo { border-color: #f59e0b; background-color: #fffbeb; }
+        .sem-rojo { border-color: #ef4444; background-color: #fef2f2; }
     </style>
 </head>
 <body class="theme-mama">
 
-    <!-- 0. ALERTA VIF (Global y Sticky) -->
-    <div class="bg-rose-600 text-white text-xs md:text-sm font-bold text-center py-2 px-4 z-[200] relative flex justify-center items-center gap-2">
-        <i class="fa-solid fa-phone-volume animate-pulse"></i>
-        <span>¿Sufres violencia en casa? Llama gratis y anónimo al 1455 o al 133 de Carabineros. No estás sola(o).</span>
+    <!-- 0. ALERTA VIF GLOBAL -->
+    <div class="bg-slate-900 text-white text-sm font-semibold text-center py-3 px-4 z-[200] relative flex justify-center items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+        <span>¿Sufres violencia o amenazas en casa? Llama gratis al <b>1455</b> o al <b>133</b> de Carabineros.</span>
     </div>
 
-    <!-- 1. ONBOARDING GATE -->
-    <div id="onboarding" class="fixed inset-0 z-[100] flex flex-col md:flex-row h-screen w-screen bg-white mt-8">
-        <button onclick="enterApp('mama')" class="flex-1 bg-rose-50 hover:bg-rose-100 flex flex-col items-center justify-center transition-all group border-b md:border-b-0 md:border-r border-rose-200">
-            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl mb-6 group-hover:scale-110 transition-transform">
-                <i class="fa-solid fa-person-breastfeeding text-5xl text-rose-600"></i>
+    <!-- 1. ONBOARDING (Portal de Entrada) -->
+    <div id="onboarding" class="fixed inset-0 z-[100] flex flex-col md:flex-row h-screen w-screen bg-white">
+        <div class="absolute top-8 w-full text-center z-10"><h1 class="text-3xl font-serif font-bold text-slate-400">LeyResponsable.cl</h1></div>
+        
+        <button onclick="initApp('mama')" class="flex-1 bg-rose-50 hover:bg-rose-100 flex flex-col items-center justify-center transition-all border-b md:border-b-0 md:border-r border-rose-200 p-6 group cursor-pointer">
+            <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-person-breastfeeding text-7xl text-rose-600"></i>
             </div>
-            <h2 class="text-4xl font-serif font-bold text-slate-900 mb-2">Soy Mamá</h2>
-            <p class="text-rose-600 font-medium px-6 text-center max-w-sm">Quiero exigir mis derechos, asegurar la pensión y proteger a mis hijos.</p>
+            <h2 class="text-5xl font-serif font-bold text-slate-900 mb-4">Soy Mamá</h2>
+            <p class="text-rose-700 font-medium text-lg text-center max-w-sm">Quiero exigir el pago, retener AFP y proteger a mis hijos.</p>
         </button>
         
-        <button onclick="enterApp('papa')" class="flex-1 bg-blue-50 hover:bg-blue-100 flex flex-col items-center justify-center transition-all group">
-            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl mb-6 group-hover:scale-110 transition-transform">
-                <i class="fa-solid fa-person-walking-luggage text-5xl text-blue-600"></i>
+        <button onclick="initApp('papa')" class="flex-1 bg-blue-50 hover:bg-blue-100 flex flex-col items-center justify-center transition-all p-6 group cursor-pointer">
+            <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-person-walking-luggage text-7xl text-blue-600"></i>
             </div>
-            <h2 class="text-4xl font-serif font-bold text-slate-900 mb-2">Soy Papá</h2>
-            <p class="text-blue-600 font-medium px-6 text-center max-w-sm">Quiero regularizar mi deuda, pagar lo justo y proteger mi derecho a visitas.</p>
+            <h2 class="text-5xl font-serif font-bold text-slate-900 mb-4">Soy Papá</h2>
+            <p class="text-blue-700 font-medium text-lg text-center max-w-sm">Quiero ordenar mi deuda, pagar lo justo y ver a mis hijos.</p>
         </button>
     </div>
 
     <!-- 2. APLICACIÓN PRINCIPAL -->
     <div id="app" class="hidden min-h-screen flex flex-col">
         
-        <!-- Navbar Superior -->
-        <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-                <div class="font-black text-2xl tracking-tighter text-slate-900">
-                    Ley<span class="text-brand">Responsable</span>.cl
+        <!-- Header y Buscador Global -->
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="font-black text-3xl tracking-tighter text-slate-900 cursor-pointer" onclick="location.reload()">Ley<span class="text-brand">Responsable</span></div>
+                
+                <!-- Buscador Global -->
+                <div class="relative w-full md:w-1/2">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-4 text-slate-400 text-xl"></i>
+                    <input type="text" id="global-search" onkeyup="if(event.key==='Enter') doGlobalSearch()" placeholder="Ej: Cesante, AFP, Isapre, Colegio..." class="w-full bg-slate-100 border border-slate-300 rounded-full py-3.5 pl-12 pr-4 text-slate-800 text-lg font-medium focus:bg-white focus:border-brand outline-none transition">
                 </div>
-                <button onclick="openOnboarding()" class="text-xs font-bold px-4 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition flex items-center gap-2">
-                    <i class="fa-solid fa-user-gear"></i> <span class="hidden sm:inline">Cambiar Perfil</span>
+
+                <button onclick="location.reload()" class="text-sm font-bold px-5 py-3 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap cursor-pointer">
+                    <i class="fa-solid fa-user-gear mr-2"></i> Cambiar Perfil
                 </button>
             </div>
-            
-            <!-- Tabs Menu -->
-            <div class="max-w-7xl mx-auto px-4 md:px-8 flex overflow-x-auto hide-scrollbar border-t border-slate-100 mt-2">
-                <button onclick="switchTab('inicio')" id="btn-tab-inicio" class="tab-btn active"><i class="fa-solid fa-house mr-2"></i>Inicio</button>
-                <button onclick="switchTab('calculadoras')" id="btn-tab-calculadoras" class="tab-btn"><i class="fa-solid fa-calculator mr-2"></i>Calculadoras</button>
-                <button onclick="switchTab('tramites')" id="btn-tab-tramites" class="tab-btn"><i class="fa-solid fa-file-signature mr-2"></i>Trámites & Plantillas</button>
-                <button onclick="switchTab('diccionario')" id="btn-tab-diccionario" class="tab-btn"><i class="fa-solid fa-book-open mr-2"></i>Guía y Diccionario</button>
-            </div>
-        </nav>
+        </header>
 
-        <main class="flex-grow max-w-7xl mx-auto px-4 md:px-8 py-8 w-full">
+        <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
             
+            <!-- Pestañas Navegables -->
+            <nav class="tab-nav mb-8">
+                <button onclick="switchTab('inicio')" id="btn-tab-inicio" class="tab-btn active"><i class="fa-solid fa-house mr-2"></i>Inicio y Mitos</button>
+                <button onclick="switchTab('calculadora')" id="btn-tab-calculadora" class="tab-btn"><i class="fa-solid fa-calculator mr-2"></i>Calcular Pensión</button>
+                <button onclick="switchTab('mediacion')" id="btn-tab-mediacion" class="tab-btn"><i class="fa-solid fa-user-shield mr-2"></i>Asistente Mediación</button>
+                <button onclick="switchTab('tramites')" id="btn-tab-tramites" class="tab-btn"><i class="fa-solid fa-file-signature mr-2"></i>Plantillas y Ayuda</button>
+                <button onclick="switchTab('abogado')" id="btn-tab-abogado" class="tab-btn"><i class="fa-solid fa-robot mr-2"></i>Abogado Virtual</button>
+            </nav>
+
             <!-- ============================== -->
-            <!-- TAB 1: INICIO (Dashboard)      -->
+            <!-- TAB 1: INICIO Y MITOS          -->
             <!-- ============================== -->
             <div id="tab-inicio" class="tab-content active">
-                <header class="mb-10 text-center md:text-left">
-                    <span class="bg-brand-light text-brand text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Tu Navaja Suiza Legal</span>
-                    <h1 class="text-4xl md:text-6xl font-serif font-bold text-slate-900 mb-4">
-                        <span class="mama-role">Tus derechos, explicados en español.</span>
-                        <span class="papa-role">Soluciones legales, sin letra chica.</span>
-                    </h1>
-                    <p class="text-slate-600 text-lg max-w-3xl">Navega por las pestañas superiores para calcular pensiones, descargar escritos legales o entender tus derechos según la Ley de Chile.</p>
-                </header>
+                
+                <!-- Hero Video SIEMPRE VISIBLE -->
+                <div class="card-app bg-slate-900 overflow-hidden mb-12 flex flex-col lg:flex-row">
+                    <div class="p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center">
+                        <span class="bg-brand text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6 inline-block self-start">Tu Navaja Suiza Legal</span>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+                            <span class="mama-role">Exige lo justo, sin letra chica.</span>
+                            <span class="papa-role">Ordena tu deuda, protege tu derecho.</span>
+                        </h1>
+                        <p class="text-slate-300 text-lg mb-8">El sistema legal asusta porque nadie te lo explica en español. Mira este video antes de usar las herramientas, calculadoras y plantillas de esta página.</p>
+                    </div>
+                    <div class="lg:w-1/2 relative w-full pb-[56.25%] lg:pb-0 h-0 lg:h-auto bg-black">
+                        <!-- Video cargado vía JS -->
+                        <iframe id="hero-video" class="absolute top-0 left-0 w-full h-full lg:h-full lg:w-full" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                    <!-- Video Educativo -->
-                    <section class="card-shadow overflow-hidden bg-slate-900 flex flex-col">
-                        <div class="p-6 bg-slate-800 text-white">
-                            <h2 class="font-bold text-lg"><i class="fa-brands fa-youtube text-red-500 mr-2"></i> Video de Supervivencia Legal</h2>
-                        </div>
-                        <div class="relative w-full pb-[56.25%] h-0 flex-grow">
-                            <iframe id="video-frame" class="absolute top-0 left-0 w-full h-full" src="" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </section>
-
-                    <!-- Carrusel de Miedos -->
-                    <section class="card-shadow p-6 sm:p-8 bg-white flex flex-col justify-center">
-                        <h2 class="text-2xl font-bold font-serif mb-6 text-slate-900">Mitos y Miedos Reales</h2>
-                        <div class="flex overflow-x-auto hide-scrollbar gap-4 pb-4 snap-x">
-                            
-                            <!-- MAMÁ -->
-                            <div class="mama-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-basket-shopping"></i></div>
-                                <h3 class="font-bold text-md mb-2">"Trajo la pensión en mercadería"</h3>
-                                <p class="text-sm text-slate-600">Legalmente, si la orden es pagar en BancoEstado, la mercadería es un <b>regalo</b>. No descuenta la deuda.</p>
-                            </div>
-                            <div class="mama-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-burger"></i></div>
-                                <h3 class="font-bold text-md mb-2">"Comen pura chatarra con él"</h3>
-                                <p class="text-sm text-slate-600">A menos que haya riesgo médico grave probado, el juez no se involucra en la dieta. No es causal para quitar visitas.</p>
-                            </div>
-                            <div class="mama-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-person-cane"></i></div>
-                                <h3 class="font-bold text-md mb-2">"Los deja tirados con la abuela"</h3>
-                                <p class="text-sm text-slate-600">Las visitas son para el vínculo paterno. Si pasa siempre, pide al tribunal modificar las horas a cuando él esté libre.</p>
-                            </div>
-
-                            <!-- PAPÁ -->
-                            <div class="papa-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-martini-glass"></i></div>
-                                <h3 class="font-bold text-md mb-2">"Se gasta la plata en fiestas/uñas"</h3>
-                                <p class="text-sm text-slate-600">El tribunal asume que tu pago cubre al niño, liberando el sueldo de ella. Mientras el niño esté bien, no le pedirán boletas.</p>
-                            </div>
-                            <div class="papa-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                                <h3 class="font-bold text-md mb-2">"Pago el colegio, pero salgo deudor"</h3>
-                                <p class="text-sm text-slate-600">Error clásico. Si la sentencia dice "BancoEstado", pagar directo al colegio <b>es un regalo</b> legalmente. Paga siempre en la cuenta.</p>
-                            </div>
-                            <div class="papa-role min-w-[280px] snap-center p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                <div class="text-2xl mb-3 text-brand"><i class="fa-solid fa-door-closed"></i></div>
-                                <h3 class="font-bold text-md mb-2">"No me deja verlos por deber plata"</h3>
-                                <p class="text-sm text-slate-600">Ilegal. Las visitas son Derecho del Niño. La deuda no te quita el derecho a verlos. Demanda el cumplimiento del régimen.</p>
-                            </div>
-                        </div>
-                        <div class="text-center mt-4"><span class="text-xs text-slate-400 font-bold uppercase"><i class="fa-solid fa-arrows-left-right mr-1"></i> Desliza para ver más</span></div>
-                    </section>
+                <!-- Grid de Mitos y Realidades -->
+                <div class="mb-8 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold font-serif text-slate-900 mb-2">La Verdad sobre tus Miedos</h2>
+                        <p class="text-slate-500 text-lg">Casos reales del día a día explicados en humano, basados en las leyes de Chile.</p>
+                    </div>
+                </div>
+                
+                <!-- Contenedor inyectado vía JS desde el JSON -->
+                <div id="mitos-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="p-10 text-center text-slate-400 w-full col-span-full"><i class="fa-solid fa-spinner fa-spin text-3xl"></i> Cargando base de datos legal...</div>
                 </div>
             </div>
 
             <!-- ============================== -->
-            <!-- TAB 2: CALCULADORAS            -->
+            <!-- TAB 2: CALCULADORA AMIGABLE    -->
             <!-- ============================== -->
-            <div id="tab-calculadoras" class="tab-content">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- HERRAMIENTA 1: Costo de Crianza -->
-                    <div class="card-shadow p-6 sm:p-8 bg-white">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-receipt"></i></div>
-                            <div>
-                                <h2 class="text-xl font-bold text-slate-900 leading-tight">1. Calculadora de Gastos</h2>
-                                <p class="text-[10px] uppercase font-bold text-slate-400">¿Cuánto cuesta tu hijo realmente?</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-slate-600 mb-6">Antes de pelear una pensión, debes sumar los gastos reales. Los gastos del hogar se dividen por quienes viven ahí.</p>
+            <div id="tab-calculadora" class="tab-content">
+                <div class="max-w-4xl mx-auto card-app p-8 md:p-12">
+                    <h2 class="text-3xl font-bold font-serif mb-4 text-slate-900"><i class="fa-solid fa-comments-dollar text-brand mr-3"></i>Calculadora Humana de Pensión</h2>
+                    <p class="text-lg text-slate-600 mb-10">La ley chilena usa matemáticas, no adivinanzas. Contestemos dos preguntas simples para saber cuál es el <b>Piso Mínimo</b> (para que los niños estén bien) y el <b>Tope Máximo</b> (para que el padre no quede en la calle).</p>
 
-                        <div class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Total Arriendo/Dividendo</label>
-                                    <input type="number" id="g-casa" placeholder="$" class="input-premium p-3 text-sm">
+                    <div class="space-y-8 bg-slate-50 p-6 md:p-10 rounded-3xl border border-slate-200">
+                        <!-- Paso 1 -->
+                        <div>
+                            <label class="flex items-center text-xl font-bold text-slate-800 mb-3">
+                                1. ¿Cuánto dinero líquido gana al mes quien debe pagar?
+                                <div class="tooltip-container">
+                                    <div class="tooltip-icon">?</div>
+                                    <div class="tooltip-content"><b>Dinero Líquido:</b> Es la plata que entra "al bolsillo" o a la Cuenta RUT, después de que le descuentan la AFP, Isapre/Fonasa y seguro de cesantía. Los préstamos o deudas personales NO se descuentan de este cálculo.</div>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Total Luz/Agua/Gas</label>
-                                    <input type="number" id="g-servicios" placeholder="$" class="input-premium p-3 text-sm">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">¿Cuántas personas viven en la casa?</label>
-                                <input type="number" id="g-personas" value="2" class="input-premium p-3 text-sm">
-                            </div>
-                            <div class="border-t border-slate-100 pt-4 grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Colegio/Jardín (Hijo)</label>
-                                    <input type="number" id="g-edu" placeholder="$" class="input-premium p-3 text-sm">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1">Alimentación Extra (Hijo)</label>
-                                    <input type="number" id="g-comida" placeholder="$" class="input-premium p-3 text-sm">
-                                </div>
-                            </div>
-                            <button onclick="calcGastos()" class="w-full bg-slate-800 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition">Calcular Costo Total del Niño</button>
-                            
-                            <div id="res-gastos-box" class="hidden mt-4 p-5 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
-                                <span class="text-xs text-emerald-700 font-bold uppercase">Costo Mensual del Menor:</span>
-                                <div id="res-gastos-total" class="text-3xl font-black text-emerald-600 mt-1"></div>
-                                <p class="text-[10px] text-emerald-600 mt-2">La ley dice que ambos padres deben pagar este monto proporcionalmente a lo que ganan (no 50/50 si uno gana el triple).</p>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-6 top-4 text-slate-400 text-xl font-bold">$</span>
+                                <input type="number" id="calc-sueldo" class="input-app pl-12 text-xl" placeholder="Ej: 800000">
                             </div>
                         </div>
+
+                        <!-- Paso 2 -->
+                        <div>
+                            <label class="flex items-center text-xl font-bold text-slate-800 mb-3">
+                                2. ¿A cuántos hijos en total debe mantener?
+                                <div class="tooltip-container">
+                                    <div class="tooltip-icon">?</div>
+                                    <div class="tooltip-content"><b>Total de cargas:</b> Se cuentan TODOS los hijos reconocidos que tenga la persona que paga, incluso si son de relaciones anteriores o nuevas. La ley reparte el sueldo entre todos.</div>
+                                </div>
+                            </label>
+                            <input type="number" id="calc-hijos" value="1" class="input-app text-xl">
+                        </div>
+
+                        <button onclick="calcularPension()" class="btn-primary text-xl py-5"><i class="fa-solid fa-wand-magic-sparkles"></i> Calcular Mi Realidad Legal</button>
                     </div>
 
-                    <!-- HERRAMIENTA 2: Topes Legales -->
-                    <div class="card-shadow p-6 sm:p-8 bg-white border-t-4 border-brand">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-12 h-12 bg-brand-light text-brand rounded-xl flex items-center justify-center text-xl"><i class="fa-solid fa-scale-balanced"></i></div>
-                            <div>
-                                <h2 class="text-xl font-bold text-slate-900 leading-tight">2. Simulador de Topes (Ley)</h2>
-                                <p class="text-[10px] uppercase font-bold text-slate-400">Límites exactos Ley 14.908</p>
+                    <!-- Resultados -->
+                    <div id="calc-resultados" class="hidden mt-10 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <div class="p-8 rounded-3xl bg-slate-100 border border-slate-200 text-center">
+                                <span class="block text-slate-500 font-bold uppercase tracking-wider mb-2">Lo Mínimo que pide la Ley:</span>
+                                <div id="res-minimo" class="text-4xl font-black text-slate-900"></div>
+                                <p class="text-sm text-slate-600 mt-4 leading-relaxed">Esto es lo mínimo que se debe pagar en total por los hijos, basado en el porcentaje del sueldo mínimo vigente en Chile.</p>
+                            </div>
+
+                            <div class="p-8 rounded-3xl bg-rose-50 border border-rose-200 text-center">
+                                <span class="block text-rose-500 font-bold uppercase tracking-wider mb-2">Tope Máximo (Mitad del sueldo):</span>
+                                <div id="res-techo" class="text-4xl font-black text-rose-600"></div>
+                                <p class="text-sm text-rose-700 mt-4 leading-relaxed">La ley protege al deudor. <b>Nadie</b> puede pagar más del 50% de sus ingresos líquidos, para que no quede en la calle.</p>
                             </div>
                         </div>
 
-                        <div class="space-y-5">
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Sueldo Líquido Pagador ($)</label>
-                                <input type="number" id="calc-income" oninput="runCalculator()" placeholder="Ej: 600000" class="input-premium">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Nº de hijos con esa persona</label>
-                                <select id="calc-children" onchange="runCalculator()" class="input-premium">
-                                    <option value="1">1 Hijo</option>
-                                    <option value="2">2 Hijos</option>
-                                    <option value="3">3 Hijos</option>
-                                    <option value="4">4 Hijos</option>
-                                </select>
-                            </div>
-
-                            <div id="calc-results" class="hidden mt-6">
-                                <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
-                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">El Juez fijará un aproximado de:</p>
-                                    <p id="res-monto-hijo" class="text-4xl font-black text-brand mb-1"></p>
-                                    <p class="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-4">Mensual por cada hijo</p>
-                                    
-                                    <div class="space-y-2 pt-4 border-t border-slate-200 text-sm">
-                                        <div class="flex justify-between items-center"><span class="text-slate-600">Total Legal Ideal:</span><span id="res-total-ideal" class="font-bold"></span></div>
-                                        <div class="flex justify-between items-center"><span class="text-slate-600">Tope Máximo 50%:</span><span id="res-tope" class="font-bold text-red-500"></span></div>
-                                    </div>
-                                </div>
-                                <div id="res-explanation" class="mt-4 p-4 rounded-xl text-xs font-medium leading-relaxed"></div>
-                            </div>
-                            
-                            <div id="calc-placeholder" class="p-6 bg-slate-50 rounded-2xl border border-slate-200 border-dashed text-center">
-                                <p class="text-sm text-slate-500">Ingresa el sueldo para ver si el pago choca con el tope legal del 50%.</p>
-                            </div>
+                        <!-- El Dictamen -->
+                        <div id="res-dictamen" class="p-8 rounded-3xl border-l-8 text-lg font-medium leading-relaxed shadow-sm bg-white">
+                            <!-- Inyectado por JS -->
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- ============================== -->
-            <!-- TAB 3: TRÁMITES & HERRAMIENTAS -->
+            <!-- TAB 3: ASISTENTE DE MEDIACIÓN  -->
+            <!-- ============================== -->
+            <div id="tab-mediacion" class="tab-content">
+                <div class="max-w-4xl mx-auto card-app p-8 md:p-12">
+                    <h2 class="text-3xl font-bold font-serif mb-4 text-slate-900"><i class="fa-solid fa-user-shield text-brand mr-3"></i>¿Estás listo/a para la Mediación?</h2>
+                    <p class="text-lg text-slate-600 mb-8">Antes de ir al tribunal, es <b>obligatorio</b> pasar por Mediación Familiar. Rellena este cuestionario para saber si vas preparado/a o si irás a perder tu tiempo.</p>
+
+                    <div class="space-y-6 bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200 mb-8">
+                        <h3 class="font-bold text-slate-800 text-xl mb-4">Marca lo que ya tienes listo:</h3>
+                        
+                        <label class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 cursor-pointer hover:border-brand transition">
+                            <input type="checkbox" class="w-7 h-7 mt-1 accent-brand diag-check">
+                            <div>
+                                <span class="font-bold text-xl text-slate-800 block">¿Tienes el Certificado de Nacimiento del niño?</span>
+                                <span class="text-base text-slate-500">Es el papel básico para probar que ambos son los padres. Lo sacas gratis en registrocivil.cl.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 cursor-pointer hover:border-brand transition">
+                            <input type="checkbox" class="w-7 h-7 mt-1 accent-brand diag-check">
+                            <div>
+                                <span class="font-bold text-xl text-slate-800 block">¿Sabes el domicilio exacto o lugar de trabajo de la otra persona?</span>
+                                <span class="text-base text-slate-500">Si el mediador no tiene a dónde mandar la carta de citación certificada, el proceso va a fracasar y se atrasará todo.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 cursor-pointer hover:border-brand transition mama-role">
+                            <input type="checkbox" class="w-7 h-7 mt-1 accent-brand diag-check">
+                            <div>
+                                <span class="font-bold text-xl text-slate-800 block">¿Tienes boletas de los gastos de la casa y del niño?</span>
+                                <span class="text-base text-slate-500">Si llegas diciendo "es que el niño gasta mucha plata" sin llevar boletas de luz, arriendo, súper y colegio para demostrarlo, tendrás que conformarte con el mínimo.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 cursor-pointer hover:border-brand transition papa-role">
+                            <input type="checkbox" class="w-7 h-7 mt-1 accent-brand diag-check">
+                            <div>
+                                <span class="font-bold text-xl text-slate-800 block">¿Llevas tu Finiquito, Contrato o Certificado de Cesantía?</span>
+                                <span class="text-base text-slate-500">Si vas a pedir una rebaja de pensión pero no llevas los papeles oficiales que demuestran que tu sueldo bajó o te despidieron, nadie te creerá.</span>
+                            </div>
+                        </label>
+
+                        <button onclick="evaluarDiagnostico()" class="btn-primary text-xl py-5 mt-6"><i class="fa-solid fa-stethoscope"></i> Ver mi Diagnóstico (Semáforo)</button>
+                    </div>
+
+                    <!-- El Semáforo -->
+                    <div id="diag-resultado" class="hidden p-8 rounded-3xl semaforo-box shadow-sm mt-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div id="diag-icon" class="text-5xl"></div>
+                            <h3 id="diag-titulo" class="text-3xl font-black text-slate-800"></h3>
+                        </div>
+                        <p id="diag-texto" class="text-xl text-slate-700 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================== -->
+            <!-- TAB 4: TRÁMITES Y PLANTILLAS   -->
             <!-- ============================== -->
             <div id="tab-tramites" class="tab-content">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     
-                    <!-- Generador de Escritos -->
-                    <div class="lg:col-span-1 space-y-6">
-                        <div class="card-shadow p-6 bg-white">
-                            <h2 class="text-xl font-bold font-serif mb-4"><i class="fa-solid fa-copy text-brand mr-2"></i>Plantillas (Copiar y Pegar)</h2>
-                            <p class="text-xs text-slate-500 mb-4">Textos legales listos para subir a Trámite Fácil (Sección "Presentar Escrito").</p>
-                            
-                            <div class="space-y-3">
-                                <div class="mama-role border border-slate-200 rounded-xl p-4 hover:border-brand transition">
-                                    <h3 class="font-bold text-sm mb-2">Notificar Nuevo Empleador</h3>
-                                    <button onclick="copyTemplate('t-empleador')" class="text-xs bg-slate-100 px-3 py-1 rounded-md font-bold text-slate-600 hover:bg-brand hover:text-white transition w-full">Copiar Plantilla</button>
-                                </div>
-                                <div class="papa-role border border-slate-200 rounded-xl p-4 hover:border-brand transition">
-                                    <h3 class="font-bold text-sm mb-2">Objetar Liquidación de Deuda</h3>
-                                    <button onclick="copyTemplate('t-objecion')" class="text-xs bg-slate-100 px-3 py-1 rounded-md font-bold text-slate-600 hover:bg-brand hover:text-white transition w-full">Copiar Plantilla</button>
-                                </div>
-                                <div class="border border-slate-200 rounded-xl p-4 hover:border-brand transition">
-                                    <h3 class="font-bold text-sm mb-2">Solicitar Arresto/Arraigo</h3>
-                                    <button onclick="copyTemplate('t-arresto')" class="text-xs bg-slate-100 px-3 py-1 rounded-md font-bold text-slate-600 hover:bg-brand hover:text-white transition w-full">Copiar Plantilla</button>
-                                </div>
-                            </div>
-                            <!-- Textos ocultos para copiar -->
-                            <textarea id="t-empleador" class="hidden">En lo principal: Informa nuevo empleador y solicita retención judicial. S.J.L DE FAMILIA. Vengo en informar que el demandado actualmente presta servicios para la empresa [NOMBRE EMPRESA], RUT [RUT EMPRESA]. Solicito se oficie a dicho empleador para que proceda a retener mensualmente el monto equivalente a la pensión de alimentos decretada en esta causa, depositándola en la cuenta de ahorro abierta para estos efectos.</textarea>
-                            <textarea id="t-objecion" class="hidden">En lo principal: Objeta liquidación de deuda. S.J.L DE FAMILIA. Vengo en objetar la liquidación de deuda practicada con fecha [FECHA DEL PDF], por no ajustarse a la realidad. Como consta en los comprobantes de transferencia que adjunto a esta presentación, he realizado pagos que no fueron contabilizados por el sistema. Solicito se tenga por objetada y se practique una nueva liquidación.</textarea>
-                            <textarea id="t-arresto" class="hidden">En lo principal: Solicita apremios (Arresto y Arraigo). S.J.L DE FAMILIA. Constatándose mediante la última liquidación firme que el alimentante adeuda más de una pensión alimenticia, vengo en solicitar se decrete apremio de arresto nocturno por 15 días y arraigo nacional en contra del demandado, oficiándose a la Policía de Investigaciones para su cumplimiento.</textarea>
-                        </div>
+                    <!-- Plantillas -->
+                    <div class="card-app p-8 md:p-10">
+                        <h2 class="text-2xl font-bold font-serif mb-4 text-slate-900"><i class="fa-solid fa-copy text-brand mr-2"></i>Plantillas (Copiar y Pegar)</h2>
+                        <p class="text-slate-600 mb-8 text-lg">No le pagues a nadie por redactar estas cosas simples. Copia el texto y pégalo en "Presentar Escrito" dentro de Trámite Fácil.</p>
 
-                        <!-- Checklists -->
-                        <div class="card-shadow p-6 bg-white">
-                            <h2 class="text-xl font-bold font-serif mb-4"><i class="fa-solid fa-list-check text-brand mr-2"></i>Checklist Mediación</h2>
-                            <p class="text-xs text-slate-500 mb-4">Asegúrate de llevar esto a tu cita:</p>
-                            <div class="space-y-3">
-                                <label class="flex items-start gap-3 cursor-pointer group">
-                                    <input type="checkbox" class="check-custom mt-1">
-                                    <span class="text-sm text-slate-700 group-hover:text-black">Cédula de Identidad Vigente</span>
-                                </label>
-                                <label class="flex items-start gap-3 cursor-pointer group">
-                                    <input type="checkbox" class="check-custom mt-1">
-                                    <span class="text-sm text-slate-700 group-hover:text-black">Certificado de Nacimiento del hijo</span>
-                                </label>
-                                <label class="flex items-start gap-3 cursor-pointer group">
-                                    <input type="checkbox" class="check-custom mt-1">
-                                    <span class="text-sm text-slate-700 group-hover:text-black">Comprobantes de gastos (Boletas/Arriendo)</span>
-                                </label>
-                                <label class="flex items-start gap-3 cursor-pointer group papa-role">
-                                    <input type="checkbox" class="check-custom mt-1">
-                                    <span class="text-sm text-slate-700 group-hover:text-black">Finiquito o Certificado de Cesantía</span>
-                                </label>
+                        <div class="space-y-8">
+                            <!-- Plantilla 1 -->
+                            <div class="mama-role p-6 border border-slate-200 bg-slate-50 rounded-3xl">
+                                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-4">
+                                    <h3 class="font-bold text-xl text-slate-800 flex items-center">
+                                        Notificar Nuevo Empleador
+                                        <div class="tooltip-container">
+                                            <div class="tooltip-icon">?</div>
+                                            <div class="tooltip-content"><b>¿Para qué sirve?</b> Si te enteras que él cambió de trabajo, usa este texto. El juez le mandará una carta obligatoria a la nueva empresa para que le descuenten la pensión directo de su sueldo antes de pagárselo.</div>
+                                        </div>
+                                    </h3>
+                                    <button onclick="copyTexto('t-empleador')" class="bg-brand text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-hover transition"><i class="fa-regular fa-copy mr-1"></i> Copiar Texto</button>
+                                </div>
+                                <textarea id="t-empleador" class="w-full h-40 p-4 text-base border border-slate-300 rounded-xl bg-white resize-none" readonly>En lo principal: Informa nuevo empleador y solicita retención judicial. S.J.L DE FAMILIA. Vengo en informar que el demandado actualmente presta servicios para la empresa [NOMBRE EMPRESA], RUT [RUT EMPRESA]. Solicito se oficie a dicho empleador para que proceda a retener mensualmente el monto equivalente a la pensión de alimentos decretada, depositándola en la cuenta oficial.</textarea>
+                            </div>
+
+                            <!-- Plantilla 2 -->
+                            <div class="papa-role p-6 border border-slate-200 bg-slate-50 rounded-3xl">
+                                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-4">
+                                    <h3 class="font-bold text-xl text-slate-800 flex items-center">
+                                        Objetar Liquidación
+                                        <div class="tooltip-container">
+                                            <div class="tooltip-icon">?</div>
+                                            <div class="tooltip-content"><b>¿Para qué sirve?</b> Si el tribunal saca un cálculo (Liquidación) diciendo que debes $1 millón, pero tú SÍ depositaste parte de esa plata a la cuenta del banco y el sistema no lo reconoció, usa esto para frenar el cobro injusto. Acuérdate de subir tus comprobantes en PDF.</div>
+                                        </div>
+                                    </h3>
+                                    <button onclick="copyTexto('t-objecion')" class="bg-brand text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-hover transition"><i class="fa-regular fa-copy mr-1"></i> Copiar Texto</button>
+                                </div>
+                                <textarea id="t-objecion" class="w-full h-40 p-4 text-base border border-slate-300 rounded-xl bg-white resize-none" readonly>En lo principal: Objeta liquidación de deuda. S.J.L DE FAMILIA. Vengo en objetar la liquidación practicada con fecha [FECHA PDF], por no ajustarse a la realidad. Como consta en los comprobantes de transferencia a la cuenta de ahorros que adjunto, he realizado pagos no contabilizados. Solicito se tenga por objetada y se practique nueva liquidación.</textarea>
+                            </div>
+
+                            <!-- Plantilla 3 -->
+                            <div class="mama-role p-6 border border-slate-200 bg-slate-50 rounded-3xl">
+                                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-4">
+                                    <h3 class="font-bold text-xl text-slate-800 flex items-center">
+                                        Solicitar Apremios (Arresto)
+                                        <div class="tooltip-container">
+                                            <div class="tooltip-icon">?</div>
+                                            <div class="tooltip-content"><b>¿Para qué sirve?</b> Si ya le revisaron las cuentas de banco, le sacaste plata de la AFP y aún sigue debiendo meses, usa este texto para pedir que lo castiguen con arresto nocturno (dormir en la cárcel) o arraigo nacional (no poder salir de Chile).</div>
+                                        </div>
+                                    </h3>
+                                    <button onclick="copyTexto('t-apremio')" class="bg-brand text-white px-5 py-2 rounded-xl font-bold text-sm hover:bg-brand-hover transition"><i class="fa-regular fa-copy mr-1"></i> Copiar Texto</button>
+                                </div>
+                                <textarea id="t-apremio" class="w-full h-40 p-4 text-base border border-slate-300 rounded-xl bg-white resize-none" readonly>En lo principal: Solicita apremios. S.J.L DE FAMILIA. Constatándose que el alimentante mantiene una deuda firme, vengo en solicitar se decrete apremio de arresto nocturno por 15 días y arraigo nacional en su contra, oficiándose a la PDI para su cumplimiento.</textarea>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tracker de Pagos Local -->
-                    <div class="lg:col-span-2 card-shadow p-6 sm:p-8 bg-white flex flex-col">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-bold font-serif"><i class="fa-solid fa-money-check-dollar text-brand mr-2"></i>Control de Pagos Personal</h2>
-                            <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded">Se guarda en tu celular</span>
-                        </div>
-                        
-                        <form onsubmit="addPayment(event)" class="flex gap-2 mb-6">
-                            <input type="month" id="track-mes" required class="input-premium p-2 text-sm flex-1">
-                            <input type="number" id="track-monto" placeholder="Monto $" required class="input-premium p-2 text-sm flex-1">
-                            <button type="submit" class="btn-brand px-6 py-2">Añadir</button>
-                        </form>
-
-                        <div class="overflow-x-auto flex-grow">
-                            <table class="w-full text-left text-sm">
-                                <thead>
-                                    <tr class="bg-slate-50 border-y border-slate-200">
-                                        <th class="p-3 font-bold text-slate-600">Mes</th>
-                                        <th class="p-3 font-bold text-slate-600">Monto</th>
-                                        <th class="p-3 font-bold text-slate-600">Estado / Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tracker-body" class="divide-y divide-slate-100">
-                                    <!-- Renderizado por JS -->
-                                </tbody>
-                            </table>
+                    <!-- Enlaces Directos (Glosario) -->
+                    <div class="space-y-6">
+                        <div class="card-app p-8 md:p-10 bg-slate-900 text-white">
+                            <h2 class="text-2xl font-bold font-serif mb-8 text-brand-light"><i class="fa-solid fa-map-location-dot mr-2"></i>Dónde hacer los trámites</h2>
+                            <div class="space-y-6">
+                                <a href="https://tramitefacil.pjud.cl/" target="_blank" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-3xl transition border border-slate-700">
+                                    <h3 class="font-bold text-xl text-white mb-2">Trámite Fácil (PJUD) <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm text-slate-400"></i></h3>
+                                    <p class="text-base text-slate-400">Entra con tu Clave Única. Aquí pides retenciones, liquidaciones de deuda y pegas las plantillas de al lado. Es la plataforma oficial de los tribunales.</p>
+                                </a>
+                                <a href="https://www.mediacionfamiliar.cl/" target="_blank" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-3xl transition border border-slate-700">
+                                    <h3 class="font-bold text-xl text-white mb-2">Buscador de Mediación <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm text-slate-400"></i></h3>
+                                    <p class="text-base text-slate-400">Buscador oficial del gobierno. Ingresa tu comuna para ver los centros licitados. Si tienes bajos ingresos según el Registro Social de Hogares, el proceso es gratis.</p>
+                                </a>
+                                <a href="https://www.cajmetro.cl/" target="_blank" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-3xl transition border border-slate-700">
+                                    <h3 class="font-bold text-xl text-white mb-2">Corporación Asistencia Judicial (CAJ) <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm text-slate-400"></i></h3>
+                                    <p class="text-base text-slate-400">Si la mediación fracasa, necesitas un abogado para ir a juicio. La CAJ te pone abogados gratuitos del Estado si no puedes pagar uno particular.</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- ============================== -->
-            <!-- TAB 4: AYUDA Y DICCIONARIO     -->
+            <!-- TAB 5: ABOGADO VIRTUAL         -->
             <!-- ============================== -->
-            <div id="tab-diccionario" class="tab-content">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- Timeline del Proceso -->
-                    <div class="card-shadow p-6 sm:p-8 bg-white">
-                        <h2 class="text-xl font-bold font-serif mb-6"><i class="fa-solid fa-hourglass-half text-brand mr-2"></i>Tiempos Reales de un Juicio</h2>
-                        <p class="text-sm text-slate-500 mb-8">El sistema es lento. Esta es la realidad de los plazos en Chile hoy:</p>
-                        
-                        <div class="pl-4 border-l-2 border-brand space-y-8 relative">
-                            <div class="relative">
-                                <div class="absolute -left-[1.4rem] w-4 h-4 bg-white border-4 border-brand rounded-full"></div>
-                                <h3 class="font-bold text-slate-800">1. Mediación (Obligatoria)</h3>
-                                <p class="text-xs text-slate-500 font-bold mt-1">Demora: 15 a 30 días</p>
-                                <p class="text-sm text-slate-600 mt-1">Sin este certificado de "Mediación Frustrada", el juez no te deja demandar.</p>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-[1.4rem] w-4 h-4 bg-white border-4 border-brand rounded-full"></div>
-                                <h3 class="font-bold text-slate-800">2. Ingreso de Demanda</h3>
-                                <p class="text-xs text-slate-500 font-bold mt-1">Demora: 1 a 2 semanas</p>
-                                <p class="text-sm text-slate-600 mt-1">El tribunal revisa y fija la fecha para la primera audiencia (preparatoria).</p>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-[1.4rem] w-4 h-4 bg-white border-4 border-brand rounded-full"></div>
-                                <h3 class="font-bold text-slate-800">3. Audiencia Preparatoria</h3>
-                                <p class="text-xs text-slate-500 font-bold mt-1">Demora: 1 a 2 meses desde la demanda</p>
-                                <p class="text-sm text-slate-600 mt-1">Aquí se ofrecen las pruebas. <b>DATO CLAVE:</b> Aquí el juez fija los "Alimentos Provisorios" (empieza a correr el pago).</p>
-                            </div>
-                            <div class="relative">
-                                <div class="absolute -left-[1.4rem] w-4 h-4 bg-brand border-4 border-brand rounded-full"></div>
-                                <h3 class="font-bold text-brand">4. Juicio Final</h3>
-                                <p class="text-xs text-brand font-bold mt-1">Demora: 2 a 4 meses después de la preparatoria</p>
-                                <p class="text-sm text-slate-600 mt-1">Se dictamina el monto definitivo y queda firme por ley.</p>
-                            </div>
+            <div id="tab-abogado" class="tab-content">
+                <div class="max-w-4xl mx-auto card-app p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row items-center gap-6 mb-10 text-center md:text-left">
+                        <div class="w-24 h-24 rounded-3xl bg-brand-light text-brand flex items-center justify-center text-5xl flex-shrink-0"><i class="fa-solid fa-robot"></i></div>
+                        <div>
+                            <h2 class="text-3xl font-bold font-serif text-slate-900 mb-2">Abogado Virtual de Bolsillo</h2>
+                            <p class="text-lg text-slate-600">Escribe tu duda. Leeré mi biblioteca de leyes chilenas por ti y te daré dos respuestas: Una en <b>idioma humano</b> (fácil de entender) y otra en <b>idioma legal</b> (para que sepas qué ley exacta te defiende).</p>
                         </div>
                     </div>
 
-                    <!-- Diccionario y Directorio -->
-                    <div class="space-y-8">
-                        <div class="card-shadow p-6 bg-slate-900 text-white">
-                            <h2 class="text-xl font-bold font-serif mb-4 text-brand-light"><i class="fa-solid fa-map-location-dot mr-2"></i>Directorio de Ayuda Gratis</h2>
-                            <div class="space-y-3">
-                                <a href="https://www.mediacionfamiliar.cl/" target="_blank" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-xl transition">
-                                    <h3 class="font-bold text-brand-light mb-1">Buscar Centro de Mediación Licitado</h3>
-                                    <p class="text-xs text-slate-400">Si ganas poco, el Estado te paga la mediación.</p>
-                                </a>
-                                <a href="https://www.cajmetro.cl/" target="_blank" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-xl transition">
-                                    <h3 class="font-bold text-brand-light mb-1">Corporación de Asistencia Judicial (CAJ)</h3>
-                                    <p class="text-xs text-slate-400">Abogados gratuitos del Estado para ir a juicio.</p>
-                                </a>
-                                <a href="https://tramitefacil.pjud.cl/" target="_blank" class="block p-4 bg-slate-800 hover:bg-slate-700 rounded-xl transition">
-                                    <h3 class="font-bold text-brand-light mb-1">Trámite Fácil (Poder Judicial)</h3>
-                                    <p class="text-xs text-slate-400">Pide liquidaciones y retenciones solo con tu Clave Única.</p>
-                                </a>
-                            </div>
+                    <div class="relative mb-8">
+                        <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-slate-400 text-2xl"></i>
                         </div>
+                        <input type="text" id="ai-input" onkeyup="if(event.key==='Enter') queryAI()" placeholder="Escribe aquí... (Ej: Quiero sacar plata de su AFP, cesante, visitas)" class="input-app pl-14 text-xl py-6 shadow-inner border-4">
+                        <button onclick="queryAI()" class="absolute inset-y-4 right-4 btn-primary !py-2 !px-8 text-lg w-auto">Consultar</button>
+                    </div>
 
-                        <div class="card-shadow p-6 bg-white">
-                            <h2 class="text-xl font-bold font-serif mb-4"><i class="fa-solid fa-language text-brand mr-2"></i>Diccionario "Abogado-Humano"</h2>
-                            <div class="space-y-4 divide-y divide-slate-100">
-                                <div class="pt-2">
-                                    <h3 class="font-bold text-slate-800 text-sm">Apremio</h3>
-                                    <p class="text-xs text-slate-500 mt-1">Palabra elegante para decir "Castigo". (Ej: Apremio de Arresto = Castigo de ir preso por no pagar).</p>
-                                </div>
-                                <div class="pt-2">
-                                    <h3 class="font-bold text-slate-800 text-sm">Relación Directa y Regular</h3>
-                                    <p class="text-xs text-slate-500 mt-1">El nombre legal para el "Régimen de Visitas".</p>
-                                </div>
-                                <div class="pt-2">
-                                    <h3 class="font-bold text-slate-800 text-sm">Cuidado Personal</h3>
-                                    <p class="text-xs text-slate-500 mt-1">El nombre legal para la "Tuición" (quién vive con el niño el día a día).</p>
-                                </div>
-                                <div class="pt-2">
-                                    <h3 class="font-bold text-slate-800 text-sm">Alimentos Provisorios</h3>
-                                    <p class="text-xs text-slate-500 mt-1">Pensión temporal que fija el juez mientras dura el juicio para que el niño no pase hambre esperando la sentencia final.</p>
-                                </div>
-                            </div>
+                    <!-- Resultados AI -->
+                    <div id="ai-results" class="space-y-6">
+                        <div class="text-center py-20 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50">
+                            <i class="fa-regular fa-comments text-6xl text-slate-300 mb-4"></i>
+                            <p class="text-xl text-slate-500 font-medium">Escribe cualquier duda arriba y presiona Consultar.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
         </main>
-        
-        <footer class="mt-auto bg-white border-t border-slate-200 py-8 text-center mt-10">
-            <div class="text-xl font-serif font-bold text-slate-300 mb-2">LeyResponsable.cl</div>
-            <p class="text-[10px] text-slate-500 max-w-2xl mx-auto uppercase tracking-widest px-4">
-                Software Educativo Legal • Hecho en Chile • Leyes 21.484 y 14.908.
-            </p>
+
+        <footer class="mt-auto bg-white border-t border-slate-200 py-12 text-center mt-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-3xl font-serif font-bold text-slate-300 mb-4">LeyResponsable.cl</div>
+                <p class="text-base text-slate-500 max-w-3xl mx-auto leading-relaxed mb-6">
+                    Software Educativo Legal gratuito creado para orientar y empoderar a padres y madres en Chile (Leyes 21.484, 14.908 y Código Civil). Los textos han sido simplificados al español humano. Esta plataforma no reemplaza la asesoría oficial de un tribunal. Protege siempre a los niños.
+                </p>
+                <div class="inline-block px-4 py-2 bg-slate-50 rounded-lg border border-slate-200">
+                    <span class="text-sm text-slate-500 font-medium">Plataforma generada por <a href="https://dantagle.cl" target="_blank" class="text-brand font-bold hover:underline">dantagle.cl</a></span>
+                </div>
+            </div>
         </footer>
     </div>
 
     <!-- SCRIPTS CORE -->
     <script>
-        // 1. NAVEGACIÓN Y ONBOARDING
-        function enterApp(role) {
+        // --- 1. CARGA DE BASE DE DATOS JSON (EL CEREBRO) ---
+        let legalBrain = { leyes: [], mitos_mama: [], mitos_papa: [] };
+
+        async function loadLegalDatabase() {
+            // Datos de respaldo integrados para evitar errores en entornos sin servidor o de vista previa local
+            const fallbackData = {
+                "leyes": [
+                    { "id": "LEY-21484", "nombre": "Ley de Responsabilidad Parental", "palabras_clave": ["retención", "bancos", "afp", "patrimonio", "cobro", "automático"], "resumen": "Establece que el tribunal debe investigar el patrimonio del deudor en bancos (CMF) y SII. Si no hay fondos, se puede ordenar el pago con la AFP.", "articulos_clave": [{"articulo": "Artículo 19 quater", "texto": "Procedimiento especial para el cobro de deudas de alimentos..."}] },
+                    { "id": "LEY-14908", "nombre": "Ley sobre Abandono de Familia y Pago de Pensiones", "palabras_clave": ["arresto", "arraigo", "licencia", "registro", "deudores", "cesante", "mínimo"], "resumen": "Regula la obligación de alimentos y las sanciones por incumplimiento (apremios)." },
+                    { "id": "COD-CIVIL-229", "nombre": "Relación Directa y Regular (Visitas)", "palabras_clave": ["visitas", "cuidado", "padre", "madre", "derecho"], "resumen": "El padre o madre que no vive con el hijo tiene el DERECHO y el DEBER de mantener contacto." },
+                    { "id": "LEY-21389", "nombre": "Registro Nacional de Deudores", "palabras_clave": ["registro", "dicom", "licencia", "pasaporte", "deudor"], "resumen": "Si se deben 3 meses continuos o 5 discontinuos, el deudor entra al registro." }
+                ],
+                "mitos_mama": [
+                    { "q": "Trajo la pensión en cajas de mercadería", "r": "Legalmente, si el juez ordenó pago en BancoEstado, la mercadería es un **regalo**. No descuenta su deuda legal. La pensión es para que tú la administres.", "tags": ["mercaderia", "supermercado", "comida", "especies"] },
+                    { "q": "Comen pura chatarra cuando están con él", "r": "A menos que haya riesgo médico grave, el juez no se involucra en la dieta del fin de semana. No es causal para quitar visitas.", "tags": ["chatarra", "comida", "dieta", "alimentacion"] },
+                    { "q": "Los dejó plantados otra vez, se quedaron esperando", "r": "No pelees por WhatsApp. Deja **constancia en Comisaría Virtual** cada vez que no llegue. Acumular constancias sirve para demandar la suspensión de visitas por maltrato emocional.", "tags": ["plantados", "no llega", "esperando", "ausencia"] },
+                    { "q": "Se los lleva pero se los deja a la abuela paterna", "r": "Las visitas son para generar vínculo directo con el padre. Puedes pedir al tribunal modificar el régimen a las horas en que él realmente esté libre del trabajo.", "tags": ["abuela", "trabajo", "cuidar", "terceros"] },
+                    { "q": "Trabaja en negro, sin contrato o boletea", "r": "Aplica la **Presunción de Ingresos (Ley 14.908)**. Si no lleva contrato al tribunal, el juez asume automáticamente que gana el sueldo mínimo. Nadie se salva de pagar por ser informal.", "tags": ["negro", "informal", "boleta", "contrato"] },
+                    { "q": "Me amenaza con quitarme la tuición si lo demando", "r": "Chantaje falso. Para quitarte a tus hijos debe probar negligencia grave (maltrato, drogas) en un juicio larguísimo. La tuición no se transa por plata.", "tags": ["tuicion", "quitar", "amenaza", "cuidado"] },
+                    { "q": "Escondió la plata en otra cuenta bancaria", "r": "El Tribunal obliga a la CMF a buscar en **todos los bancos de Chile, fondos mutuos y APV**. Si la cuenta está a su RUT, la encontrarán, aunque sea nueva.", "tags": ["escondida", "bancos", "cmf", "ahorros"] },
+                    { "q": "Debe pensión pero se va de viaje al extranjero", "r": "Solicita en el tribunal el **Arraigo Nacional**. Policía Internacional lo detendrá en el aeropuerto y no podrá salir de Chile hasta que pague o garantice la deuda.", "tags": ["viaje", "extranjero", "arraigo", "vacaciones"] },
+                    { "q": "Puso su auto y casa a nombre de la nueva pareja", "r": "Es una trampa común. Se puede demandar por 'Simulación', pero es complejo. Lo más rápido es atacar directamente su sueldo, sus devoluciones de impuestos y su AFP.", "tags": ["nueva pareja", "bienes", "esconder", "auto"] },
+                    { "q": "Me pide rebaja porque tiene un hijo nuevo", "r": "La ley lo permite. Los nuevos hijos son 'nuevas cargas' y el juez debe ajustar la pensión para que el sueldo del padre alcance para alimentar a todos sus hijos proporcionalmente.", "tags": ["nuevo hijo", "rebaja", "pareja"] }
+                ],
+                "mitos_papa": [
+                    { "q": "Se gasta la plata de la pensión en fiestas y uñas", "r": "El tribunal asume que tu pago cubre los gastos del niño, lo que 'libera' el sueldo de la madre para sus gastos personales. Mientras el niño esté sano y escolarizado, el juez jamás le pedirá boletas.", "tags": ["uñas", "fiestas", "malgasta", "boletas"] },
+                    { "q": "Pago la pensión, pero me exige plata extra para ropa", "r": "La pensión cubre los gastos ordinarios (comida, techo, ropa habitual). Los 'gastos extraordinarios' (una urgencia médica) se pagan 50/50. No tienes obligación legal de pagar lujos fuera de la pensión.", "tags": ["extras", "ropa", "mas plata", "utiles"] },
+                    { "q": "Yo le pago el colegio directo, pero salgo como deudor", "r": "Es el error más destructivo. Si la resolución dice 'Deposite en BancoEstado', pagar directo al colegio o isapre **es un regalo** legalmente. Siempre paga en la cuenta del tribunal.", "tags": ["colegio", "pago directo", "isapre", "salud"] },
+                    { "q": "Me bloquearon la licencia de conducir y soy chofer", "r": "Estás en el Registro Nacional de Deudores. Para desbloquearla urgentemente, debes ir al tribunal y proponer un **acuerdo de repactación** (pagar una cuota inicial y el resto en cuotas).", "tags": ["licencia", "conducir", "registro", "chofer"] },
+                    { "q": "No puedo sacar pasaporte ni salir del país", "r": "Por la deuda, te aplicaron Arraigo Nacional. No podrás salir por Policía Internacional a menos que dejes una fianza en el tribunal que garantice que vas a pagar.", "tags": ["pasaporte", "viajar", "arraigo", "frontera"] },
+                    { "q": "Me quedé cesante, es imposible que pague ahora", "r": "La deuda **no se congela sola**. Pide HOY MISMO hora en mediación por 'Rebaja de Alimentos'. Si no lo haces, te cobrarán y multarán como si siguieras ganando tu sueldo antiguo.", "tags": ["cesante", "despido", "trabajo", "rebaja"] },
+                    { "q": "No me deja ver a mis hijos porque le debo plata", "r": "**Ilegal**. Las visitas son el Derecho del Niño, no un servicio premium. La deuda no te quita el derecho a verlos. Deja constancia policial y demanda el cumplimiento del régimen.", "tags": ["visitas", "no me deja", "deuda", "prohibe"] },
+                    { "q": "Me amenazan con 15 días de arresto nocturno", "r": "Es un apremio real. La única forma de frenarlo es dar la cara: preséntate al tribunal (con abogado de la CAJ) con una propuesta de pago mensual seria y realista.", "tags": ["arresto", "carcel", "apremio", "nocturno"] },
+                    { "q": "Me sacaron la plata de la AFP sin avisarme", "r": "La Ley 21.484 lo permite legalmente. Si no tenías dinero en bancos y debías 3 meses o más, el tribunal ordenó a tu AFP pagar la deuda directamente.", "tags": ["afp", "retiro", "fondos", "pension"] },
+                    { "q": "No me da información médica ni las notas del colegio", "r": "Por el Artículo 224 del Código Civil, tienes 'Derecho a la Información'. Puedes ir tú mismo al colegio o clínica con tu carnet y el certificado de nacimiento para exigir notas y fichas médicas.", "tags": ["informacion", "colegio", "salud", "notas"] }
+                ]
+            };
+
+            try {
+                // Intentamos cargar el archivo local (funcionará en tu servidor web o GitHub Pages)
+                const response = await fetch('./leyes_familia_chile.json');
+                
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el archivo remoto");
+                }
+                
+                const data = await response.json();
+                
+                // Verificamos si la data tiene la estructura esperada
+                if(data.leyes) {
+                    legalBrain = data;
+                } else {
+                    legalBrain = fallbackData;
+                }
+                
+            } catch (error) {
+                console.warn("Usando base de datos de respaldo (Preview Mode):", error);
+                // Si falla (ej. en vista previa), inyectamos los datos de respaldo para que la app no se caiga
+                legalBrain = fallbackData;
+            } finally {
+                renderMitos(); // Renderizamos sin importar de dónde vino la data
+            }
+        }
+
+        // --- 2. NAVEGACIÓN Y ONBOARDING ---
+        let currentRole = 'mama';
+
+        function initApp(role) {
+            currentRole = role;
             document.getElementById('onboarding').classList.add('hidden');
             document.getElementById('app').classList.remove('hidden');
-            setRole(role);
-            loadTracker(); // Cargar datos locales
-        }
-
-        function openOnboarding() {
-            document.getElementById('app').classList.add('hidden');
-            document.getElementById('onboarding').classList.remove('hidden');
-        }
-
-        function setRole(role) {
+            
+            // Setear estilos según rol
             document.body.className = role === 'mama' ? 'theme-mama' : 'theme-papa';
-            const video = document.getElementById('video-frame');
+            
+            // Setear Video Principal
+            const video = document.getElementById('hero-video');
             video.src = role === 'mama' ? "https://www.youtube.com/embed/NuCZCGTmeH0?rel=0" : "https://www.youtube.com/embed/cu2IiIqaaAo?rel=0";
 
+            // Mostrar/Ocultar textos HTML duros
             document.querySelectorAll('.mama-role').forEach(el => el.classList.toggle('hide-role', role !== 'mama'));
             document.querySelectorAll('.papa-role').forEach(el => el.classList.toggle('hide-role', role !== 'papa'));
+
+            renderMitos();
+            window.scrollTo(0,0);
         }
 
-        // 2. SISTEMA DE TABS
         function switchTab(tabId) {
-            // Actualizar Botones
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(`btn-tab-${tabId}`).classList.add('active');
             
-            // Actualizar Contenido
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.getElementById(`tab-${tabId}`).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 3. CALCULADORA DE GASTOS (NUEVA)
-        function calcGastos() {
-            const getVal = (id) => parseFloat(document.getElementById(id).value) || 0;
-            const personas = parseInt(document.getElementById('g-personas').value) || 1;
+        // --- 3. RENDERIZADO DE MITOS (INICIO) ---
+        function renderMitos() {
+            const grid = document.getElementById('mitos-grid');
+            const mitosAMostrar = currentRole === 'mama' ? legalBrain.mitos_mama : legalBrain.mitos_papa;
             
-            const gastosHogar = getVal('g-casa') + getVal('g-servicios');
-            const porcionNinoHogar = gastosHogar / personas;
-            const gastosDirectos = getVal('g-edu') + getVal('g-comida');
-            
-            const total = porcionNinoHogar + gastosDirectos;
-            
-            document.getElementById('res-gastos-box').classList.remove('hidden');
-            document.getElementById('res-gastos-total').innerText = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(total);
+            if(!mitosAMostrar || mitosAMostrar.length === 0) return;
+
+            grid.innerHTML = mitosAMostrar.map(m => `
+                <div class="card-app p-8 flex flex-col h-full bg-white hover:bg-slate-50 transition">
+                    <h3 class="font-bold text-xl text-slate-800 mb-3">${m.q}</h3>
+                    <p class="text-lg text-slate-600 leading-relaxed flex-grow">${m.r.replace(/\*\*(.*?)\*\*/g, '<b class="text-slate-900">$1</b>')}</p>
+                </div>
+            `).join('');
         }
 
-        // 4. CALCULADORA DE TOPES (LEGAL)
-        function runCalculator() {
-            const income = parseFloat(document.getElementById('calc-income').value);
-            const children = parseInt(document.getElementById('calc-children').value);
-            if (!income || income <= 0) return;
-
-            document.getElementById('calc-placeholder').classList.add('hidden');
-            document.getElementById('calc-results').classList.remove('hidden');
-
-            const sueldoMinimo = 500000;
-            const totalPisoIdeal = children === 1 ? (sueldoMinimo * 0.40) : (sueldoMinimo * 0.30) * children;
-            const topeMaximo = income * 0.50;
-            
-            const totalRealCobrado = totalPisoIdeal > topeMaximo ? topeMaximo : totalPisoIdeal;
-            const montoPorHijo = totalRealCobrado / children;
-            const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
-
-            document.getElementById('res-monto-hijo').innerText = fmt.format(montoPorHijo);
-            document.getElementById('res-total-ideal').innerText = fmt.format(totalPisoIdeal);
-            document.getElementById('res-tope').innerText = fmt.format(topeMaximo);
-
-            const expBox = document.getElementById('res-explanation');
-            if (totalPisoIdeal > topeMaximo) {
-                expBox.className = "mt-4 p-4 bg-rose-50 text-rose-800 rounded-xl text-xs font-medium leading-relaxed border border-rose-200";
-                expBox.innerHTML = `<b>Choque Legal:</b> La ley pide ${fmt.format(totalPisoIdeal)}, pero prohíbe quitarte más del 50% de tu sueldo. El juez baja el cobro al tope (${fmt.format(topeMaximo)}) y lo divide.`;
-            } else {
-                expBox.className = "mt-4 p-4 bg-blue-50 text-blue-800 rounded-xl text-xs font-medium leading-relaxed border border-blue-200";
-                expBox.innerHTML = `<b>Todo en regla:</b> El mínimo base (${fmt.format(totalPisoIdeal)}) no supera la mitad del sueldo. El piso legal por niño se mantiene intacto.`;
-            }
+        // --- 4. ABOGADO VIRTUAL & BUSCADOR GLOBAL ---
+        function doGlobalSearch() {
+            const query = document.getElementById('global-search').value;
+            document.getElementById('ai-input').value = query;
+            switchTab('abogado');
+            queryAI();
         }
 
-        // 5. GENERADOR DE ESCRITOS (Copiar al portapapeles)
-        function copyTemplate(id) {
-            const text = document.getElementById(id).value;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("¡Plantilla copiada! Ahora pégala en la web de Trámite Fácil.");
-            }).catch(err => {
-                alert("Error al copiar. Tu navegador no lo permite.");
-            });
-        }
-
-        // 6. TRACKER DE PAGOS LOCAL (LocalStorage)
-        function loadTracker() {
-            const tbody = document.getElementById('tracker-body');
-            tbody.innerHTML = '';
-            const pagos = JSON.parse(localStorage.getItem('leyresp_pagos') || '[]');
+        function queryAI() {
+            const query = document.getElementById('ai-input').value.toLowerCase().trim();
+            const resultsBox = document.getElementById('ai-results');
             
-            if(pagos.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="3" class="p-4 text-center text-slate-400 text-xs">No hay pagos registrados aún.</td></tr>';
+            if (query.length < 3) {
+                resultsBox.innerHTML = '<div class="text-center py-16 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50"><p class="text-xl text-slate-500">Escribe una duda más larga.</p></div>';
                 return;
             }
 
-            pagos.sort((a,b) => new Date(b.mes) - new Date(a.mes)).forEach((pago, index) => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50";
-                const fmtMonto = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(pago.monto);
-                tr.innerHTML = `
-                    <td class="p-3 text-slate-700">${pago.mes}</td>
-                    <td class="p-3 font-bold text-slate-900">${fmtMonto}</td>
-                    <td class="p-3">
-                        <button onclick="delPayment(${index})" class="text-xs text-red-500 hover:bg-red-50 px-2 py-1 rounded transition"><i class="fa-solid fa-trash mr-1"></i> Borrar</button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
+            // Buscar en Mitos (Respuesta Humana)
+            const mitosList = currentRole === 'mama' ? legalBrain.mitos_mama : legalBrain.mitos_papa;
+            const matchesHumano = mitosList.filter(item => 
+                item.tags.some(tag => query.includes(tag)) || 
+                item.q.toLowerCase().includes(query) || item.r.toLowerCase().includes(query)
+            );
+
+            // Buscar en Leyes Duras (Respuesta Legal)
+            const matchesLey = legalBrain.leyes.filter(item => 
+                (item.palabras_clave && item.palabras_clave.some(tag => query.includes(tag))) || 
+                item.nombre.toLowerCase().includes(query) || 
+                item.resumen.toLowerCase().includes(query) ||
+                (item.articulos_clave && item.articulos_clave.some(art => art.texto.toLowerCase().includes(query)))
+            );
+
+            if (matchesHumano.length > 0 || matchesLey.length > 0) {
+                let html = '';
+
+                // Bloque 1: Respuesta Humana (Mitos)
+                if (matchesHumano.length > 0) {
+                    html += `<div class="mb-8"><h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-4 pl-2"><i class="fa-solid fa-comment-dots"></i> RESPUESTA EN SIMPLE (TRADUCCIÓN)</h3>`;
+                    html += matchesHumano.map(m => `
+                        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm mb-4 border-l-8 border-l-brand">
+                            <h4 class="font-bold text-slate-800 text-xl mb-3">${m.q}</h4>
+                            <p class="text-lg text-slate-600 leading-relaxed">${m.r.replace(/\*\*(.*?)\*\*/g, '<b class="text-slate-900">$1</b>')}</p>
+                        </div>
+                    `).join('');
+                    html += `</div>`;
+                }
+
+                // Bloque 2: Respuesta Legal Dura (Leyes JSON)
+                if (matchesLey.length > 0) {
+                    html += `<div><h3 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-4 pl-2"><i class="fa-solid fa-gavel"></i> LO QUE DICE LA LEY EXACTAMENTE</h3>`;
+                    html += matchesLey.map(m => {
+                        let articulos = m.articulos_clave ? m.articulos_clave.map(a => `<div class="mt-4 p-4 bg-slate-800 rounded-xl"><b class="text-brand-light block mb-1 text-sm uppercase">${a.articulo}</b><span class="text-slate-300 text-base">${a.texto}</span></div>`).join('') : '';
+                        return `
+                        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-700 shadow-sm mb-4">
+                            <h4 class="font-bold text-white text-xl mb-3 flex items-center gap-3"><i class="fa-solid fa-book text-brand-light"></i> ${m.nombre}</h4>
+                            <p class="text-lg text-slate-400 leading-relaxed">${m.resumen}</p>
+                            ${articulos}
+                        </div>
+                        `;
+                    }).join('');
+                    html += `</div>`;
+                }
+
+                resultsBox.innerHTML = html;
+            } else {
+                resultsBox.innerHTML = `<div class="bg-rose-50 p-10 rounded-3xl border border-rose-200 text-center"><p class="text-xl text-rose-700 font-bold">No encontramos una ley específica para esa palabra. Intenta usar palabras más comunes como: Trabajo, AFP, Visitas, Colegio o Dinero.</p></div>`;
+            }
         }
 
-        function addPayment(e) {
-            e.preventDefault();
-            const mes = document.getElementById('track-mes').value;
-            const monto = document.getElementById('track-monto').value;
-            if(!mes || !monto) return;
-
-            const pagos = JSON.parse(localStorage.getItem('leyresp_pagos') || '[]');
-            pagos.push({ mes, monto: parseFloat(monto) });
-            localStorage.setItem('leyresp_pagos', JSON.stringify(pagos));
+        // --- 5. CALCULADORA CONVERSACIONAL ---
+        function calcularPension() {
+            const inputSueldo = document.getElementById('calc-sueldo').value;
+            const inputHijos = document.getElementById('calc-hijos').value;
+            const resultadosBox = document.getElementById('calc-resultados');
             
-            document.getElementById('track-mes').value = '';
-            document.getElementById('track-monto').value = '';
-            loadTracker();
+            if (!inputSueldo || inputSueldo <= 0) {
+                alert("Por favor ingresa un monto válido mayor a cero en el sueldo líquido.");
+                return;
+            }
+
+            const sueldo = parseFloat(inputSueldo);
+            const hijos = parseInt(inputHijos);
+            const sueldoMinimo = 500000; // SM actual referencial
+            
+            let pisoIdeal = hijos === 1 ? (sueldoMinimo * 0.40) : (sueldoMinimo * 0.30) * hijos;
+            const techoMaximo = sueldo * 0.50;
+            const fmt = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
+
+            document.getElementById('res-minimo').innerText = fmt.format(pisoIdeal);
+            document.getElementById('res-techo').innerText = fmt.format(techoMaximo);
+
+            const dictamenBox = document.getElementById('res-dictamen');
+            
+            if (pisoIdeal > techoMaximo) {
+                dictamenBox.className = "p-8 rounded-3xl border-l-8 border-rose-500 bg-rose-50 text-rose-900 text-xl font-medium leading-relaxed shadow-sm mt-8";
+                dictamenBox.innerHTML = `<b><i class="fa-solid fa-triangle-exclamation mr-2"></i> Choque de Leyes (Sueldo muy bajo):</b> <br><br>Originalmente, la ley pide que para mantener a tus ${hijos} hijos, el pago mínimo mensual debe ser de <b>${fmt.format(pisoIdeal)}</b> en total. <br><br>Pero la misma ley dice que es <b>ilegal dejar en la calle a quien paga</b>, por lo que nunca le pueden retener más del 50% de su sueldo.<br><br>Por lo tanto, el juez está obligado a bajar el cobro al tope máximo de <b>${fmt.format(techoMaximo)}</b>. Ese dinero tendrás que dividirlo entre todos los niños.`;
+            } else {
+                dictamenBox.className = "p-8 rounded-3xl border-l-8 border-emerald-500 bg-emerald-50 text-emerald-900 text-xl font-medium leading-relaxed shadow-sm mt-8";
+                dictamenBox.innerHTML = `<b><i class="fa-solid fa-check-circle mr-2"></i> Todo en regla:</b> <br><br>El piso mínimo legal de <b>${fmt.format(pisoIdeal)}</b> cabe perfectamente dentro de los ingresos sin sobrepasar la mitad de su sueldo (${fmt.format(techoMaximo)}).<br><br><b>¿Qué significa esto para ti?</b> Que ${fmt.format(pisoIdeal)} es la base desde la que el juez empezará a negociar. Si tienes boletas de colegio, salud o arriendo que demuestren que el niño gasta más que eso, el juez puede subir el monto mensual hasta acercarse al techo máximo.`;
+            }
+
+            resultadosBox.classList.remove('hidden');
         }
 
-        function delPayment(index) {
-            const pagos = JSON.parse(localStorage.getItem('leyresp_pagos') || '[]');
-            pagos.splice(index, 1);
-            localStorage.setItem('leyresp_pagos', JSON.stringify(pagos));
-            loadTracker();
+        // --- 6. ASISTENTE MEDIACIÓN (SEMÁFORO) ---
+        function evaluarDiagnostico() {
+            const checks = document.querySelectorAll('.diag-check:not(.hide-role .diag-check)');
+            let marcados = 0;
+            checks.forEach(c => { if(c.checked) marcados++; });
+
+            const total = checks.length;
+            const porcentaje = marcados / total;
+
+            const box = document.getElementById('diag-resultado');
+            const icon = document.getElementById('diag-icon');
+            const tit = document.getElementById('diag-titulo');
+            const txt = document.getElementById('diag-texto');
+
+            box.classList.remove('hidden', 'sem-verde', 'sem-amarillo', 'sem-rojo');
+
+            if (porcentaje === 1) {
+                box.classList.add('sem-verde');
+                icon.innerHTML = '<i class="fa-solid fa-face-laugh-beam text-emerald-500"></i>';
+                tit.innerText = "¡Estás Listo/a!";
+                tit.className = "text-3xl font-black text-emerald-700";
+                txt.innerText = "Tienes todos los documentos clave. Ya puedes pedir la hora en Mediación con tranquilidad. Te van a tomar en serio.";
+            } else if (porcentaje > 0.4) {
+                box.classList.add('sem-amarillo');
+                icon.innerHTML = '<i class="fa-solid fa-face-meh text-amber-500"></i>';
+                tit.innerText = "Te faltan cosas importantes";
+                tit.className = "text-3xl font-black text-amber-700";
+                txt.innerText = "Estás a medias. Si vas a mediación así, el mediador no podrá avanzar mucho porque te faltarán papeles (como boletas o liquidaciones) para demostrar tu punto. Trata de conseguirlos.";
+            } else {
+                box.classList.add('sem-rojo');
+                icon.innerHTML = '<i class="fa-solid fa-face-frown text-rose-500"></i>';
+                tit.innerText = "Peligro: Perderás tu tiempo";
+                tit.className = "text-3xl font-black text-rose-700";
+                txt.innerText = "Si vas sin saber dónde vive la otra persona para notificarlo, o sin tus papeles básicos del Registro Civil, la mediación se va a frustrar de inmediato. Consigue lo básico antes de pedir la hora.";
+            }
         }
 
+        // --- 7. HERRAMIENTAS (COPIAR TEXTO) ---
+        function copyTexto(id) {
+            const text = document.getElementById(id).value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("¡Texto Legal Copiado! Ahora abre la web del Poder Judicial (Trámite Fácil), busca la opción 'Presentar Escrito' y pega este texto ahí.");
+            }).catch(err => alert("Tu navegador bloqueó la copia. Por favor selecciona el texto manualmente y cópialo."));
+        }
+
+        // --- INIT ---
+        window.onload = () => {
+            loadLegalDatabase();
+        };
     </script>
 </body>
 </html>
