@@ -359,7 +359,7 @@
                                     <h3 class="font-bold text-xl text-white mb-2">Trámite Fácil (PJUD) <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm text-slate-400"></i></h3>
                                     <p class="text-base text-slate-400">Entra con tu Clave Única. Aquí pides retenciones, liquidaciones de deuda y pegas las plantillas de al lado. Es la plataforma oficial de los tribunales.</p>
                                 </a>
-                                <a href="https://www.mediacionchile.gob.cl/" target="_blank" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-3xl transition border border-slate-700">
+                                <a href="https://www.mediacionfamiliar.cl/" target="_blank" class="block p-6 bg-slate-800 hover:bg-slate-700 rounded-3xl transition border border-slate-700">
                                     <h3 class="font-bold text-xl text-white mb-2">Buscador de Mediación <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm text-slate-400"></i></h3>
                                     <p class="text-base text-slate-400">Buscador oficial del gobierno. Ingresa tu comuna para ver los centros licitados. Si tienes bajos ingresos según el Registro Social de Hogares, el proceso es gratis.</p>
                                 </a>
@@ -390,7 +390,7 @@
                         <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass text-slate-400 text-2xl"></i>
                         </div>
-                        <input type="text" id="ai-input" onkeyup="if(event.key==='Enter') queryAI()" placeholder="Escribe aquí... (Ej: Quiero sacar plata de su AFP, cesante, visitas)" class="input-app pl-14 text-xl py-6 shadow-inner border-4">
+                        <input type="text" id="ai-input" onkeyup="if(event.key==='Enter') queryAI()" placeholder="Escribe aquí... (Ej: Quiero sacar plata de su AFP, cesante, violencia)" class="input-app pl-14 text-xl py-6 shadow-inner border-4">
                         <button onclick="queryAI()" class="absolute inset-y-4 right-4 btn-primary !py-2 !px-8 text-lg w-auto">Consultar</button>
                     </div>
 
@@ -425,7 +425,7 @@
         let legalBrain = { leyes: [], mitos_mama: [], mitos_papa: [] };
 
         async function loadLegalDatabase() {
-            // Datos de respaldo integrados para evitar errores en entornos sin servidor o de vista previa local
+            // Fallback súper enriquecido por si falla el fetch en local
             const fallbackData = {
                 "leyes": [
                     { "id": "LEY-21484", "nombre": "Ley de Responsabilidad Parental", "palabras_clave": ["retención", "bancos", "afp", "patrimonio", "cobro", "automático"], "resumen": "Establece que el tribunal debe investigar el patrimonio del deudor en bancos (CMF) y SII. Si no hay fondos, se puede ordenar el pago con la AFP.", "articulos_clave": [{"articulo": "Artículo 19 quater", "texto": "Procedimiento especial para el cobro de deudas de alimentos..."}] },
@@ -445,7 +445,8 @@
                     { "q": "Debe pensión pero se va de viaje al extranjero", "r": "Solicita en el tribunal el **Arraigo Nacional**. Policía Internacional lo detendrá en el aeropuerto y no podrá salir de Chile hasta que pague o garantice la deuda.", "tags": ["viaje", "extranjero", "arraigo", "vacaciones"] },
                     { "q": "Puso su auto y casa a nombre de la nueva pareja", "r": "Es una trampa común. Se puede demandar por 'Simulación', pero es complejo. Lo más rápido es atacar directamente su sueldo, sus devoluciones de impuestos y su AFP.", "tags": ["nueva pareja", "bienes", "esconder", "auto"] },
                     { "q": "Me pide rebaja porque tiene un hijo nuevo", "r": "La ley lo permite. Los nuevos hijos son 'nuevas cargas' y el juez debe ajustar la pensión para que el sueldo del padre alcance para alimentar a todos sus hijos proporcionalmente.", "tags": ["nuevo hijo", "rebaja", "pareja"] },
-                    { "q": "Me dice que se quedó cesante y no me pagará", "r": "La cesantía **no congela la deuda**. Él está obligado a seguir pagando. Si no tiene dinero, debe pedir él mismo una rebaja en el tribunal, pero mientras el juez no la apruebe, te sigue debiendo el monto completo.", "tags": ["cesante", "despido", "trabajo", "desempleado", "renuncia"] }
+                    { "q": "Me dice que se quedó cesante y no me pagará", "r": "La cesantía **no congela la deuda**. Él está obligado a seguir pagando. Si no tiene dinero, debe pedir él mismo una rebaja en el tribunal, pero mientras el juez no la apruebe, te sigue debiendo el monto completo.", "tags": ["cesante", "despido", "trabajo", "desempleado", "renuncia"] },
+                    { "q": "Me insulta, me humilla o me pega cuando viene", "r": "Esto es **Violencia Intrafamiliar (VIF)**. El tribunal puede fijar medidas de alejamiento. Que deba plata no le da derecho a maltratarte. Llama al 1455 o 133 urgente.", "tags": ["violencia", "vif", "maltrato", "golpe", "pega", "insulto", "amenaza", "humilla", "pesimo"] }
                 ],
                 "mitos_papa": [
                     { "q": "Se gasta la plata de la pensión en fiestas y uñas", "r": "El tribunal asume que tu pago cubre los gastos del niño, lo que 'libera' el sueldo de la madre para sus gastos personales. Mientras el niño esté sano y escolarizado, el juez jamás le pedirá boletas.", "tags": ["uñas", "fiestas", "malgasta", "boletas"] },
@@ -458,7 +459,7 @@
                     { "q": "Me amenazan con 15 días de arresto nocturno", "r": "Es un apremio real. La única forma de frenarlo es dar la cara: preséntate al tribunal (con abogado de la CAJ) con una propuesta de pago mensual seria y realista.", "tags": ["arresto", "carcel", "apremio", "nocturno"] },
                     { "q": "Me sacaron la plata de la AFP sin avisarme", "r": "La Ley 21.484 lo permite legalmente. Si no tenías dinero en bancos y debías 3 meses o más, el tribunal ordenó a tu AFP pagar la deuda directamente.", "tags": ["afp", "retiro", "fondos", "pension"] },
                     { "q": "No me da información médica ni las notas del colegio", "r": "Por el Artículo 224 del Código Civil, tienes 'Derecho a la Información'. Puedes ir tú mismo al colegio o clínica con tu carnet y el certificado de nacimiento para exigir notas y fichas médicas.", "tags": ["informacion", "colegio", "salud", "notas"] },
-                    { "q": "Me insulta o me agrede cuando voy a buscar al niño", "r": "Esto constituye Violencia Intrafamiliar (VIF). El tribunal puede establecer medidas de protección e incluso ordenar que la entrega del niño se haga en un lugar neutral o a través de un tercero.", "tags": ["violencia", "insulto", "pega", "agresion", "vif"] }
+                    { "q": "Me insulta, me humilla y pelea por WhatsApp", "r": "Guarda los pantallazos. Eso es violencia psicológica. Puedes exigir en el tribunal que toda comunicación sobre el niño sea exclusivamente a través de un correo electrónico formal y neutral.", "tags": ["insultos", "whatsapp", "pelea", "violencia", "humilla", "pesimo"] }
                 ]
             };
 
@@ -527,7 +528,7 @@
             `).join('');
         }
 
-        // --- 4. ABOGADO VIRTUAL & BUSCADOR GLOBAL ---
+        // --- 4. ABOGADO VIRTUAL & MOTOR SEMÁNTICO ---
         function doGlobalSearch() {
             const query = document.getElementById('global-search').value;
             document.getElementById('ai-input').value = query;
@@ -540,22 +541,22 @@
             const resultsBox = document.getElementById('ai-results');
             
             if (queryRaw.length < 3) {
-                resultsBox.innerHTML = '<div class="text-center py-16 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50"><p class="text-xl text-slate-500">Escribe una duda más larga o detallada.</p></div>';
+                resultsBox.innerHTML = '<div class="text-center py-16 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50"><p class="text-xl text-slate-500">Escribe una duda más larga o detallada para buscar.</p></div>';
                 return;
             }
 
-            // A) NORMALIZACIÓN: Quita tildes, mayúsculas y signos
+            // A) NORMALIZACIÓN: Quita tildes y pasa a minúsculas (Ej: Pésimo -> pesimo)
             const normalizeStr = (str) => {
                 if (!str) return "";
                 return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
             };
 
             const query = normalizeStr(queryRaw);
-            const searchWordsRaw = query.split(' ').filter(w => w.length >= 3); // Solo palabras largas
+            const searchWordsRaw = query.split(' ').filter(w => w.length >= 3); 
 
-            // B) MOTOR SEMÁNTICO (Expansión de Sinónimos): Aquí reside la inteligencia sin API
+            // B) DICCIONARIO DE SINÓNIMOS Y ERRORES COMUNES (Inteligencia Difusa)
             const diccionarioSinonimos = {
-                "violencia": ["vif", "maltrato", "golpe", "pego", "pega", "amenaza", "agresion", "insulto", "grito"],
+                "violencia": ["vif", "maltrato", "golpe", "pego", "pega", "amenaza", "agresion", "insulto", "grito", "humilla", "pesimo", "peismo", "loco", "psicopata"],
                 "pega": ["violencia", "vif", "maltrato", "golpe"],
                 "llego": ["llegue", "plantados", "ausencia", "vino", "aparecio", "esperando", "tarde"],
                 "llegar": ["llegue", "plantados", "ausencia", "vino"],
@@ -564,7 +565,7 @@
                 "colegio": ["escuela", "educacion", "matricula", "utiles", "uniforme"]
             };
 
-            // Expandimos las palabras buscadas con sus sinónimos
+            // Expandir la búsqueda: Si el usuario escribe "peismo", el sistema buscará también "violencia", "vif", etc.
             let searchWords = [...searchWordsRaw];
             searchWordsRaw.forEach(word => {
                 for (const [clave, valores] of Object.entries(diccionarioSinonimos)) {
@@ -573,9 +574,9 @@
                     }
                 }
             });
-            searchWords = [...new Set(searchWords)]; // Quitamos duplicados
+            searchWords = [...new Set(searchWords)]; // Eliminar duplicados
 
-            // C) PREPARAR BASE DE DATOS
+            // C) UNIFICAR TODA LA BASE DE DATOS
             let todosLosMitos = [];
             if (currentRole === 'mama') {
                 todosLosMitos = [...(legalBrain.mitos_mama || []), ...(legalBrain.mitos_papa || [])];
@@ -584,10 +585,9 @@
             }
             const mitosUnicos = Array.from(new Map(todosLosMitos.map(item => [item.q, item])).values());
 
-            // D) SCORING SYSTEM (Puntuación por Relevancia en vez de exclusión)
-            const scoreItem = (item, isLey = false) => {
+            // D) SISTEMA DE PUNTUACIÓN (Scoring Difuso)
+            const scoreItem = (item) => {
                 let score = 0;
-                // Juntamos todo el texto del item para buscar ahí
                 const textoCompleto = normalizeStr(
                     (item.q || item.nombre || "") + " " + 
                     (item.r || item.resumen || "") + " " + 
@@ -595,29 +595,28 @@
                     (item.articulos_clave ? item.articulos_clave.map(a => a.texto).join(" ") : "")
                 );
 
-                // Sumamos 1 punto por cada palabra clave que se encuentre en el texto
                 searchWords.forEach(word => {
                     if (textoCompleto.includes(word)) score += 1;
                 });
                 return score;
             };
 
-            // E) FILTRAR Y ORDENAR
+            // E) EXTRAER LOS MEJORES RESULTADOS
             const matchesHumano = mitosUnicos
-                .map(mito => ({ mito, score: scoreItem(mito, false) }))
+                .map(mito => ({ mito, score: scoreItem(mito) }))
                 .filter(res => res.score > 0)
                 .sort((a, b) => b.score - a.score)
                 .map(res => res.mito)
-                .slice(0, 5); // Tomamos los 5 mejores
+                .slice(0, 4); // Trae las 4 mejores
 
             const matchesLey = (legalBrain.leyes || [])
-                .map(ley => ({ ley, score: scoreItem(ley, true) }))
+                .map(ley => ({ ley, score: scoreItem(ley) }))
                 .filter(res => res.score > 0)
                 .sort((a, b) => b.score - a.score)
                 .map(res => res.ley)
-                .slice(0, 3); // Tomamos las 3 mejores
+                .slice(0, 2); // Trae las 2 mejores
 
-            // --- RENDER DE RESULTADOS ---
+            // F) RENDER DE RESULTADOS
             if (matchesHumano.length > 0 || matchesLey.length > 0) {
                 let html = '';
 
@@ -651,7 +650,7 @@
 
                 resultsBox.innerHTML = html;
             } else {
-                resultsBox.innerHTML = `<div class="bg-rose-50 p-10 rounded-3xl border border-rose-200 text-center"><p class="text-xl text-rose-700 font-bold">No encontramos respuestas específicas para esas palabras en nuestra base de datos. Intenta con palabras clave como: <b>Violencia, Trabajo, AFP, Visitas o Colegio.</b></p></div>`;
+                resultsBox.innerHTML = `<div class="bg-rose-50 p-10 rounded-3xl border border-rose-200 text-center"><p class="text-xl text-rose-700 font-bold">No encontramos respuestas específicas para esas palabras en nuestra base de datos. Intenta con palabras clave como: <b>Violencia, Trabajo, AFP, Visitas o Cesante.</b></p></div>`;
             }
         }
 
